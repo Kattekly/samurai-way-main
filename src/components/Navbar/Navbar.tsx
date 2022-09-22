@@ -4,7 +4,7 @@ console.log(s)
 const Navbar = () => {
     return (<nav className= {s.nav}>
             <div className= {s.item}>
-                <a href="/proile">Profile</a>
+                <a href="/profile">Profile</a>
             </div>
             <div className= {'${s.item} ${s.active}'}>
                 <a href="/dialogs">Messages</a>
