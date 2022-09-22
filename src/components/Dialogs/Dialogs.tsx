@@ -17,7 +17,7 @@ const DialogItem = (props: DialogItemType) => {
     </div>
 }
 
-const MessageItem = (props: MessageItemType) => {
+const Message = (props: MessageItemType) => {
     return <div className={s.message}>{props.text}</div>
 }
 
@@ -33,9 +33,9 @@ const Dialogs = () => {
                <DialogItem name="Maria" id="6"/>
             </div>
             <div className={s.messages}>
-                <MessageItem text="Hi" />
-                <MessageItem text="How are you?" />
-                <MessageItem text="Yo" />
+                <Message text="Hi" />
+                <Message text="How are you?" />
+                <Message text="Yo" />
             </div>
         </div>
     );
