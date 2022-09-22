@@ -7,10 +7,18 @@ type DialogItemType = {
     name: string
 }
 
+type MessageItemType = {
+    text: string
+}
+
 const DialogItem = (props: DialogItemType) => {
     return <div className={s.dialog + ' ' + s.active}>
         <NavLink to={"/dialogs/" + props.id}>{props.name}</NavLink>
     </div>
+}
+
+const MessageItem = (props: MessageItemType) => {
+    return <div className={s.message}>{props.text}</div>
 }
 
 const Dialogs = () => {
@@ -25,9 +33,9 @@ const Dialogs = () => {
                <DialogItem name="Maria" id="6"/>
             </div>
             <div className={s.messages}>
-                <div className={s.message}>Hi</div>
-                <div className={s.message}>How are you?</div>
-                <div className={s.message}>Yo</div>
+                <MessageItem text="Hi" />
+                <MessageItem text="How are you?" />
+                <MessageItem text="Yo" />
             </div>
         </div>
     );
