@@ -9,6 +9,8 @@ const MyPosts = () => {
         {id: 2, message: "It's my first post", like: 20}
     ]
 
+    let postElement = postData.map(post => <Post message={post.message} like={post.like}/>)
+
     return <div className={s.postsBlock}>
         My Posts
         <div>
@@ -20,8 +22,7 @@ const MyPosts = () => {
             </div>
         </div>
         <div className={s.posts}>
-            <Post message={postData[0].message} like={postData[0].like}/>
-            <Post message={postData[1].message}like={postData[1].like}/>
+            {postElement}
         </div>
     </div>
 };
