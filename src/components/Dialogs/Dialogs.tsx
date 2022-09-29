@@ -2,7 +2,8 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
-import {dialogsData, messagesData} from "../../index";
+import {dialogsData, messagesData} from "../../Redux/State";
+
 
 const Dialogs = () => {
 
