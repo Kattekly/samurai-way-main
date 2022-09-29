@@ -1,13 +1,9 @@
 import React from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
+import {postData} from "../../../index";
 
 const MyPosts = () => {
-
-    let postData = [
-        {id: 1, message: "Hi, how are yo?", like: 15},
-        {id: 2, message: "It's my first post", like: 20}
-    ]
 
     let postElement = postData.map(post => <Post message={post.message} like={post.like}/>)
 
