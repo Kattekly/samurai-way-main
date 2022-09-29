@@ -4,8 +4,6 @@ import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
 import {state} from "../../Redux/State";
 
-
-
 const Dialogs = () => {
 
     let dialogsElement = state.profilePage.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>)
