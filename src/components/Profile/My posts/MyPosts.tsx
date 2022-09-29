@@ -5,7 +5,7 @@ import {state} from "../../../Redux/State";
 
 const MyPosts = () => {
 
-    let postElement = state.postData.map(post => <Post message={post.message} like={post.like}/>)
+    let postElement = state.messagePage.postData.map(post => <Post message={post.message} like={post.like}/>)
 
     return <div className={s.postsBlock}>
         My Posts
