@@ -1,11 +1,11 @@
 import React from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
-import {postData} from "../../../Redux/State";
+import {state} from "../../../Redux/State";
 
 const MyPosts = () => {
 
-    let postElement = postData.map(post => <Post message={post.message} like={post.like}/>)
+    let postElement = state.postData.map(post => <Post message={post.message} like={post.like}/>)
 
     return <div className={s.postsBlock}>
         My Posts
