@@ -33,14 +33,13 @@ const Dialogs = () => {
         {id: 6, name: "Maria"}
     ]
 
-    let dialogsElement= dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>)
-
     let messagesData = [
         {id: 1, message: "Hi"},
         {id: 2, message: "How are you?"},
         {id: 3, message: "Yo"},
     ]
 
+    let dialogsElement = dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>)
     let messageElement = messagesData.map(message => <Message message={message.message} id={message.id}/>)
 
     return (
