@@ -10,7 +10,8 @@ export let dialogsData = [
     {id: 3, name: "Andrey"},
     {id: 4, name: "Valera"},
     {id: 5, name: "Maksim"},
-    {id: 6, name: "Maria"}
+    {id: 6, name: "Maria"},
+    {id: 7, name: "Karina"}
 ]
 
 export let messagesData = [
