@@ -3,7 +3,7 @@ import s from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
 
 type DialogItemType = {
-    id: string
+    id: number
     name: string
 }
 
@@ -32,21 +32,17 @@ const Dialogs = () => {
         {id: 6, name: "Maria"}
     ]
 
-
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-               <DialogItem name="Katerina" id="1"/>
-               <DialogItem name="Vladimir" id="2"/>
-               <DialogItem name="Andrey" id="3"/>
-               <DialogItem name="Valera" id="4"/>
-               <DialogItem name="Maksim" id="5"/>
-               <DialogItem name="Maria" id="6"/>
+                <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
+                <DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
+
             </div>
             <div className={s.messages}>
-                <Message text="Hi" />
-                <Message text="How are you?" />
-                <Message text="Yo" />
+                <Message text="Hi"/>
+                <Message text="How are you?"/>
+                <Message text="Yo"/>
             </div>
         </div>
     );
