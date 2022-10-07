@@ -2,12 +2,13 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
-import {state} from "../../Redux/State";
+import {DialogsDataType, RootStateType} from "../../Redux/State";
 
-const Dialogs = () => {
 
-    let dialogsElement = state.profilePage.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>)
-    let messageElement = state.profilePage.messagesData.map(message => <Message message={message.message} id={message.id}/>)
+const Dialogs = (props: RootStateType) => {
+
+    let dialogsElement = props.profilePage.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>)
+    let messageElement = props.profilePage.messages.map(m => <Message message={m.message} id={m.id}/>)
 
     return (
         <div className={s.dialogs}>

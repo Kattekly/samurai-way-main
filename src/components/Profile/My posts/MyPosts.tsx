@@ -1,11 +1,13 @@
 import React from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
-import {state} from "../../../Redux/State";
+import state, {ProfilePageType} from "../../../Redux/State";
 
-const MyPosts = () => {
 
-    let postElement = state.messagePage.postData.map(post => <Post message={post.message} like={post.like}/>)
+
+const MyPosts = (props: ProfilePageType) => {
+
+    let postElement = props.posts.map(p => <Post message={p.message} like={p.like}/>)
 
     return <div className={s.postsBlock}>
         My Posts
