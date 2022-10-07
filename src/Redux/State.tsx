@@ -1,9 +1,9 @@
-type MessageType = {
+export type MessageType = {
     id: number
     message: string
 }
 
-type DialogType = {
+export type DialogType = {
     id: number
     name: string
 }
