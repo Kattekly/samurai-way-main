@@ -14,6 +14,7 @@ type AppPropsType = {
     state: RootStateType
 }
 
+
 const App = (props: AppPropsType) => {
 
     return (
