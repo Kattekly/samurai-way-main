@@ -14,9 +14,7 @@ type AppPropsType = {
     state: RootStateType
 }
 
-
 const App = (props: AppPropsType) => {
-
     return (
             <div className="app-wrapper">
                 <Header/>

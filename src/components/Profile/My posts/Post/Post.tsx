@@ -1,7 +1,9 @@
 import React from 'react';
 import s from "./Post.module.css"
+import {PostType, ProfilePageType} from "../../../../Redux/State";
 
-const Post = (props: any) => {
+const Post = (props: PostType) => {
+
 
     return (
         <div className={s.item}>
@@ -9,7 +11,7 @@ const Post = (props: any) => {
             {props.message}
             <div>
                 <span>Like</span>
-                { props.like }
+                { props.like}
             </div>
         </div>)
 };
