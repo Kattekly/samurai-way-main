@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
-import state from "./Redux/State";
-import {addPost} from "./Redux/State";
+import {addPost, RootStateType} from "./Redux/State";
 
 
- export let rerenderEntireTree = () => {
+ export let rerenderEntireTree = (state: RootStateType ) => {
     ReactDOM.render(
         <BrowserRouter>
             <App state={state} addPost={addPost}/>
@@ -15,5 +14,3 @@ import {addPost} from "./Redux/State";
         document.getElementById('root')
     );
 }
-
-rerenderEntireTree()

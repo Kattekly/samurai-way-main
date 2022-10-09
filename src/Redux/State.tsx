@@ -1,3 +1,4 @@
+import {rerenderEntireTree} from "../render";
 
 export type MessageType = {
     id: number
@@ -67,7 +68,7 @@ export let addPost = (newMessage: string) => {
         like: 0
     };
 state.messagePage.posts.push(newPost)
-    rerenderEntireTree()
+    rerenderEntireTree(state)
 }
 
 export default state
