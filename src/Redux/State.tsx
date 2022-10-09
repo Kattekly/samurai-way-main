@@ -12,10 +12,12 @@ export type PostType = {
     id?: number
     message: string
     like: number
+
 }
 
 export type ProfilePageType = {
     posts: Array<PostType>
+    addPost?: (newMessage: string) => void
 }
 
 export type DialogsDataType = {
@@ -57,7 +59,7 @@ export type RootStateType = {
     sidebar: {}
 }
 
-let addPost = (newMessage: string) => {
+export let addPost = (newMessage: string) => {
     let newPost = {
         id: 5,
         message: newMessage,
