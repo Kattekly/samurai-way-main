@@ -57,4 +57,13 @@ export type RootStateType = {
     sidebar: {}
 }
 
+let addPost = (newMessage: string) => {
+    let newPost = {
+        id: 5,
+        message: newMessage,
+        like: 0
+    };
+state.messagePage.posts.push(newPost)
+}
+
 export default state
