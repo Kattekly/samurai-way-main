@@ -13,8 +13,8 @@ const MyPosts = (props: ProfilePageType) => {
     let addPost = () => {
        let text = newPostElement.current?.value;
       if (props.addPost && text) {
-          props.addPost(text);
-      text = ''
+          props.addPost(text)
+          newPostElement.current?.value = ''
       }
     }
 
