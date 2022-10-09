@@ -11,18 +11,20 @@ const MyPosts = (props: ProfilePageType) => {
     let newPostElement = React.createRef <HTMLTextAreaElement>()
 
     let addPost = () => {
-       let text = newPostElement.current?.value;
-      if (props.addPost && text) {
-          props.addPost(text)
-          newPostElement.current?.value = ''
-      }
+        if (newPostElement.current) {
+            let text = newPostElement.current.value
+            if (props.addPost && text) {
+                props.addPost(text)
+            }
+            newPostElement.current.value = ""
+        }
     }
 
     return <div className={s.postsBlock}>
         My Posts
         <div>
             <div>
-                <textarea ref={newPostElement}></textarea >
+                <textarea ref={newPostElement}></textarea>
             </div>
             <div>
                 <button onClick={addPost}>Add post</button>
