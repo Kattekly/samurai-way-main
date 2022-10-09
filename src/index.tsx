@@ -6,9 +6,14 @@ import {BrowserRouter} from "react-router-dom";
 import state from "./Redux/State";
 import {addPost} from "./Redux/State";
 
-ReactDOM.render(
-    <BrowserRouter>
-    <App state={state} addPost={addPost}/>
-    </BrowserRouter>,
-  document.getElementById('root')
-);
+
+ export let rerenderEntireTree = () => {
+    ReactDOM.render(
+        <BrowserRouter>
+            <App state={state} addPost={addPost}/>
+        </BrowserRouter>,
+        document.getElementById('root')
+    );
+}
+
+rerenderEntireTree()
