@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {LegacyRef} from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import state, { ProfilePageType} from "../../../Redux/State";
@@ -9,10 +9,10 @@ const MyPosts = (props: ProfilePageType) => {
 
     let postElement = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>)
 
-    let newPostElement = React.createRef()
+    let newPostElement = React.createRef <HTMLTextAreaElement>()
 
     let addPost = () => {
-       let text = newPostElement.current.value;
+       let text = newPostElement.current?.value;
        alert(text)
     }
 

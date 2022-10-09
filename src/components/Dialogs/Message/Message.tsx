@@ -5,13 +5,12 @@ import {MessageType} from "../../../Redux/State";
 
 const Message = (props: MessageType) => {
 
-    let newMessageElement = React.createRef()
+    let newMessageElement = React.createRef <HTMLTextAreaElement>()
 
     let addMessage = () => {
-        let text = newMessageElement.current.value;
+        let text = newMessageElement.current?.value;
         alert(text)
     }
-
 
     return <div>
     <div className={s.message}>{props.message}</div>
