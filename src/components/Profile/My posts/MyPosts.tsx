@@ -4,7 +4,6 @@ import Post from "./Post/Post";
 import state, {addPost, ProfilePageType} from "../../../Redux/State";
 
 
-
 const MyPosts = (props: ProfilePageType) => {
 
     let postElement = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>)
@@ -12,10 +11,12 @@ const MyPosts = (props: ProfilePageType) => {
     let newPostElement = React.createRef <HTMLTextAreaElement>()
 
     let addPost = () => {
+        debugger
        let text = newPostElement.current?.value;
-       props.addPost(text)
+      if (props.addPost && text) {
+          props.addPost(text)
+      }
     }
-
 
     return <div className={s.postsBlock}>
         My Posts

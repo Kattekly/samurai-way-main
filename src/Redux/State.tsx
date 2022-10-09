@@ -10,8 +10,8 @@ export type DialogType = {
 
 export type PostType = {
     id?: number
-    message: string
-    like: number
+    message?: string
+    like?: number
 
 }
 
