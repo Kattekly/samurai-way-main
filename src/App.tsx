@@ -18,18 +18,22 @@ type AppPropsType = {
 
 const App = (props: AppPropsType) => {
     return (
-            <div className="app-wrapper">
-                <Header/>
-                <Navbar/>
-                <div className='app-wrapper-content'>
-                    <Route path="/dialogs" render= { () => <Dialogs dialogs={props.state.profilePage.dialogs} messages={props.state.profilePage.messages}/>}/>
-                    <Route path="/profile" render={ () => <Profile posts={props.state.messagePage.posts} addPost={props.addPost} newPostText={props.state.messagePage.newPostText} updateNewPostText={props.updateNewPostText}/>}/>
-                    <Route path="/news" component={News}/>
-                    <Route path="/music" component={Music}/>
-                    <Route path="/settings" component={Settings}/>
-                </div>
+        <div className="app-wrapper">
+            <Header/>
+            <Navbar/>
+            <div className='app-wrapper-content'>
+                <Route path="/dialogs" render={() => <Dialogs dialogs={props.state.profilePage.dialogs}
+                                                              messages={props.state.profilePage.messages}/>}/>
+                <Route path="/profile" render={() => <Profile posts={props.state.messagePage.posts}
+                                                              addPost={props.addPost}
+                                                              newPostText={props.state.messagePage.newPostText}
+                                                              updateNewPostText={props.updateNewPostText}/>}/>
+                <Route path="/news" component={News}/>
+                <Route path="/music" component={Music}/>
+                <Route path="/settings" component={Settings}/>
             </div>
-       );
+        </div>
+    );
 }
 
 export default App;

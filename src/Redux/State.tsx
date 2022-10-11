@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = (state: RootStateType ) => {
+
+}
 
 export type MessageType = {
     id: number
@@ -59,24 +61,29 @@ export type RootStateType = {
             {id: 1, message: "Hi, how are yo?", like: 15},
             {id: 2, message: "It's my first post", like: 20}
         ],
-        newPostText: 'grom'
+        newPostText: ''
     },
     sidebar: {}
 }
 
-export let addPost = (newMessage: string) => {
+export let addPost = () => {
     let newPost = {
         id: 5,
-        message: newMessage,
+        message: state.messagePage.newPostText,
         like: 0
     };
 state.messagePage.posts.push(newPost)
+    state.messagePage.newPostText = ''
     rerenderEntireTree(state)
 }
 
 export let updateNewPostText = (newText: string) => {
     state.messagePage.newPostText = newText
     rerenderEntireTree(state)
+}
+
+export const subscribe = (observer: (state: RootStateType) => void) => {
+rerenderEntireTree = observer
 }
 
 export default state

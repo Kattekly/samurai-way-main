@@ -11,15 +11,10 @@ const MyPosts = (props: ProfilePageType) => {
     let newPostElement = React.createRef <HTMLTextAreaElement>()
 
     let addPost = () => {
-        if (newPostElement.current) {
-            let text = newPostElement.current.value
-            if (props.addPost && text) {
-                props.addPost(text)
+            if (props.addPost) {
+                props.addPost(props.newPostText)
             }
-            if (props.updateNewPostText) {
-            props.updateNewPostText('')
-        }
-    }}
+    }
 
     let onPostChange = () => {
         if (newPostElement.current) {
