@@ -20,6 +20,7 @@ export type PostType = {
 export type ProfilePageType = {
     posts: Array<PostType>
     addPost?: (newMessage: string) => void
+    newPostText?: string
 }
 
 export type DialogsDataType = {
@@ -56,7 +57,8 @@ export type RootStateType = {
         posts: [
             {id: 1, message: "Hi, how are yo?", like: 15},
             {id: 2, message: "It's my first post", like: 20}
-        ]
+        ],
+        newPostText: "fuck"
     },
     sidebar: {}
 }

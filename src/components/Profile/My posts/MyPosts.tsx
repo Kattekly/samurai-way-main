@@ -28,7 +28,7 @@ const MyPosts = (props: ProfilePageType) => {
         My Posts
         <div>
             <div>
-                <textarea onChange={onPostChange} ref={newPostElement} value='fuck'/>
+                <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
             </div>
             <div>
                 <button onClick={addPost}>Add post</button>
