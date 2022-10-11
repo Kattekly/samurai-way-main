@@ -16,9 +16,10 @@ const MyPosts = (props: ProfilePageType) => {
             if (props.addPost && text) {
                 props.addPost(text)
             }
-            newPostElement.current.value = ""
+            if (props.updateNewPostText) {
+            props.updateNewPostText('')
         }
-    }
+    }}
 
     let onPostChange = () => {
         if (newPostElement.current) {
