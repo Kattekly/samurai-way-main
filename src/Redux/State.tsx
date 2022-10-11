@@ -21,6 +21,7 @@ export type ProfilePageType = {
     posts: Array<PostType>
     addPost?: (newMessage: string) => void
     newPostText: string
+    updateNewPostText?: (newText: string) => void
 }
 
 export type DialogsDataType = {

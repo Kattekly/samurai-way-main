@@ -21,8 +21,11 @@ const MyPosts = (props: ProfilePageType) => {
     }
 
     let onPostChange = () => {
-
-    }
+        if (newPostElement.current) {
+            let text = newPostElement.current.value
+            if (props.updateNewPostText) {
+   props.updateNewPostText(text)
+    }}}
 
     return <div className={s.postsBlock}>
         My Posts
