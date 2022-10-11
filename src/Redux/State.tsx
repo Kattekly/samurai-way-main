@@ -73,4 +73,9 @@ state.messagePage.posts.push(newPost)
     rerenderEntireTree(state)
 }
 
+export let updateNewPostText = (newText: string) => {
+    state.messagePage.newPostText = newText
+    rerenderEntireTree(state)
+}
+
 export default state
