@@ -1,6 +1,36 @@
-let rerenderEntireTree = (state: RootStateType ) => {
+let store = {
+    _state: RootStateType = {
+        profilePage: {
+            dialogs: [
+                {id: 1, name: "Katerina"},
+                {id: 2, name: "Vladimir"},
+                {id: 3, name: "Andrey"},
+                {id: 4, name: "Valera"},
+                {id: 5, name: "Maksim"},
+                {id: 6, name: "Maria"},
+                {id: 7, name: "Karina"}
+            ],
+            messages: [
+                {id: 1, message: "Hi"},
+                {id: 2, message: "How are you?"},
+                {id: 3, message: "Yo"},
+            ],
+        },
+        messagePage: {
+            posts: [
+                {id: 1, message: "Hi, how are yo?", like: 15},
+                {id: 2, message: "It's my first post", like: 20}
+            ],
+            newPostText: ''
+        },
+        sidebar: {}
+    },
 
+    rerenderEntireTree(state: RootStateType) {
+        console.log('Changed')
+    }
 }
+
 
 export type MessageType = {
     id: number
@@ -39,32 +69,7 @@ export type RootStateType = {
     sidebar: Sidebar
 }
 
- let state: RootStateType = {
-    profilePage: {
-        dialogs: [
-            {id: 1, name: "Katerina"},
-            {id: 2, name: "Vladimir"},
-            {id: 3, name: "Andrey"},
-            {id: 4, name: "Valera"},
-            {id: 5, name: "Maksim"},
-            {id: 6, name: "Maria"},
-            {id: 7, name: "Karina"}
-        ],
-        messages: [
-            {id: 1, message: "Hi"},
-            {id: 2, message: "How are you?"},
-            {id: 3, message: "Yo"},
-        ],
-    },
-    messagePage: {
-        posts: [
-            {id: 1, message: "Hi, how are yo?", like: 15},
-            {id: 2, message: "It's my first post", like: 20}
-        ],
-        newPostText: ''
-    },
-    sidebar: {}
-}
+
 
 export let addPost = () => {
     let newPost = {
