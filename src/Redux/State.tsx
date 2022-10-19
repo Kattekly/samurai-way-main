@@ -1,4 +1,4 @@
-let store = {
+let store: StorePropsType = {
     _state: RootStateType = {
         profilePage: {
             dialogs: [
@@ -25,9 +25,31 @@ let store = {
         },
         sidebar: {}
     },
+    getState (_state: RootStateType ) {
+        return _state
+    },
 
     rerenderEntireTree(state: RootStateType) {
         console.log('Changed')
+    },
+
+    addPost () {
+        let newPost = {
+            id: 5,
+            message: state.messagePage.newPostText,
+            like: 0
+        };
+        state.messagePage.posts.push(newPost)
+        state.messagePage.newPostText = ''
+        rerenderEntireTree(state)
+    },
+
+    updateNewPostText (newText: string) {
+        state.messagePage.newPostText = newText
+        rerenderEntireTree(state)
+    },
+    subscribe (observer: (state: RootStateType) => void) {
+        rerenderEntireTree = observer
     }
 }
 
@@ -70,25 +92,13 @@ export type RootStateType = {
 }
 
 
-
-export let addPost = () => {
-    let newPost = {
-        id: 5,
-        message: state.messagePage.newPostText,
-        like: 0
-    };
-state.messagePage.posts.push(newPost)
-    state.messagePage.newPostText = ''
-    rerenderEntireTree(state)
+export type StorePropsType = {
+    _state: RootStateType
+    getState: (_state: RootStateType) => void
+    rerenderEntireTree: (state: RootStateType) => void
+    addPost: () => void
+    updateNewPostText: (newText: string) => void
+    subscribe: (observer: (state: RootStateType) => void))
 }
 
-export let updateNewPostText = (newText: string) => {
-    state.messagePage.newPostText = newText
-    rerenderEntireTree(state)
-}
-
-export const subscribe = (observer: (state: RootStateType) => void) => {
-rerenderEntireTree = observer
-}
-
-export default state
+export default store
