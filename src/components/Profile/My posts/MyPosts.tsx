@@ -2,6 +2,7 @@ import React, {LegacyRef} from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import state, {ProfilePageType} from "../../../Redux/State";
+import {AppPropsType} from "../../../App";
 
 
 const MyPosts = (props: ProfilePageType) => {
@@ -11,17 +12,25 @@ const MyPosts = (props: ProfilePageType) => {
     let newPostElement = React.createRef <HTMLTextAreaElement>()
 
     let addPost = () => {
-            if (props.addPost) {
+        props.dispatch({type: 'ADD-POST', newPostText: props.newPostText})
+
+
+           /* if (props.addPost) {
                 props.addPost(props.newPostText)
-            }
+            }*/
     }
 
     let onPostChange = () => {
         if (newPostElement.current) {
             let text = newPostElement.current.value
+        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text})
+
+       /* if (newPostElement.current) {
+            let text = newPostElement.current.value
             if (props.updateNewPostText) {
    props.updateNewPostText(text)
-    }}}
+    }}*/
+    }}
 
     return <div className={s.postsBlock}>
         My Posts

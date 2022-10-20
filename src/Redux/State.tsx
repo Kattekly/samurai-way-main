@@ -23,7 +23,7 @@ let store: StorePropsType = {
             ],
             newPostText: ''
         },
-        sidebar: {}
+        sidebar: {},
     },
     _rerenderEntireTree() {
         console.log('state chenged')
@@ -36,7 +36,7 @@ let store: StorePropsType = {
         this._rerenderEntireTree = observer
     },
 
-    addPost(newPostText: string) {
+ /*   addPost (newPostText: string) {
         let newPost = {
             id: 5,
             message: this._state.messagePage.newPostText,
@@ -46,12 +46,13 @@ let store: StorePropsType = {
         this._state.messagePage.newPostText = ''
         this._rerenderEntireTree()
     },
-    updateNewPostText(newText: string) {
+    updateNewPostText (newText: string) {
         this._state.messagePage.newPostText = newText
         this._rerenderEntireTree()
-    },
+    },*/
+
     dispatch (action) {
-        if (action.type === 'ADD-POST') {
+            if (action.type === 'ADD-POST') {
             let newPost = {
                 id: 5,
                 message: this._state.messagePage.newPostText,
@@ -61,12 +62,24 @@ let store: StorePropsType = {
             this._state.messagePage.newPostText = ''
             this._rerenderEntireTree()
         } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            this._state.messagePage.newPostText = newText
+            this._state.messagePage.newPostText = action.newText
             this._rerenderEntireTree()
         }
     }
 }
 
+
+type AddPostActionType = {
+    type: 'ADD-POST',
+    newPostText: string
+}
+
+type UpdateNewPostType = {
+    type: 'UPDATE-NEW-POST-TEXT',
+    newText: string
+}
+
+export type ActionTypes = AddPostActionType | UpdateNewPostType
 
 export type MessageType = {
     id: number
@@ -109,11 +122,11 @@ export type RootStateType = {
 export type StorePropsType = {
     _state: RootStateType,
     getState: () => RootStateType,
-    addPost: (newPostText: string) => void,
-    updateNewPostText: (newText: string) => void,
     subscribe: (observer: () => void) => void,
     _rerenderEntireTree: () => void
-    dispatch: (action) => void
+    dispatch: (action: AddPostActionType | UpdateNewPostType) => void
+    /*addPost: (newPostText: string) => void
+    updateNewPostText: (newText: string) => void*/
 }
 
 export default store
