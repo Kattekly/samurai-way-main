@@ -28,8 +28,12 @@ let store: StorePropsType = {
     _rerenderEntireTree() {
         console.log('state chenged')
     },
+
     getState() {
         return this._state
+    },
+    subscribe(observer) {
+        this._rerenderEntireTree = observer
     },
 
     addPost(newPostText: string) {
@@ -42,13 +46,24 @@ let store: StorePropsType = {
         this._state.messagePage.newPostText = ''
         this._rerenderEntireTree()
     },
-
     updateNewPostText(newText: string) {
         this._state.messagePage.newPostText = newText
         this._rerenderEntireTree()
     },
-    subscribe(observer) {
-        this._rerenderEntireTree = observer
+    dispatch (action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                message: this._state.messagePage.newPostText,
+                like: 0
+            };
+            this._state.messagePage.posts.push(newPost)
+            this._state.messagePage.newPostText = ''
+            this._rerenderEntireTree()
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.messagePage.newPostText = newText
+            this._rerenderEntireTree()
+        }
     }
 }
 
@@ -98,6 +113,7 @@ export type StorePropsType = {
     updateNewPostText: (newText: string) => void,
     subscribe: (observer: () => void) => void,
     _rerenderEntireTree: () => void
+    dispatch: (action) => void
 }
 
 export default store
