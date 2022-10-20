@@ -91,16 +91,15 @@ export  const updateNewPostActionCreator = (text: string) => {
     }  as const
 }
 
-export const SendMessageCreator = (postText: string) => ({
-    type: "ADD-POST",
-    newPostText: postText
+export const sendMessageCreator = () => ({
+    type: "SEND-MESSAGE",
 } as const)
 
 
-export  const MessageBodyCreator = (text: string) => {
+export  const updateMessageBodyCreator = (text: string) => {
     return {
-        type: 'UPDATE-NEW-POST-TEXT',
-        newText: text
+        type: 'NEW-MESSAGE-TEXT',
+        body: text
     }  as const
 }
 
