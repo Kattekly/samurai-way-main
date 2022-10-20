@@ -72,7 +72,7 @@ let store: StorePropsType = {
             }else if (action.type === 'SEND-MESSAGE') {
                let body = this._state.profilePage.dialogs.newMessageText
                 this._state.profilePage.dialogs.newMessageText = ''
-                this._state.profilePage.messages.push()
+                this._state.profilePage.messages.push({id: 6, message: body})
                 this._rerenderEntireTree();
             }
     }
@@ -91,6 +91,18 @@ export  const updateNewPostActionCreator = (text: string) => {
     }  as const
 }
 
+export const SendMessageCreator = (postText: string) => ({
+    type: "ADD-POST",
+    newPostText: postText
+} as const)
+
+
+export  const MessageBodyCreator = (text: string) => {
+    return {
+        type: 'UPDATE-NEW-POST-TEXT',
+        newText: text
+    }  as const
+}
 
 /*type AddPostActionType = ReturnType<typeof addPostActionCreator>
  /!*   {
