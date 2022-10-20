@@ -2,9 +2,9 @@ import React from 'react';
 import MyPosts from "./My posts/MyPosts";
 import ProfileInfo from "./My posts/ProfileInfo/ProfileInfo";
 import {ProfilePageType} from "../../Redux/State";
-import {AppPropsType} from "../../App";
+import {AppPropsType, MessageType} from "../../App";
 
-const Profile = (props: AppPropsType) => {
+const Profile = (props: MessageType) => {
 
 
     return (
@@ -12,8 +12,8 @@ const Profile = (props: AppPropsType) => {
             <ProfileInfo/>
             <MyPosts
 
-                posts={props.store._state.messagePage.posts}
-                /*newPostText={props.newPostText}*/
+                posts={props.posts}
+                newPostText={props.newPostText}
                 dispatch={props.dispatch}
                /* addPost={props.addPost}
                 updateNewPostText={props.updateNewPostText}*/

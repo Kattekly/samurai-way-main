@@ -8,13 +8,22 @@ import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {ActionTypes, StorePropsType} from "./Redux/State";
+import {ActionTypes, PostType, StorePropsType} from "./Redux/State";
 
 export type AppPropsType = {
     addPost?: (newMessage: string) => void
     updateNewPostText?: (newText: string) => void
     store: StorePropsType
 }
+
+export type MessageType = {
+    newPostText?: string
+    posts: Array<PostType>
+    addPost?: (newMessage: string) => void
+    updateNewPostText?: (newText: string) => void
+    dispatch: (action: ActionTypes) => void
+}
+
 
 const App = (props: AppPropsType) => {
     const state = props.store.getState()

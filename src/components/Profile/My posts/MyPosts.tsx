@@ -2,17 +2,18 @@ import React, {LegacyRef} from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import state, {ProfilePageType} from "../../../Redux/State";
-import {AppPropsType} from "../../../App";
+import {AppPropsType, MessageType} from "../../../App";
 
 
-const MyPosts = (props: ProfilePageType) => {
+const MyPosts = (props: MessageType) => {
 
     let postElement = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>)
 
     let newPostElement = React.createRef <HTMLTextAreaElement>()
 
     let addPost = () => {
-        props.dispatch({type: 'ADD-POST', newPostText: props.newPostText})
+
+           props.dispatch({type: 'ADD-POST', newPostText: ''})
 
 
            /* if (props.addPost) {
