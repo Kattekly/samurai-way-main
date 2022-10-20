@@ -8,7 +8,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {ActionTypes, PostType, StorePropsType} from "./Redux/State";
+import {ActionTypes, DialogType, PostType, RootStateType, StorePropsType} from "./Redux/State";
 
 export type AppPropsType = {
     addPost?: (newMessage: string) => void
