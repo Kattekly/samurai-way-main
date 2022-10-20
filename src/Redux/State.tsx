@@ -25,8 +25,8 @@ let store: StorePropsType = {
         },
         sidebar: {}
     },
-    getState(_state: RootStateType) {
-        return _state
+    getState() {
+        return this._state
     },
 
     addPost(newPostText: string) {
@@ -93,7 +93,7 @@ export type RootStateType = {
 
 export type StorePropsType = {
     _state: RootStateType,
-    getState: (_state: RootStateType) => void,
+    getState: () => RootStateType,
     addPost: (newPostText: string) => void,
     updateNewPostText: (newText: string) => void,
     subscribe: (observer: () => void) => void,

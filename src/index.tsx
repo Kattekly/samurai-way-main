@@ -6,14 +6,14 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 
 
-let rerenderEntireTree = (store: StorePropsType) => {
+let rerenderEntireTree = () => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={store.getState()} addPost={store.addPost} updateNewPostText={store.updateNewPostText}/>
+            <App store={store}/>
         </BrowserRouter>,
         document.getElementById('root')
     );
 }
 
-rerenderEntireTree(store._state)
 store.subscribe(rerenderEntireTree)
+rerenderEntireTree()

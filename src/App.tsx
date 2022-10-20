@@ -8,26 +8,29 @@ import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import state, {ProfilePageType, RootStateType} from "./Redux/State";
+import {StorePropsType} from "./Redux/State";
+/*import state, {ProfilePageType, RootStateType} from "./Redux/State";*/
 
 type AppPropsType = {
-    state: RootStateType
     addPost?: (newMessage: string) => void
     updateNewPostText?: (newText: string) => void
+    store: StorePropsType
 }
 
 const App = (props: AppPropsType) => {
+    const state = props.store.getState()
+
     return (
         <div className="app-wrapper">
             <Header/>
             <Navbar/>
             <div className='app-wrapper-content'>
-                <Route path="/dialogs" render={() => <Dialogs dialogs={props.state.profilePage.dialogs}
-                                                              messages={props.state.profilePage.messages}/>}/>
-                <Route path="/profile" render={() => <Profile posts={props.state.messagePage.posts}
-                                                              addPost={props.addPost}
-                                                              newPostText={props.state.messagePage.newPostText}
-                                                              updateNewPostText={props.updateNewPostText}/>}/>
+                <Route path="/dialogs" render={() => <Dialogs dialogs={state.profilePage.dialogs}
+                                                              messages={state.profilePage.messages}/>}/>
+                <Route path="/profile" render={() => <Profile posts={state.messagePage.posts}
+                                                              addPost={props.store.addPost.bind(props.store)}
+                                                              newPostText={state.messagePage.newPostText}
+                                                              updateNewPostText={props.store.updateNewPostText.bind(props.store)}/>}/>
                 <Route path="/news" component={News}/>
                 <Route path="/music" component={Music}/>
                 <Route path="/settings" component={Settings}/>
