@@ -25,6 +25,9 @@ let store: StorePropsType = {
         },
         sidebar: {}
     },
+    _rerenderEntireTree() {
+        console.log('state chenged')
+    },
     getState() {
         return this._state
     },
@@ -46,9 +49,6 @@ let store: StorePropsType = {
     },
     subscribe(observer) {
         this._rerenderEntireTree = observer
-    },
-    _rerenderEntireTree() {
-        console.log('state chenged')
     }
 }
 

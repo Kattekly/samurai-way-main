@@ -9,7 +9,6 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {StorePropsType} from "./Redux/State";
-/*import state, {ProfilePageType, RootStateType} from "./Redux/State";*/
 
 type AppPropsType = {
     addPost?: (newMessage: string) => void
