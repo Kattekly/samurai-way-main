@@ -13,7 +13,7 @@ const Profile = (props: MessageType) => {
             <MyPosts
 
                 posts={props.posts}
-                newPostText={props.newPostText}
+                /*newPostText={props.newPostText}*/
                 dispatch={props.dispatch}
                /* addPost={props.addPost}
                 updateNewPostText={props.updateNewPostText}*/

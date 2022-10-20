@@ -5,6 +5,14 @@ import state, {ProfilePageType} from "../../../Redux/State";
 import {AppPropsType, MessageType} from "../../../App";
 
 
+
+let addPostActionCreator = () => {
+    return {
+        type: 'ADD-POST',
+        newPostText: ''
+    }
+}
+
 const MyPosts = (props: MessageType) => {
 
     let postElement = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>)
@@ -14,7 +22,6 @@ const MyPosts = (props: MessageType) => {
     let addPost = () => {
 
            props.dispatch({type: 'ADD-POST', newPostText: ''})
-
 
            /* if (props.addPost) {
                 props.addPost(props.newPostText)
