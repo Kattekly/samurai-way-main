@@ -7,14 +7,16 @@ import {DialogsDataType, RootStateType} from "../../Redux/State";
 
 const Dialogs = (props: DialogsDataType) => {
 
-    let dialogsElement = props.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>)
+    let dialogsElement = props.dialogs.map(d => <DialogItem name={d.name} id={d.id} />)
     let messageElement = props.messages.map(m => <Message message={m.message} id={m.id}/>)
 
     return (
         <div className={s.dialogs}>
+
             <div className={s.dialogsItems}>
                 <img src='https://pixelbox.ru/wp-content/uploads/2021/09/avatar-boys-vk-60-scaled.jpg'/>
                 {dialogsElement}
+
             </div>
             <div className={s.messages}>
                 {messageElement}

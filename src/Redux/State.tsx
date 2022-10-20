@@ -68,12 +68,11 @@ let store: StorePropsType = {
     }
 }
 
-export const addPostActionCreator = (postText: string) => {
-    return {
+export const addPostActionCreator = (postText: string) => ({
         type: "ADD-POST",
         newPostText: postText
-    } as const
-}
+    } as const)
+
 
 export  const updateNewPostActionCreator = (text: string) => {
     return {

@@ -12,7 +12,6 @@ const MyPosts = (props: MessageType) => {
     let newPostElement = React.createRef <HTMLTextAreaElement>()
 
     let addPost = () => {
-
            props.dispatch(addPostActionCreator(''))
 
            /* if (props.addPost) {
@@ -24,13 +23,14 @@ const MyPosts = (props: MessageType) => {
         if (newPostElement.current) {
             let text = newPostElement.current.value
         props.dispatch(updateNewPostActionCreator(text))
+        }}
 
        /* if (newPostElement.current) {
             let text = newPostElement.current.value
             if (props.updateNewPostText) {
    props.updateNewPostText(text)
     }}*/
-    }}
+
 
     return <div className={s.postsBlock}>
         My Posts
