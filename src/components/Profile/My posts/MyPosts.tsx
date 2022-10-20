@@ -2,7 +2,7 @@ import React, {LegacyRef} from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import state, {addPostActionCreator, ProfilePageType, updateNewPostActionCreator} from "../../../Redux/State";
-import {AppPropsType, MessageType} from "../../../App";
+import {MessageType} from "../../../App";
 
 
 const MyPosts = (props: MessageType) => {
@@ -12,12 +12,15 @@ const MyPosts = (props: MessageType) => {
     let newPostElement = React.createRef <HTMLTextAreaElement>()
 
     let addPost = () => {
-           props.dispatch(addPostActionCreator(''))
+
+            props.dispatch(addPostActionCreator(''))
+
+    }
 
            /* if (props.addPost) {
                 props.addPost(props.newPostText)
             }*/
-    }
+
 
     let onPostChange = () => {
         if (newPostElement.current) {

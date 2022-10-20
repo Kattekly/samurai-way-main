@@ -15,6 +15,7 @@ let store: StorePropsType = {
                 {id: 2, message: "How are you?"},
                 {id: 3, message: "Yo"},
             ],
+            newMessageText: ""
         },
         messagePage: {
             posts: [
@@ -54,7 +55,7 @@ let store: StorePropsType = {
     dispatch (action) {
             if (action.type === 'ADD-POST') {
             let newPost = {
-                id: 5,
+                id: new Date().getTime(),
                 message: this._state.messagePage.newPostText,
                 like: 0
             };
@@ -64,7 +65,9 @@ let store: StorePropsType = {
         } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
             this._state.messagePage.newPostText = action.newText
             this._rerenderEntireTree()
-        }
+        } else if (action.type === 'NEW-MESSAGE-TEXT') {
+               this._state.profilePage.dialogs.newMessageText
+            }
     }
 }
 
@@ -124,6 +127,7 @@ export type ProfilePageType = {
 export type DialogsDataType = {
     dialogs: Array<DialogType>
     messages: Array<MessageType>
+    newMessageText: string
 }
 
 type Sidebar = {}
