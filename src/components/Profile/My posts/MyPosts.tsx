@@ -1,7 +1,7 @@
 import React, {LegacyRef} from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
-import state, {addPost, ProfilePageType} from "../../../Redux/State";
+import state, {ProfilePageType} from "../../../Redux/State";
 
 
 const MyPosts = (props: ProfilePageType) => {

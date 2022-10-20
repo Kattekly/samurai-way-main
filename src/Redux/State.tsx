@@ -1,5 +1,5 @@
 let store: StorePropsType = {
-    _state: RootStateType = {
+    _state: {
         profilePage: {
             dialogs: [
                 {id: 1, name: "Katerina"},
@@ -25,31 +25,30 @@ let store: StorePropsType = {
         },
         sidebar: {}
     },
-    getState (_state: RootStateType ) {
+    getState(_state: RootStateType) {
         return _state
     },
 
-    rerenderEntireTree(state: RootStateType) {
-        console.log('Changed')
-    },
-
-    addPost () {
+    addPost(newPostText: string) {
         let newPost = {
             id: 5,
-            message: state.messagePage.newPostText,
+            message: this._state.messagePage.newPostText,
             like: 0
         };
-        state.messagePage.posts.push(newPost)
-        state.messagePage.newPostText = ''
-        rerenderEntireTree(state)
+        this._state.messagePage.posts.push(newPost)
+        this._state.messagePage.newPostText = ''
+        this._rerenderEntireTree()
     },
 
-    updateNewPostText (newText: string) {
-        state.messagePage.newPostText = newText
-        rerenderEntireTree(state)
+    updateNewPostText(newText: string) {
+        this._state.messagePage.newPostText = newText
+        this._rerenderEntireTree()
     },
-    subscribe (observer: (state: RootStateType) => void) {
-        rerenderEntireTree = observer
+    subscribe(observer) {
+        this._rerenderEntireTree = observer
+    },
+    _rerenderEntireTree() {
+        console.log('state chenged')
     }
 }
 
@@ -93,12 +92,12 @@ export type RootStateType = {
 
 
 export type StorePropsType = {
-    _state: RootStateType
-    getState: (_state: RootStateType) => void
-    rerenderEntireTree: (state: RootStateType) => void
-    addPost: () => void
-    updateNewPostText: (newText: string) => void
-    subscribe: (observer: (state: RootStateType) => void))
+    _state: RootStateType,
+    getState: (_state: RootStateType) => void,
+    addPost: (newPostText: string) => void,
+    updateNewPostText: (newText: string) => void,
+    subscribe: (observer: () => void) => void,
+    _rerenderEntireTree: () => void
 }
 
 export default store
