@@ -15,7 +15,7 @@ let store: StorePropsType = {
                 {id: 2, message: "How are you?"},
                 {id: 3, message: "Yo"},
             ],
-            newMessageText: ""
+            newMessageText: ''
         },
         messagePage: {
             posts: [
@@ -24,6 +24,7 @@ let store: StorePropsType = {
             ],
             newPostText: ''
         },
+
         sidebar: {},
     },
     _rerenderEntireTree() {
@@ -61,12 +62,18 @@ let store: StorePropsType = {
             };
             this._state.messagePage.posts.push(newPost)
             this._state.messagePage.newPostText = ''
-            this._rerenderEntireTree()
+            this._rerenderEntireTree();
         } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
             this._state.messagePage.newPostText = action.newText
-            this._rerenderEntireTree()
-        } else if (action.type === 'NEW-MESSAGE-TEXT') {
-               this._state.profilePage.dialogs.newMessageText
+            this._rerenderEntireTree();
+            } else if (action.type === 'NEW-MESSAGE-TEXT') {
+                this._state.profilePage.dialogs.newMessageText = action.body
+                this._rerenderEntireTree();
+            }else if (action.type === 'SEND-MESSAGE') {
+               let body = this._state.profilePage.dialogs.newMessageText
+                this._state.profilePage.dialogs.newMessageText = ''
+                this._state.profilePage.messages.push()
+                this._rerenderEntireTree();
             }
     }
 }
@@ -127,7 +134,7 @@ export type ProfilePageType = {
 export type DialogsDataType = {
     dialogs: Array<DialogType>
     messages: Array<MessageType>
-    newMessageText: string
+    newMessageText?: string
 }
 
 type Sidebar = {}
