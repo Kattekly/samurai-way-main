@@ -1,17 +1,9 @@
 import React, {LegacyRef} from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
-import state, {ProfilePageType} from "../../../Redux/State";
+import state, {addPostActionCreator, ProfilePageType, updateNewPostActionCreator} from "../../../Redux/State";
 import {AppPropsType, MessageType} from "../../../App";
 
-
-
-let addPostActionCreator = () => {
-    return {
-        type: 'ADD-POST',
-        newPostText: ''
-    }
-}
 
 const MyPosts = (props: MessageType) => {
 
@@ -21,7 +13,7 @@ const MyPosts = (props: MessageType) => {
 
     let addPost = () => {
 
-           props.dispatch({type: 'ADD-POST', newPostText: ''})
+           props.dispatch(addPostActionCreator(''))
 
            /* if (props.addPost) {
                 props.addPost(props.newPostText)
@@ -31,7 +23,7 @@ const MyPosts = (props: MessageType) => {
     let onPostChange = () => {
         if (newPostElement.current) {
             let text = newPostElement.current.value
-        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text})
+        props.dispatch(updateNewPostActionCreator(text))
 
        /* if (newPostElement.current) {
             let text = newPostElement.current.value

@@ -68,18 +68,35 @@ let store: StorePropsType = {
     }
 }
 
+export const addPostActionCreator = (postText: string) => {
+    return {
+        type: "ADD-POST",
+        newPostText: postText
+    } as const
+}
 
-type AddPostActionType = {
+export  const updateNewPostActionCreator = (text: string) => {
+    return {
+        type: 'UPDATE-NEW-POST-TEXT',
+        newText: text
+    }  as const
+}
+
+
+/*type AddPostActionType = ReturnType<typeof addPostActionCreator>
+ /!*   {
     type: 'ADD-POST',
     newPostText: string
-}
+}*!/
 
-type UpdateNewPostType = {
+type UpdateNewPostType = ReturnType<typeof updateNewPostActionCreator>*/
+
+/*    {
     type: 'UPDATE-NEW-POST-TEXT',
     newText: string
-}
+}*/
 
-export type ActionTypes = AddPostActionType | UpdateNewPostType
+export type ActionTypes = ReturnType<typeof addPostActionCreator> | ReturnType<typeof updateNewPostActionCreator>
 
 export type MessageType = {
     id: number
@@ -124,7 +141,7 @@ export type StorePropsType = {
     getState: () => RootStateType,
     subscribe: (observer: () => void) => void,
     _rerenderEntireTree: () => void
-    dispatch: (action: AddPostActionType | UpdateNewPostType) => void
+    dispatch: (action: ActionTypes) => void
     /*addPost: (newPostText: string) => void
     updateNewPostText: (newText: string) => void*/
 }
