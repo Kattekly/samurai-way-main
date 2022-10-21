@@ -21,10 +21,9 @@ const Dialogs = (props: DialogNewType) => {
     let newMessageBody = state.newMessageText;
 
     let onSendMessageClick = () => {
-
         props.store.dispatch(sendMessageCreator())
-
     }
+
     let onNewMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let body = e.target.value
         props.store.dispatch(updateMessageBodyCreator(body))
