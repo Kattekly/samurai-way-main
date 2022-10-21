@@ -3,7 +3,7 @@ import {ActionTypes, RootStateType} from "./State";
 const SEND_MESSAGE = 'SEND-MESSAGE'
 const NEW_MESSAGE_TEXT = 'NEW-MESSAGE-TEXT'
 
-export const dialogsReducer = (state:  RootStateType, action: ActionTypes) => {
+export const dialogsReducer = (state: RootStateType, action: ActionTypes) => {
 
     switch (action.type) {
         case SEND_MESSAGE:
