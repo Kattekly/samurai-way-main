@@ -8,15 +8,15 @@ const profileReducer = (state: RootStateType, action: ActionTypes) => {
     if (action.type === ADD_POST) {
         let newPost = {
             id: new Date().getTime(),
-            message: this._state.messagePage.newPostText,
+            message: state.messagePage.newPostText,
             like: 0
         };
-        this._state.messagePage.posts.push(newPost)
-        this._state.messagePage.newPostText = ''
-        this._rerenderEntireTree();
+        state.messagePage.posts.push(newPost)
+        state.messagePage.newPostText = ''
+
     } else if (action.type === UPDATE_NEW_POST_TEXT) {
-        this._state.messagePage.newPostText = action.newText
-        this._rerenderEntireTree();
+        state.messagePage.newPostText = action.newText
+
     }
 
     return state
