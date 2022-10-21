@@ -66,17 +66,25 @@ let store: StorePropsType = {
         } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
             this._state.messagePage.newPostText = action.newText
             this._rerenderEntireTree();
-            } else if (action.type === 'NEW-MESSAGE-TEXT') {
-                this._state.profilePage.newMessageText = action.body
-                this._rerenderEntireTree();
-            }else if (action.type === 'SEND-MESSAGE') {
-               let body = this._state.profilePage.newMessageText
+            } else if (action.type === 'SEND-MESSAGE') {
+               let body = {
+                   id: new Date().getTime(),
+                   message: this._state.profilePage.newMessageText
+               }
+                this._state.profilePage.messages.push(body)
                 this._state.profilePage.newMessageText = ''
-                this._state.profilePage.messages.push({id: 6, message: body})
+                this._rerenderEntireTree();
+            }else if (action.type === 'NEW-MESSAGE-TEXT') {
+                this._state.profilePage.newMessageText = action.body
                 this._rerenderEntireTree();
             }
     }
 }
+
+/*let body = this._state.profilePage.newMessageText
+this._state.profilePage.newMessageText = ''
+this._state.profilePage.messages.push({id: new Date().getTime(), message: this.body})
+this._rerenderEntireTree();*/
 
 export const addPostActionCreator = (postText: string) => ({
         type: "ADD-POST",
@@ -96,7 +104,7 @@ export const sendMessageCreator = () => ({
 } as const)
 
 
-export  const pushMessageBodyCreator = (body: string) => {
+export  const updateMessageBodyCreator = (body: string) => {
     return {
         type: "NEW-MESSAGE-TEXT",
         body: body
@@ -116,7 +124,7 @@ type UpdateNewPostType = ReturnType<typeof updateNewPostActionCreator>*/
     newText: string
 }*/
 
-export type ActionTypes = ReturnType<typeof addPostActionCreator> | ReturnType<typeof updateNewPostActionCreator> | ReturnType<typeof sendMessageCreator> | ReturnType<typeof pushMessageBodyCreator>
+export type ActionTypes = ReturnType<typeof addPostActionCreator> | ReturnType<typeof updateNewPostActionCreator> | ReturnType<typeof sendMessageCreator> | ReturnType<typeof updateMessageBodyCreator>
 
 export type MessageType = {
     id: number
