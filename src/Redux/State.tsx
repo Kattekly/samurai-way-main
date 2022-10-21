@@ -54,7 +54,7 @@ let store: StorePropsType = {
     },*/
 
     dispatch (action) {
-            if (action.type === 'ADD-POST') {
+       /*     if (action.type === 'ADD-POST') {
             let newPost = {
                 id: new Date().getTime(),
                 message: this._state.messagePage.newPostText,
@@ -77,7 +77,7 @@ let store: StorePropsType = {
             }else if (action.type === 'NEW-MESSAGE-TEXT') {
                 this._state.profilePage.newMessageText = action.body
                 this._rerenderEntireTree();
-            }
+            }*/
     }
 }
 
