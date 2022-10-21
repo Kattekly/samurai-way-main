@@ -1,6 +1,6 @@
 import {ActionTypes, RootStateType} from "./State";
 
-const profileReducer = (state: RootStateType, action: ActionTypes) => {
+export const profileReducer = (state: RootStateType, action: ActionTypes) => {
     const ADD_POST = 'ADD-POST'
     const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 

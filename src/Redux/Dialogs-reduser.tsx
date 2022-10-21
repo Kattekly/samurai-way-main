@@ -3,7 +3,7 @@ import {ActionTypes, RootStateType} from "./State";
 const SEND_MESSAGE = 'SEND-MESSAGE'
 const NEW_MESSAGE_TEXT = 'NEW-MESSAGE-TEXT'
 
-const dialogsReducer = (state:  RootStateType, action: ActionTypes) => {
+export const dialogsReducer = (state:  RootStateType, action: ActionTypes) => {
 
 if (action.type === SEND_MESSAGE) {
         let body = {
