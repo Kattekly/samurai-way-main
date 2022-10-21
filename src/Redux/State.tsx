@@ -67,11 +67,11 @@ let store: StorePropsType = {
             this._state.messagePage.newPostText = action.newText
             this._rerenderEntireTree();
             } else if (action.type === 'NEW-MESSAGE-TEXT') {
-                this._state.profilePage.dialogs.newMessageText = action.body
+                this._state.profilePage.newMessageText = action.body
                 this._rerenderEntireTree();
             }else if (action.type === 'SEND-MESSAGE') {
-               let body = this._state.profilePage.dialogs.newMessageText
-                this._state.profilePage.dialogs.newMessageText = ''
+               let body = this._state.profilePage.newMessageText
+                this._state.profilePage.newMessageText = ''
                 this._state.profilePage.messages.push({id: 6, message: body})
                 this._rerenderEntireTree();
             }
@@ -96,11 +96,11 @@ export const sendMessageCreator = () => ({
 } as const)
 
 
-export  const updateMessageBodyCreator = (text: string) => {
+export  const pushMessageBodyCreator = (body: string) => {
     return {
-        type: 'NEW-MESSAGE-TEXT',
-        body: text
-    }  as const
+        type: "NEW-MESSAGE-TEXT",
+        body: body
+    } as const
 }
 
 /*type AddPostActionType = ReturnType<typeof addPostActionCreator>
@@ -116,7 +116,7 @@ type UpdateNewPostType = ReturnType<typeof updateNewPostActionCreator>*/
     newText: string
 }*/
 
-export type ActionTypes = ReturnType<typeof addPostActionCreator> | ReturnType<typeof updateNewPostActionCreator>
+export type ActionTypes = ReturnType<typeof addPostActionCreator> | ReturnType<typeof updateNewPostActionCreator> | ReturnType<typeof sendMessageCreator> | ReturnType<typeof pushMessageBodyCreator>
 
 export type MessageType = {
     id: number
@@ -145,7 +145,7 @@ export type ProfilePageType = {
 export type DialogsDataType = {
     dialogs: Array<DialogType>
     messages: Array<MessageType>
-    newMessageText?: string
+    newMessageText: string
 }
 
 type Sidebar = {}
