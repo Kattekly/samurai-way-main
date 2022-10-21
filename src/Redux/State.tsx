@@ -58,11 +58,12 @@ let store: StorePropsType = {
     },*/
 
     dispatch (action) {
-        this._state.messagePage = profileReducer(this._state.messagePage, action)
+        /*this._state.messagePage = profileReducer(this._state.messagePage, action)
         this._state.profilePage = dialogsReducer(this._state.profilePage, action)
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
-        this._rerenderEntireTree();
-       /*     if (action.type === 'ADD-POST') {
+        this._rerenderEntireTree();*/
+
+            if (action.type === 'ADD-POST') {
             let newPost = {
                 id: new Date().getTime(),
                 message: this._state.messagePage.newPostText,
@@ -85,7 +86,7 @@ let store: StorePropsType = {
             }else if (action.type === 'NEW-MESSAGE-TEXT') {
                 this._state.profilePage.newMessageText = action.body
                 this._rerenderEntireTree();
-            }*/
+            }
     }
 }
 
