@@ -11,23 +11,23 @@ type ContainerNewType = {
 }
 
 const MyPostsContainer = (props: ContainerNewType) => {
-
+    let state = props.store.getState().messagePage
     let newPostElement = React.createRef <HTMLTextAreaElement>()
 
     let addPost = () => {
-            props.store.dispatch(addPostActionCreator(''))
+        props.store.dispatch(addPostActionCreator(''))
     }
 
     let onPostChange = (text: string) => {
         if (newPostElement.current) {
             let text = newPostElement.current.value
-                props.store.dispatch(updateNewPostActionCreator(text))
+            props.store.dispatch(updateNewPostActionCreator(text))
         }
     }
 
 
     return (
-        <MyPosts newPostText={props.newPostText} posts={props.posts}
+        <MyPosts newPostText={state.newPostText} posts={state.posts}
                  updateNewPostText={onPostChange} addPost={addPost}/>
     )
 

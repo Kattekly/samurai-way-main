@@ -2,7 +2,6 @@ import React, {LegacyRef} from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import {MessageType} from "../../../App";
-import {addPostActionCreator, updateNewPostActionCreator} from "../../../Redux/Profile-reducer";
 
 
 const MyPosts = (props: MessageType) => {
