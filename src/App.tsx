@@ -17,7 +17,7 @@ export type AppPropsType = {
 }
 
 export type MessageType = {
-    newPostText?: string
+    newPostText: string
     posts: Array<PostType>
     addPost?: (newMessage: string) => void
     updateNewPostText?: (newText: string) => void
