@@ -6,7 +6,7 @@ import {MessageType} from "../../../App";
 
 
 const MyPosts = (props: MessageType) => {
-
+    console.log({ props })
     let postElement = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>)
 
     let newPostElement = React.createRef <HTMLTextAreaElement>()

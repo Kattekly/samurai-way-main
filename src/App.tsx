@@ -40,7 +40,7 @@ const App = (props: AppPropsType) => {
                     newMessageText={state.profilePage.newMessageText}
                     dispatch={props.store.dispatch.bind(props.store)}*/
                 />}/>
-                <Route path="/profile" render={() => <Profile posts={state.messagePage.posts}
+                <Route path="/profile" render={() => <Profile posts={state.messagePage.posts} newPostText={state.messagePage.newPostText}
                                                               dispatch={props.store.dispatch.bind(props.store)}
                     /*addPost={props.store.addPost.bind(props.store)}*/
                     /*newPostText={state.messagePage.newPostText}*/
