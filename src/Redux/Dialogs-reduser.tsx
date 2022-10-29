@@ -1,21 +1,40 @@
-import {ActionTypes, RootStateType} from "./State";
+import {ActionTypes, DialogsDataType, RootStateType} from "./State";
 
 const SEND_MESSAGE = 'SEND-MESSAGE'
 const NEW_MESSAGE_TEXT = 'NEW-MESSAGE-TEXT'
 
-export const dialogsReducer = (state: RootStateType, action: ActionTypes) => {
+let initialState: DialogsDataType = {
+    dialogs: [
+        {id: 1, name: "Katerina"},
+        {id: 2, name: "Vladimir"},
+        {id: 3, name: "Andrey"},
+        {id: 4, name: "Valera"},
+        {id: 5, name: "Maksim"},
+        {id: 6, name: "Maria"},
+        {id: 7, name: "Karina"}
+    ],
+    messages: [
+        {id: 1, message: "Hi"},
+        {id: 2, message: "How are you?"},
+        {id: 3, message: "Yo"},
+    ],
+    newMessageText: ''
+
+}
+
+export const dialogsReducer = (state = initialState, action: ActionTypes) => {
 
     switch (action.type) {
         case SEND_MESSAGE:
             let body = {
                 id: new Date().getTime(),
-                message: state.profilePage.newMessageText
+                message: state.newMessageText
             }
-            state.profilePage.messages.push(body)
-            state.profilePage.newMessageText = ''
+            state.messages.push(body)
+            state.newMessageText = ''
             return state
         case NEW_MESSAGE_TEXT:
-            state.profilePage.newMessageText = action.body
+            state.newMessageText = action.body
             return state
         default:
             return state
