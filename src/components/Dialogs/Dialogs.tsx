@@ -7,6 +7,8 @@ import {sendMessageCreator, updateMessageBodyCreator} from "../../Redux/Dialogs-
 
 type DialogNewType = {
     store: StorePropsType
+    updateMessageBodyCreator: (body: string) => void
+
 }
 const Dialogs = (props: DialogNewType) => {
  let state = props.store.getState().profilePage
@@ -21,7 +23,8 @@ const Dialogs = (props: DialogNewType) => {
 
     let onNewMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let body = e.target.value
-        props.store.dispatch(updateMessageBodyCreator(body))
+        props.updateMessageBodyCreator(body)
+        /*props.store.dispatch(updateMessageBodyCreator(body))*/
     }
 
     return (
