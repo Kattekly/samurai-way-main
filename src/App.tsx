@@ -10,11 +10,13 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {ActionTypes, DialogType, PostType, RootStateType, StorePropsType} from "./Redux/State";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import {Store} from "redux";
+import {ReduxStateType} from "./Redux/Redux-Stor";
 
 export type AppPropsType = {
     addPost?: (newMessage: string) => void
     updateNewPostText?: (newText: string) => void
-    store: StorePropsType
+    store: Store<ReduxStateType, ActionTypes>
 }
 
 export type MessageType = {
@@ -36,9 +38,11 @@ const App = (props: AppPropsType) => {
             <Navbar/>
             <div className='app-wrapper-content'>
                 <Route path="/dialogs" render={() => <DialogsContainer store={props.store}/>}/>
-                <Route path="/profile" render={() => <Profile posts={state.messagePage.posts}
-                                                              newPostText={state.messagePage.newPostText}
-                                                              dispatch={props.store.dispatch.bind(props.store)}/>}/>
+                <Route path="/profile" render={() => <Profile store={props.store}
+
+                    /*posts={state.messagePage.posts}
+                    newPostText={state.messagePage.newPostText}
+                    dispatch={props.store.dispatch.bind(props.store)}*//>}/>
                 <Route path="/news" component={News}/>
                 <Route path="/music" component={Music}/>
                 <Route path="/settings" component={Settings}/>

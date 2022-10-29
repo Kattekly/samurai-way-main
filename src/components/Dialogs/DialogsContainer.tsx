@@ -2,12 +2,14 @@ import React, {ChangeEvent} from 'react';
 import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
-import {StorePropsType} from "../../Redux/State";
+import {ActionTypes, StorePropsType} from "../../Redux/State";
 import {sendMessageCreator, updateMessageBodyCreator} from "../../Redux/Dialogs-reduser";
 import Dialogs from "./Dialogs";
+import {Store} from "redux";
+import {ReduxStateType} from "../../Redux/Redux-Stor";
 
 type DialogNewType = {
-    store: StorePropsType
+    store: Store<ReduxStateType, ActionTypes>
 }
 const DialogsContainer = (props: DialogNewType) => {
     let state = props.store.getState().profilePage
