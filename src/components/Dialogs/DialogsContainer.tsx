@@ -25,7 +25,7 @@ const DialogsContainer = (props: DialogNewType) => {
     }
 
     return (
-       <Dialogs store={props.store} updateMessageBodyCreator={onNewMessageChange }/>
+       <Dialogs store={props.store} updateMessageBodyCreator={onNewMessageChange} sendMessageCreator={onSendMessageClick}/>
     );
 };
 

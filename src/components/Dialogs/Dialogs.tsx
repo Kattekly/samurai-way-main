@@ -8,6 +8,7 @@ import {sendMessageCreator, updateMessageBodyCreator} from "../../Redux/Dialogs-
 type DialogNewType = {
     store: StorePropsType
     updateMessageBodyCreator: (body: string) => void
+    sendMessageCreator: () => void
 
 }
 const Dialogs = (props: DialogNewType) => {
@@ -18,7 +19,8 @@ const Dialogs = (props: DialogNewType) => {
     let newMessageBody = state.newMessageText;
 
     let onSendMessageClick = () => {
-        props.store.dispatch(sendMessageCreator())
+        props.sendMessageCreator()
+       /* props.store.dispatch(sendMessageCreator())*/
     }
 
     let onNewMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
