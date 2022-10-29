@@ -5,13 +5,13 @@ import {sidebarReducer} from "./Sidebar-reduser";
 
 
 let reducers = combineReducers({
-    profileReducer,
-    dialogsReducer,
-    sidebarReducer
+    profilePage: profileReducer,
+    messagePage: dialogsReducer,
+    sidebar: sidebarReducer
 })
 
 
-let stor = createStore()
+let stor = createStore(reducers)
 
 
 export default stor
