@@ -19,10 +19,7 @@ const MyPostsContainer = (props: ContainerNewType) => {
     }
 
     let onPostChange = (text: string) => {
-        if (newPostElement.current) {
-            let text = newPostElement.current.value
             props.store.dispatch(updateNewPostActionCreator(text))
-        }
     }
 
 

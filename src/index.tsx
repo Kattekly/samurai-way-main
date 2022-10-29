@@ -7,7 +7,6 @@ import {BrowserRouter} from "react-router-dom";
 
 
 let rerenderEntireTree = () => {
-    debugger
     ReactDOM.render(
         <BrowserRouter>
             <App store={store}/>
