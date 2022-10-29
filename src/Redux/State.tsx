@@ -184,4 +184,5 @@ export type StorePropsType = {
     updateNewPostText: (newText: string) => void*/
 }
 
-export default store
+/*
+export default store*/

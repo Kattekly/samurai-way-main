@@ -12,7 +12,6 @@ let initialState: ProfilePageType  = {
 }
 
 export const profileReducer = (state= initialState, action: ActionTypes) => {
-    debugger
 
     switch (action.type) {
         case ADD_POST:

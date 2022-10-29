@@ -1,4 +1,4 @@
-import {ActionTypes, DialogsDataType, RootStateType} from "./State";
+import {ActionTypes, DialogsDataType} from "./State";
 
 const SEND_MESSAGE = 'SEND-MESSAGE'
 const NEW_MESSAGE_TEXT = 'NEW-MESSAGE-TEXT'

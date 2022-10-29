@@ -1,38 +1,31 @@
 import React, {LegacyRef} from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
-import state, {addPostActionCreator, ProfilePageType, updateNewPostActionCreator} from "../../../Redux/State";
 import {MessageType} from "../../../App";
+import {addPostActionCreator, updateNewPostActionCreator} from "../../../Redux/Profile-reducer";
 
 
 const MyPosts = (props: MessageType) => {
-    console.log({ props })
+    console.log({props})
     let postElement = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>)
 
     let newPostElement = React.createRef <HTMLTextAreaElement>()
 
-    let addPost = () => {
+    let onAddPost = () => {
 
-            props.dispatch(addPostActionCreator(''))
-
+        if (props.addPost) {
+            props.addPost(props.newPostText)
+        }
     }
-
-           /* if (props.addPost) {
-                props.addPost(props.newPostText)
-            }*/
-
 
     let onPostChange = () => {
         if (newPostElement.current) {
             let text = newPostElement.current.value
-        props.dispatch(updateNewPostActionCreator(text))
-        }}
-
-       /* if (newPostElement.current) {
-            let text = newPostElement.current.value
             if (props.updateNewPostText) {
-   props.updateNewPostText(text)
-    }}*/
+                props.updateNewPostText(text)
+            }
+        }
+    }
 
 
     return <div className={s.postsBlock}>
@@ -42,7 +35,7 @@ const MyPosts = (props: MessageType) => {
                 <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
             </div>
             <div>
-                <button onClick={addPost}>Add post</button>
+                <button onClick={onAddPost}>Add post</button>
             </div>
         </div>
         <div className={s.posts}>

@@ -34,17 +34,10 @@ const App = (props: AppPropsType) => {
             <Header/>
             <Navbar/>
             <div className='app-wrapper-content'>
-                <Route path="/dialogs" render={() => <Dialogs store={props.store}
-                    /*dialogs={state.profilePage.dialogs}
-                    messages={state.profilePage.messages}
-                    newMessageText={state.profilePage.newMessageText}
-                    dispatch={props.store.dispatch.bind(props.store)}*/
-                />}/>
-                <Route path="/profile" render={() => <Profile posts={state.messagePage.posts} newPostText={state.messagePage.newPostText}
-                                                              dispatch={props.store.dispatch.bind(props.store)}
-                    /*addPost={props.store.addPost.bind(props.store)}*/
-                    /*newPostText={state.messagePage.newPostText}*/
-                    /*updateNewPostText={props.store.updateNewPostText.bind(props.store)}*//>}/>
+                <Route path="/dialogs" render={() => <Dialogs store={props.store}/>}/>
+                <Route path="/profile" render={() => <Profile posts={state.messagePage.posts}
+                                                              newPostText={state.messagePage.newPostText}
+                                                              dispatch={props.store.dispatch.bind(props.store)}/>}/>
                 <Route path="/news" component={News}/>
                 <Route path="/music" component={Music}/>
                 <Route path="/settings" component={Settings}/>
