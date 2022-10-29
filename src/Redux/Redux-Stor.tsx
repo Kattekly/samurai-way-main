@@ -3,7 +3,6 @@ import {profileReducer} from "./Profile-reducer";
 import {dialogsReducer} from "./Dialogs-reduser";
 import {sidebarReducer} from "./Sidebar-reduser";
 
-
 let reducers = combineReducers({
     profilePage: profileReducer,
     messagePage: dialogsReducer,

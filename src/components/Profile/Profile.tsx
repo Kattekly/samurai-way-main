@@ -1,8 +1,10 @@
 import React from 'react';
 import MyPosts from "./My posts/MyPosts";
 import ProfileInfo from "./My posts/ProfileInfo/ProfileInfo";
-import {ProfilePageType} from "../../Redux/State";
+
 import {AppPropsType, MessageType} from "../../App";
+import MyPostsContainer from "./My posts/MyPostsContainer";
+
 
 const Profile = (props: MessageType) => {
 
@@ -10,7 +12,7 @@ const Profile = (props: MessageType) => {
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts
+            <MyPostsContainer
                 posts={props.posts}
                 newPostText={props.newPostText}
                 dispatch={props.dispatch}

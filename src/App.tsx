@@ -21,7 +21,7 @@ export type MessageType = {
     posts: Array<PostType>
     addPost?: (newMessage: string) => void
     updateNewPostText?: (newText: string) => void
-    dispatch: (action: ActionTypes) => void
+    dispatch?: (action: ActionTypes) => void
     newMessageText?: string
 }
 

@@ -1,28 +1,31 @@
-import React, {LegacyRef} from 'react';
-import s from "./MyPosts.module.css"
-import Post from "./Post/Post";
+import React from 'react';
 import {MessageType} from "../../../App";
 import {addPostActionCreator, updateNewPostActionCreator} from "../../../Redux/Profile-reducer";
 import MyPosts from "./MyPosts";
 
 
 const MyPostsContainer = (props: MessageType) => {
+
     let newPostElement = React.createRef <HTMLTextAreaElement>()
 
     let addPost = () => {
-        props.dispatch(addPostActionCreator(''))
+        if (props.dispatch) {
+            props.dispatch(addPostActionCreator(''))
+        }
     }
 
     let onPostChange = (text: string) => {
         if (newPostElement.current) {
             let text = newPostElement.current.value
-            props.dispatch(updateNewPostActionCreator(text))
+            if (props.dispatch) {
+                props.dispatch(updateNewPostActionCreator(text))
+            }
         }
     }
 
 
     return (
-        <MyPosts newPostText={props.newPostText} posts={props.posts} dispatch={props.dispatch}
+        <MyPosts newPostText={props.newPostText} posts={props.posts}
                  updateNewPostText={onPostChange} addPost={addPost}/>
     )
 
