@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActionTypes} from "../../Redux/State";
+import {ActionTypes, RootStateType} from "../../Redux/State";
 import {sendMessageCreator, updateMessageBodyCreator} from "../../Redux/Dialogs-reduser";
 import Dialogs from "./Dialogs";
 import {Store} from "redux";
@@ -21,24 +21,22 @@ const DialogsContainer = (props: DialogNewType) => {
     }
 
     return (
-        <Dialogs store={props.store} updateMessageBodyCreator={onNewMessageChange}
+        <Dialogs updateMessageBodyCreator={onNewMessageChange}
                  sendMessageCreator={onSendMessageClick} profilePage={state}/>
     );
 };
 
-let f1 = () => {
-    return{
-
+let f1 = (state: RootStateType) => {
+    return {
+        profilePage: state.profilePage
     }
 }
 
 
 let f2 = () => {
-    return{
-
-    }
+    return {}
 }
 
-const SuperDialogsContainer = connect()(Dialogs)
+const SuperDialogsContainer = connect(f1, f2)(Dialogs)
 
 export default DialogsContainer;

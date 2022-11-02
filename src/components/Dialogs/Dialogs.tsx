@@ -7,7 +7,7 @@ import {Store} from "redux";
 import {ReduxStateType} from "../../Redux/Redux-Stor";
 
 type DialogNewType = {
-    store: Store<ReduxStateType, ActionTypes>
+
     updateMessageBodyCreator: (body: string) => void
     sendMessageCreator: () => void
     profilePage: DialogsDataType
