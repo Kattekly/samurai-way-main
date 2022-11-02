@@ -15,7 +15,7 @@ export const profileReducer = (state= initialState, action: ActionTypes) => {
 
     let stateCopy = {
         ...state,
-        posts: [...state.posts]
+        posts: [...state.posts] //если убрать, не будет добавлять пустой пост
     }
 
     switch (action.type) {
