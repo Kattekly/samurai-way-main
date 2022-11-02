@@ -4,13 +4,15 @@ import {addPostActionCreator, updateNewPostActionCreator} from "../../../Redux/P
 import MyPosts from "./MyPosts";
 import {Store} from "redux";
 import {ReduxStateType} from "../../../Redux/Redux-Stor";
-import {ActionTypes} from "../../../Redux/State";
+import {ActionTypes, RootStateType} from "../../../Redux/State";
+import {connect} from "react-redux";
+import {sendMessageCreator, updateMessageBodyCreator} from "../../../Redux/Dialogs-reduser";
 
-type ContainerNewType = {
+/*type ContainerNewType = {
     store: Store<ReduxStateType, ActionTypes>
 }
 
-const MyPostsContainer = (props: ContainerNewType) => {
+const MyPostsContainer1 = (props: ContainerNewType) => {
     let state = props.store.getState().messagePage
     let newPostElement = React.createRef <HTMLTextAreaElement>()
 
@@ -28,6 +30,26 @@ const MyPostsContainer = (props: ContainerNewType) => {
                  updateNewPostText={onPostChange} addPost={addPost}/>
     )
 
-};
+};*/
+
+//данные из стейна, пропсы
+let mapDialogToProps = (state: RootStateType) => {
+
+    return {
+        newPostText: state.messagePage.newPostText,
+        posts: state.messagePage.posts
+    }
+}
+
+//колбеки
+let mapDispatchToProps = (dispatch: (action: ActionTypes) => void) => {
+    return {
+        updateNewPostText: (text: string) => {dispatch(updateNewPostActionCreator(text))},
+        addPost: () => {dispatch(addPostActionCreator(''))}
+    }
+}
+
+
+const MyPostsContainer = connect(mapDialogToProps, mapDispatchToProps)(MyPosts)
 
 export default MyPostsContainer;

@@ -2,14 +2,13 @@ import React from 'react';
 import {ActionTypes, RootStateType} from "../../Redux/State";
 import {sendMessageCreator, updateMessageBodyCreator} from "../../Redux/Dialogs-reduser";
 import Dialogs from "./Dialogs";
-import {Store} from "redux";
-import {ReduxStateType} from "../../Redux/Redux-Stor";
+
 import {connect} from "react-redux";
 
-type DialogNewType = {
+/*type DialogNewType = {
     store: Store<ReduxStateType, ActionTypes>
-}
-const DialogsContainer = (props: DialogNewType) => {
+}*/
+/*const DialogsContainer = (props: DialogNewType) => {
     let state = props.store.getState().profilePage
 
     let onSendMessageClick = () => {
@@ -24,10 +23,11 @@ const DialogsContainer = (props: DialogNewType) => {
         <Dialogs updateMessageBodyCreator={onNewMessageChange}
                  sendMessageCreator={onSendMessageClick} profilePage={state}/>
     );
-};
+};*/
 
 //данные из стейна, пропсы
 let mapStateToProps = (state: RootStateType) => {
+
     return {
         profilePage: state.profilePage
     }
@@ -41,6 +41,6 @@ let mapDispatchToProps = (dispatch: (action: ActionTypes) => void) => {
     }
 }
 
-const SuperDialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
 export default DialogsContainer;
