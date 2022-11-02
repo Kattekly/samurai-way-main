@@ -4,6 +4,7 @@ import {sendMessageCreator, updateMessageBodyCreator} from "../../Redux/Dialogs-
 import Dialogs from "./Dialogs";
 import {Store} from "redux";
 import {ReduxStateType} from "../../Redux/Redux-Stor";
+import {connect} from "react-redux";
 
 type DialogNewType = {
     store: Store<ReduxStateType, ActionTypes>
@@ -24,5 +25,20 @@ const DialogsContainer = (props: DialogNewType) => {
                  sendMessageCreator={onSendMessageClick} profilePage={state}/>
     );
 };
+
+let f1 = () => {
+    return{
+
+    }
+}
+
+
+let f2 = () => {
+    return{
+
+    }
+}
+
+const SuperDialogsContainer = connect()(Dialogs)
 
 export default DialogsContainer;
