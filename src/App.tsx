@@ -15,7 +15,7 @@ import {ReduxStateType} from "./Redux/Redux-Stor";
 export type AppPropsType = {
     addPost?: (newMessage: string) => void
     updateNewPostText?: (newText: string) => void
-    store: Store<ReduxStateType, ActionTypes>
+   /* store: Store<ReduxStateType, ActionTypes>*/
 }
 
 export type MessageType = {
@@ -29,15 +29,15 @@ export type MessageType = {
 
 
 const App = (props: AppPropsType) => {
-    const state = props.store.getState()
+    // const state = props.store.getState()
 
     return (
         <div className="app-wrapper">
             <Header/>
             <Navbar/>
             <div className='app-wrapper-content'>
-                <Route path="/dialogs" render={() => <DialogsContainer store={props.store}/>}/>
-                <Route path="/profile" render={() => <Profile store={props.store}
+                <Route path="/dialogs" render={() => <DialogsContainer />}/>
+                <Route path="/profile" render={() => <Profile
 
                     /*posts={state.messagePage.posts}
                     newPostText={state.messagePage.newPostText}

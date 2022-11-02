@@ -34,7 +34,6 @@ const MyPostsContainer1 = (props: ContainerNewType) => {
 
 //данные из стейна, пропсы
 let mapDialogToProps = (state: RootStateType) => {
-
     return {
         newPostText: state.messagePage.newPostText,
         posts: state.messagePage.posts
@@ -44,8 +43,12 @@ let mapDialogToProps = (state: RootStateType) => {
 //колбеки
 let mapDispatchToProps = (dispatch: (action: ActionTypes) => void) => {
     return {
-        updateNewPostText: (text: string) => {dispatch(updateNewPostActionCreator(text))},
-        addPost: () => {dispatch(addPostActionCreator(''))}
+        updateNewPostText: (text: string) => {
+            dispatch(updateNewPostActionCreator(text))
+        },
+        addPost: () => {
+            dispatch(addPostActionCreator(''))
+        }
     }
 }
 

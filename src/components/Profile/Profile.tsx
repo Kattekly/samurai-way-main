@@ -13,14 +13,14 @@ type ProfileNewType = {
     store: Store<ReduxStateType, ActionTypes>
 }
 
-const Profile = (props: ProfileNewType) => {
+const Profile = () => {
 
 
     return (
         <div>
             <ProfileInfo/>
             <MyPostsContainer
-                store={props.store}
+                // store={props.store}
                 /*posts={props.posts}
                 newPostText={props.newPostText}
                 dispatch={props.dispatch}*/
