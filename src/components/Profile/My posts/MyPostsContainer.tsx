@@ -35,6 +35,7 @@ const MyPostsContainer1 = (props: ContainerNewType) => {
 //данные из стейна, пропсы
 let mapDialogToProps = (state: RootStateType) => {
     return {
+        ...state,
         newPostText: state.messagePage.newPostText,
         posts: state.messagePage.posts
     }

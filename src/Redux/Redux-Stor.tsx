@@ -14,7 +14,6 @@ type RootState = typeof reducers;
 
 export type ReduxStateType = ReturnType<RootState>
 
-let stor = createStore(reducers)
+let store = createStore(reducers)
 
-
-export default stor
+export default store
