@@ -3,11 +3,11 @@ const UNFOLLOW = "UNFOLLOW"
 const SET_USERS = "SET_USERS"
 
 
-type UsersMaxPropsType = {
+export type UsersMaxPropsType = {
     users: Array<UsersPropsType>
 }
 
-type UsersPropsType = {
+export type UsersPropsType = {
     id: number
     followed: boolean
     fullName: string
@@ -46,7 +46,7 @@ let initialState: UsersMaxPropsType = {
     ]
 }
 
-const UsersReduser = (state = initialState, action: any) => {
+const usersReduser = (state = initialState, action: any) => {
     switch (action.type) {
         case FOLLOW:
             return {
@@ -71,7 +71,7 @@ const UsersReduser = (state = initialState, action: any) => {
         case SET_USERS: {
             return {
                 ...state,
-                users: action.users
+                users: [...state.users, ...action.users]
             }
         }
         default:
@@ -83,4 +83,4 @@ export const followAC = (userId: number) => ({type: FOLLOW, userId})
 export const unfollowAC = (userId: number) => ({type: UNFOLLOW, userId})
 export const setUsersAC = (users: UsersPropsType) => ({type: SET_USERS, users})
 
-export default UsersReduser;
+export default usersReduser;

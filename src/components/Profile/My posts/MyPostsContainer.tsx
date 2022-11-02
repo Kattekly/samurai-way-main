@@ -33,7 +33,7 @@ const MyPostsContainer1 = (props: ContainerNewType) => {
 };*/
 
 //данные из стейна, пропсы
-let mapDialogToProps = (state: RootStateType) => {
+let mapStateToProps = (state: RootStateType) => {
     return {
         newPostText: state.messagePage.newPostText,
         posts: state.messagePage.posts
@@ -53,6 +53,6 @@ let mapDispatchToProps = (dispatch: (action: ActionTypes) => void) => {
 }
 
 
-const MyPostsContainer = connect(mapDialogToProps, mapDispatchToProps)(MyPosts)
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
 
 export default MyPostsContainer;

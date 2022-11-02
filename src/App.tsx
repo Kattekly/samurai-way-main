@@ -12,6 +12,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import {Store} from "redux";
 import {ReduxStateType} from "./Redux/Redux-Stor";
 import Users from "./components/Users/Users";
+import UsersContainer from "./components/Users/UsersContainer";
 
 export type AppPropsType = {
     addPost?: (newMessage: string) => void
@@ -42,7 +43,7 @@ const App = (props: AppPropsType) => {
                 <Route path="/news" component={News}/>
                 <Route path="/music" component={Music}/>
                 <Route path="/settings" component={Settings}/>
-                <Route path="/users" render={() => <Users/>}/>
+                <Route path="/users" render={() => <UsersContainer/>}/>
             </div>
         </div>
     );
