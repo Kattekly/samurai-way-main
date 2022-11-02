@@ -9,6 +9,7 @@ export type UsersMaxPropsType = {
 
 export type UsersPropsType = {
     id: number
+    photoUrl: string
     followed: boolean
     fullName: string
     status: string
@@ -22,27 +23,7 @@ type LocationPropsType = {
 
 let initialState: UsersMaxPropsType = {
     users: [
-        {
-            id: 1,
-            followed: false,
-            fullName: "Katerina",
-            status: "I am a boss",
-            location: {city: "Rybinsk", country: "Russia"}
-        },
-        {
-            id: 2,
-            followed: true,
-            fullName: "Vladimir",
-            status: "Hey, hoy!",
-            location: {city: "Moscow", country: "Russia"}
-        },
-        {
-            id: 3,
-            followed: false,
-            fullName: "Marina",
-            status: "Sun",
-            location: {city: "Minsk", country: "Belarus"}
-        },
+
     ]
 }
 
