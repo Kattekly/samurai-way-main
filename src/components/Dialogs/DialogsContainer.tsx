@@ -26,17 +26,21 @@ const DialogsContainer = (props: DialogNewType) => {
     );
 };
 
-let f1 = (state: RootStateType) => {
+//данные из стейна, пропсы
+let mapStateToProps = (state: RootStateType) => {
     return {
         profilePage: state.profilePage
     }
 }
 
-
-let f2 = () => {
-    return {}
+//колбеки
+let mapDispatchToProps = (dispatch: (action: ActionTypes) => void) => {
+    return {
+        updateMessageBodyCreator: (body: string) => {dispatch(updateMessageBodyCreator(body))},
+        sendMessageCreator: () => {dispatch(sendMessageCreator())}
+    }
 }
 
-const SuperDialogsContainer = connect(f1, f2)(Dialogs)
+const SuperDialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
 export default DialogsContainer;
