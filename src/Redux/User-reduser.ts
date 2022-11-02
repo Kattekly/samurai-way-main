@@ -1,5 +1,6 @@
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"
+const SET_USERS = "SET_USERS"
 
 
 type UsersMaxPropsType = {
@@ -67,6 +68,12 @@ const UsersReduser = (state = initialState, action: any) => {
                     return el
                 })
             }
+        case SET_USERS: {
+            return {
+                ...state,
+                users: action.users
+            }
+        }
         default:
             return state
     }
@@ -74,5 +81,6 @@ const UsersReduser = (state = initialState, action: any) => {
 
 export const followAC = (userId: number) => ({type: FOLLOW, userId})
 export const unfollowAC = (userId: number) => ({type: UNFOLLOW, userId})
+export const setUsersAC = (users: UsersPropsType) => ({type: SET_USERS, users})
 
 export default UsersReduser;
