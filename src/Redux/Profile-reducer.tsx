@@ -13,11 +13,11 @@ let initialState: ProfilePageType  = {
 
 export const profileReducer = (state= initialState, action: ActionTypes) => {
 
-    let stateCopy = {
+   /* let stateCopy = {
         ...state,
         posts: [...state.posts] //если убрать, не будет добавлять пустой пост
     }
-
+*/
     switch (action.type) {
         case ADD_POST:
             let newPost = {
@@ -25,13 +25,17 @@ export const profileReducer = (state= initialState, action: ActionTypes) => {
                 message: state.newPostText,
                 like: 0
             };
-            stateCopy.posts.push(newPost)
-            stateCopy.newPostText = ''
-            return stateCopy
+            return {
+                ...state,
+                newPostText: '',
+                posts: [...state.posts, newPost]
+            }
 
         case UPDATE_NEW_POST_TEXT:
-            stateCopy.newPostText = action.newText
-            return stateCopy
+            return {
+                ...state,
+                newPostText: action.newText
+            }
 
         default:
             return state
