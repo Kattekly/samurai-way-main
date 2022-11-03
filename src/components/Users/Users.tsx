@@ -1,13 +1,6 @@
 import React from 'react';
-import {UsersMaxPropsType, UsersPropsType} from "../../Redux/User-reduser";
 import s from './Users.module.css'
-
-type NewUserPropsType = {
-    usersPage: UsersPropsType
-    follow: (userId: number) => void
-    unfollow: (userId: number) => void
-    setUsers: (users: UsersPropsType) => void
-}
+import {NewUserPropsType} from "./UsersContainer";
 
 const Users = (props: NewUserPropsType) => {
     if (props.usersPage.users.length === 0) {

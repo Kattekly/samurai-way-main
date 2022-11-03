@@ -5,6 +5,7 @@ import {followAC, setUsersAC, unfollowAC, UsersMaxPropsType, UsersPropsType} fro
 import {ReduxStateType} from "../../Redux/Redux-Stor";
 import {Dispatch} from "redux";
 
+export type NewUserPropsType = mapStateToPropsType & mapDispatchToPropsType
 
 type mapStateToPropsType = {
     usersPage: UsersMaxPropsType
@@ -14,7 +15,6 @@ type mapStateToPropsType = {
 let mapStateToProps = (state: ReduxStateType): mapStateToPropsType  => {
     return {
         usersPage: state.usersPage
-        /*users: state.usersPage.users*/
     }
 }
 
