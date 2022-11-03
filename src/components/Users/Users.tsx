@@ -10,7 +10,7 @@ type NewUserPropsType = {
 }
 
 const Users = (props: NewUserPropsType) => {
-    if (props.users.length === 0) {
+    if (props.usersPage.users.length === 0) {
         props.setUsers([
             {
                 id: 1,

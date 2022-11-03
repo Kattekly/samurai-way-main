@@ -2,16 +2,31 @@ import React from 'react';
 import {connect} from "react-redux";
 import Users from "./Users";
 import {followAC, setUsersAC, unfollowAC, UsersMaxPropsType, UsersPropsType} from "../../Redux/User-reduser";
+import {ReduxStateType} from "../../Redux/Redux-Stor";
+import {Dispatch} from "redux";
+
+
+type mapStateToPropsType = {
+    usersPage: UsersMaxPropsType
+}
 
 //данные из стейна, пропсы
-let mapStateToProps = (state: UsersMaxPropsType) => {
+let mapStateToProps = (state: ReduxStateType): mapStateToPropsType  => {
     return {
-        usersPage: state.users
+        usersPage: state.usersPage
+        /*users: state.usersPage.users*/
     }
 }
 
+
+type mapDispatchToPropsType = {
+    follow: (userId: number) => void
+    unfollow: (userId: number) => void
+    setUsers: (users: Array<UsersPropsType>) => void
+}
+
 //колбеки
-let mapDispatchToProps = (dispatch: any) => {
+let mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => {
     return {
         follow: (userId: number) => {
             dispatch(followAC(userId))
@@ -19,7 +34,7 @@ let mapDispatchToProps = (dispatch: any) => {
         unfollow: (userId: number) => {
             dispatch(unfollowAC(userId))
         },
-        setUsers: (users: UsersPropsType) => {
+        setUsers: (users: Array<UsersPropsType>) => {
             dispatch(setUsersAC(users))
         }
     }
