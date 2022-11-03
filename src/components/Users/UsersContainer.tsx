@@ -6,7 +6,7 @@ import {followAC, setUsersAC, unfollowAC, UsersMaxPropsType, UsersPropsType} fro
 //данные из стейна, пропсы
 let mapStateToProps = (state: UsersMaxPropsType) => {
     return {
-        users: state.usersPage.users
+        usersPage: state.users
     }
 }
 

@@ -22,9 +22,7 @@ type LocationPropsType = {
 }
 
 let initialState: UsersMaxPropsType = {
-    users: [
-
-    ]
+    users: [ ]
 }
 
 const usersReduser = (state = initialState, action: any) => {

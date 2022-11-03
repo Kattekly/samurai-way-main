@@ -10,38 +10,38 @@ type NewUserPropsType = {
 }
 
 const Users = (props: NewUserPropsType) => {
-
-    props.setUsers([
-        {
-            id: 1,
-            photoUrl: "https://vorkuta.butterfly-flower.ru/img/work/nomencl/a_1993_11404.jpg",
-            followed: false,
-            fullName: "Katerina",
-            status: "I am a boss",
-            location: {city: "Rybinsk", country: "Russia"}
-        },
-        {
-            id: 2,
-            photoUrl: "https://vorkuta.butterfly-flower.ru/img/work/nomencl/a_1993_11404.jpg",
-            followed: true,
-            fullName: "Vladimir",
-            status: "Hey, hoy!",
-            location: {city: "Moscow", country: "Russia"}
-        },
-        {
-            id: 3,
-            photoUrl: "https://vorkuta.butterfly-flower.ru/img/work/nomencl/a_1993_11404.jpg",
-            followed: false,
-            fullName: "Marina",
-            status: "Sun",
-            location: {city: "Minsk", country: "Belarus"}
-        }
-    ])
-
+    if (props.users.length === 0) {
+        props.setUsers([
+            {
+                id: 1,
+                photoUrl: "https://vorkuta.butterfly-flower.ru/img/work/nomencl/a_1993_11404.jpg",
+                followed: false,
+                fullName: "Katerina",
+                status: "I am a boss",
+                location: {city: "Rybinsk", country: "Russia"}
+            },
+            {
+                id: 2,
+                photoUrl: "https://vorkuta.butterfly-flower.ru/img/work/nomencl/a_1993_11404.jpg",
+                followed: true,
+                fullName: "Vladimir",
+                status: "Hey, hoy!",
+                location: {city: "Moscow", country: "Russia"}
+            },
+            {
+                id: 3,
+                photoUrl: "https://vorkuta.butterfly-flower.ru/img/work/nomencl/a_1993_11404.jpg",
+                followed: false,
+                fullName: "Marina",
+                status: "Sun",
+                location: {city: "Minsk", country: "Belarus"}
+            }
+        ])
+    }
     return (
         <div className={s.usersItems}>
             {
-                props.users.map(el => <div key={el.id}>
+                props.usersPage.users.map(el => <div key={el.id}>
                 <span>
                     <div>
                         <img src={el.photoUrl}/>
@@ -49,8 +49,12 @@ const Users = (props: NewUserPropsType) => {
                 </span>
                     <span>
                     <div>
-                        {el.followed ? <button onClick={() => {props.unfollow(el.id)}}>Unfollow</button>
-                            : <button onClick={() => {props.follow(el.id)}}>Follow</button>}
+                        {el.followed ? <button onClick={() => {
+                                props.unfollow(el.id)
+                            }}>Unfollow</button>
+                            : <button onClick={() => {
+                                props.follow(el.id)
+                            }}>Follow</button>}
 
                     </div>
                 </span>
