@@ -9,9 +9,9 @@ export type UsersMaxPropsType = {
 
 export type UsersPropsType = {
     id: number
-    photoUrl: string
+    photos: string
     followed: boolean
-    fullName: string
+    name: string
     status: string
     location: LocationPropsType
 }
