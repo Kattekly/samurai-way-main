@@ -1,10 +1,11 @@
 import React from 'react';
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
-import {NewUserPropsType} from "./UsersContainer";
 import axios from "axios";
+import {NewUserPropsType} from "./UsersContainer";
+import {UsersMaxPropsType} from "../../Redux/User-reduser";
 
-class Users extends React.Component {
+class Users extends React.Component <NewUserPropsType, UsersMaxPropsType> {
 
     getUsers = () => {
         if (this.props.usersPage.users.length === 0) {
