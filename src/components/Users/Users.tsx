@@ -1,9 +1,13 @@
 import React from 'react';
 import s from './Users.module.css'
 import {NewUserPropsType} from "./UsersContainer";
+import axios from "axios";
 
 const Users = (props: NewUserPropsType) => {
     if (props.usersPage.users.length === 0) {
+
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+
         props.setUsers([
             {
                 id: 1,
