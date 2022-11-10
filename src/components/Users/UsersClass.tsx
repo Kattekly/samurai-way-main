@@ -6,25 +6,22 @@ import {NewUserPropsType} from "./UsersContainer";
 import {UsersMaxPropsType} from "../../Redux/User-reduser";
 
 class Users extends React.Component <NewUserPropsType, UsersMaxPropsType> {
-
-    constructor(props: any) {
-        super(props);
-            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-                this.props.setUsers(response.data.items)
-            })
+    componentDidMount() {
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            this.props.setUsers(response.data.items)
+        })
     }
 
-
-render() {
-    return <div className={s.usersItems}>
-        {
-            this.props.usersPage.users.map(el => <div key={el.id}>
+    render() {
+        return <div className={s.usersItems}>
+            {
+                this.props.usersPage.users.map(el => <div key={el.id}>
                 <span>
                     <div>
                         <img src={el.photos.small !== null ? el.photos.small : userPhoto}/>
                     </div>
                 </span>
-                <span>
+                    <span>
                     <div>
                         {el.followed ? <button onClick={() => {
                                 this.props.unfollow(el.id)
@@ -35,7 +32,7 @@ render() {
 
                     </div>
                 </span>
-                <span>
+                    <span>
     <span>
         <div>{el.name}</div>
         <div>{el.status}</div>
@@ -45,10 +42,10 @@ render() {
         <div>{"el.location.city"}</div>
     </span>
 </span>
-            </div>)
-        }
-    </div>
-};
+                </div>)
+            }
+        </div>
+    };
 }
 
 export default Users;
