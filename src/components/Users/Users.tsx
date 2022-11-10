@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Users.module.css'
 import {NewUserPropsType} from "./UsersContainer";
 import axios from "axios";
+import userPhoto from '../../assets/images/user.png'
 
 const Users = (props: NewUserPropsType) => {
     if (props.usersPage.users.length === 0) {
@@ -18,7 +19,7 @@ const Users = (props: NewUserPropsType) => {
                 props.usersPage.users.map(el => <div key={el.id}>
                 <span>
                     <div>
-                        <img src={el.photos.small !== null ? el.photos.small : ""}/>
+                        <img src={el.photos.small !== null ? el.photos.small : userPhoto}/>
                     </div>
                 </span>
                     <span>
