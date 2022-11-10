@@ -7,10 +7,10 @@ import {UsersMaxPropsType} from "../../Redux/User-reduser";
 
 class Users extends React.Component <NewUserPropsType, UsersMaxPropsType> {
 
-    getUsers = () => {
+    constructor(props: any) {
+        super(props);
         if (this.props.usersPage.users.length === 0) {
             axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-                debugger
                 this.props.setUsers(response.data.items)
             })
         }
@@ -19,7 +19,6 @@ class Users extends React.Component <NewUserPropsType, UsersMaxPropsType> {
 
 render() {
     return <div className={s.usersItems}>
-        <button onClick={this.getUsers}>Get Users</button>
         {
             this.props.usersPage.users.map(el => <div key={el.id}>
                 <span>
