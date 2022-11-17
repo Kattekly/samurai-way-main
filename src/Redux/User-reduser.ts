@@ -1,6 +1,7 @@
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"
 const SET_USERS = "SET_USERS"
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
 
 
 export type UsersMaxPropsType = {
@@ -62,6 +63,12 @@ const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {
             return {
                 ...state,
                 users: [...state.users, ...action.users]
+            }
+        }
+        case SET_CURRENT_PAGE: {
+            return {
+                ...state,
+                currentPage: action.currentPage
             }
         }
         default:
