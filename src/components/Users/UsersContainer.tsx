@@ -22,8 +22,7 @@ type mapStateToPropsType = {
     currentPage: number
 }
 
-
-class UsersAPIComponent extends React.Component <NewUserPropsType, UsersMaxPropsType> {
+class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsType> {
     componentDidMount() {
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
             this.props.setUsers(response.data.items)
@@ -42,9 +41,9 @@ class UsersAPIComponent extends React.Component <NewUserPropsType, UsersMaxProps
 
 
         return <Users totalUsersCount={this.props.totalUsersCount} pageSize={this.props.pageSize}
-                          currentPage={this.props.currentPage} onPageChange={this.onPageChange}
-                          users={this.props.usersPage.users}
-                          follow={this.props.follow} unfollow={this.props.unfollow}/>
+                      currentPage={this.props.currentPage} onPageChange={this.onPageChange}
+                      users={this.props.usersPage.users}
+                      follow={this.props.follow} unfollow={this.props.unfollow}/>
     }
 }
 
@@ -88,6 +87,4 @@ let mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => {
     }
 }
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent)
-
-export default UsersContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
