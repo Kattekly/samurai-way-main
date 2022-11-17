@@ -3,12 +3,13 @@ import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import axios from "axios";
 import {NewUserPropsType} from "./UsersContainer";
-import {UsersMaxPropsType} from "../../Redux/User-reduser";
+import {setUsersTotalCountAC, UsersMaxPropsType} from "../../Redux/User-reduser";
 
 class Users extends React.Component <NewUserPropsType, UsersMaxPropsType> {
     componentDidMount() {
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
             this.props.setUsers(response.data.items)
+            this.props.setUsersTotalCount(response.data.totalCount)
         })
     }
 

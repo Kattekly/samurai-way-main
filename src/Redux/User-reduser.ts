@@ -2,6 +2,7 @@ const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"
 const SET_USERS = "SET_USERS"
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
+const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT"
 
 
 export type UsersMaxPropsType = {
@@ -31,9 +32,9 @@ type LocationPropsType = {
 }
 
 let initialState: UsersMaxPropsType = {
-    users: [ ],
+    users: [],
     pageSize: 5,
-    totalUsersCount: 19,
+    totalUsersCount: 0,
     currentPage: 1
 }
 
@@ -46,7 +47,7 @@ const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {
                     if (el.id === action.userId) {
                         return {...el, followed: true}
                     }
-                 return el
+                    return el
                 })
             }
         case UNFOLLOW:
@@ -71,6 +72,12 @@ const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {
                 currentPage: action.currentPage
             }
         }
+        case SET_TOTAL_USERS_COUNT: {
+            return {
+                ...state,
+                totalUsersCount: action.totalCount
+            }
+        }
         default:
             return state
     }
@@ -79,6 +86,7 @@ const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {
 export const followAC = (userId: number) => ({type: FOLLOW, userId})
 export const unfollowAC = (userId: number) => ({type: UNFOLLOW, userId})
 export const setUsersAC = (users: Array<UsersPropsType>) => ({type: SET_USERS, users})
-export const  setCurrentPageAC = (currentPage: number) => ({type: SET_CURRENT_PAGE, currentPage})
+export const setCurrentPageAC = (currentPage: number) => ({type: SET_CURRENT_PAGE, currentPage})
+export const setUsersTotalCountAC = (totalCount: number) => ({type: SET_TOTAL_USERS_COUNT, totalCount})
 
 export default usersReduser;

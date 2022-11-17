@@ -4,7 +4,7 @@ import Users from "./Users";
 import {
     followAC,
     setCurrentPageAC,
-    setUsersAC,
+    setUsersAC, setUsersTotalCountAC,
     unfollowAC,
     UsersMaxPropsType,
     UsersPropsType
@@ -23,7 +23,7 @@ type mapStateToPropsType = {
 }
 
 //данные из стейна, пропсы
-let mapStateToProps = (state: ReduxStateType): mapStateToPropsType  => {
+let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => {
     return {
         usersPage: state.usersPage,
         pageSize: state.usersPage.pageSize,
@@ -38,6 +38,7 @@ type mapDispatchToPropsType = {
     unfollow: (userId: number) => void
     setUsers: (users: Array<UsersPropsType>) => void
     setCurrentPage: (pageNumber: number) => void
+    setUsersTotalCount: (totalCount: number) => void
 }
 
 //колбеки
@@ -54,6 +55,9 @@ let mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => {
         },
         setCurrentPage: (pageNumber: number) => {
             dispatch(setCurrentPageAC(pageNumber))
+        },
+        setUsersTotalCount: (totalCount: number) => {
+            dispatch(setUsersTotalCountAC(totalCount))
         }
     }
 }
