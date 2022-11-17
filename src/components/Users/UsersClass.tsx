@@ -25,7 +25,9 @@ class UsersAPIComponent extends React.Component <NewUserPropsType, UsersMaxProps
 
 
         return <UsersFunc totalUsersCount={this.props.totalUsersCount} pageSize={this.props.pageSize}
-                          currentPage={this.props.currentPage} onPageChange={this.onPageChange} users={this.props.usersPage.users}/>
+                          currentPage={this.props.currentPage} onPageChange={this.onPageChange}
+                          users={this.props.usersPage.users}
+                          follow={this.props.follow} unfollow={this.props.unfollow}/>
+    }
 }
-
-export default UsersAPIComponent;
+    export default UsersAPIComponent;
