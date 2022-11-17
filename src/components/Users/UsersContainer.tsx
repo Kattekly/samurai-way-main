@@ -10,13 +10,18 @@ export type NewUserPropsType = mapStateToPropsType & mapDispatchToPropsType
 
 type mapStateToPropsType = {
     usersPage: UsersMaxPropsType
+    pageSize: number
+    totalUsersCount: number
+    currentPage: number
 }
 
 //данные из стейна, пропсы
 let mapStateToProps = (state: ReduxStateType): mapStateToPropsType  => {
     return {
         usersPage: state.usersPage,
-        pageSize: state.usersPage.pageSize
+        pageSize: state.usersPage.pageSize,
+        totalUsersCount: state.usersPage.totalUsersCount,
+        currentPage: state.usersPage.currentPage
     }
 }
 

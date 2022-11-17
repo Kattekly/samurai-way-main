@@ -5,6 +5,9 @@ const SET_USERS = "SET_USERS"
 
 export type UsersMaxPropsType = {
     users: Array<UsersPropsType>
+    pageSize: number
+    totalUsersCount: number
+    currentPage: number
 }
 
 export type UsersPropsType = {
@@ -29,7 +32,8 @@ type LocationPropsType = {
 let initialState: UsersMaxPropsType = {
     users: [ ],
     pageSize: 5,
-    totalUsersCount: 0
+    totalUsersCount: 20,
+    currentPage: 1
 }
 
 const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {

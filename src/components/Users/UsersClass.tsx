@@ -13,13 +13,20 @@ class Users extends React.Component <NewUserPropsType, UsersMaxPropsType> {
     }
 
     render() {
+
+        let pagesCount = this.props.totalUsersCount / this.props.pageSize
+        let pages = [];
+        for (let i=1; i<=pagesCount; i++) {
+            pages.push(i)
+        }
+
         return <div className={s.usersItems}>
             <div>
-                <span className={s.selectedPage}>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
+                {pages.map(p => {
+
+                        return <span className={String(this.props.currentPage === p && s.selectedPage)}>{p}</span>
+
+                })}
             </div>
             {
                 this.props.usersPage.users.map(el => <div key={el.id}>
