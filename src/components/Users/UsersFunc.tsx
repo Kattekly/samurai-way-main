@@ -1,8 +1,20 @@
 import React from 'react';
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
+import {UsersPropsType} from "../../Redux/User-reduser";
 
-const UsersFunc = () => {
+type UsersFuncPropsType = {
+    totalUsersCount: number
+    pageSize: number
+    currentPage: number
+    onPageChange: (pageNumber: number) => void
+    users: Array<UsersPropsType>
+    follow: (userId: number) => void
+    unfollow: (userId: number) => void
+}
+
+
+const UsersFunc = (props: UsersFuncPropsType) => {
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
     let pages = [];
@@ -14,12 +26,12 @@ const UsersFunc = () => {
         <div>
             {pages.map(p => {
                 return <span className={String(props.currentPage === p && s.selectedPage)} onClick={() => {
-                    onPageChange(p)
+                    props.onPageChange(p)
                 }}>{p}</span>
             })}
         </div>
         {
-            props.usersPage.users.map(el => <div key={el.id}>
+            props.users.map(el => <div key={el.id}>
                 <span>
                     <div>
                         <img src={el.photos.small !== null ? el.photos.small : userPhoto}/>
