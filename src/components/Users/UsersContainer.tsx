@@ -12,6 +12,7 @@ import {
 import {ReduxStateType} from "../../Redux/Redux-Stor";
 import {Dispatch} from "redux";
 import UsersClass from "./UsersClass";
+import UsersAPIComponent from "./UsersClass";
 
 export type NewUserPropsType = mapStateToPropsType & mapDispatchToPropsType
 
@@ -62,6 +63,6 @@ let mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => {
     }
 }
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersClass)
+const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent)
 
 export default UsersContainer;
