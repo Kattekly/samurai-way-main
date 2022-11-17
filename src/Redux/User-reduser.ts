@@ -32,7 +32,7 @@ type LocationPropsType = {
 let initialState: UsersMaxPropsType = {
     users: [ ],
     pageSize: 5,
-    totalUsersCount: 20,
+    totalUsersCount: 19,
     currentPage: 1
 }
 

@@ -7,16 +7,16 @@ import {UsersMaxPropsType} from "../../Redux/User-reduser";
 
 class Users extends React.Component <NewUserPropsType, UsersMaxPropsType> {
     componentDidMount() {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
             this.props.setUsers(response.data.items)
         })
     }
 
     render() {
 
-        let pagesCount = this.props.totalUsersCount / this.props.pageSize
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
         let pages = [];
-        for (let i=1; i<=pagesCount; i++) {
+        for (let i = 1; i <= pagesCount; i++) {
             pages.push(i)
         }
 
@@ -24,7 +24,7 @@ class Users extends React.Component <NewUserPropsType, UsersMaxPropsType> {
             <div>
                 {pages.map(p => {
 
-                        return <span className={String(this.props.currentPage === p && s.selectedPage)}>{p}</span>
+                    return <span className={String(this.props.currentPage === p && s.selectedPage)}>{p}</span>
 
                 })}
             </div>
