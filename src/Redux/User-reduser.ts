@@ -79,5 +79,6 @@ const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {
 export const followAC = (userId: number) => ({type: FOLLOW, userId})
 export const unfollowAC = (userId: number) => ({type: UNFOLLOW, userId})
 export const setUsersAC = (users: Array<UsersPropsType>) => ({type: SET_USERS, users})
+export const  setCurrentPageAC = (currentPage: number) => ({type: SET_CURRENT_PAGE, currentPage})
 
 export default usersReduser;

@@ -23,9 +23,7 @@ class Users extends React.Component <NewUserPropsType, UsersMaxPropsType> {
         return <div className={s.usersItems}>
             <div>
                 {pages.map(p => {
-
-                    return <span className={String(this.props.currentPage === p && s.selectedPage)}>{p}</span>
-
+                    return <span className={String(this.props.currentPage === p && s.selectedPage)} onClick={() => {this.props.setCurrentPage(p) }}>{p}</span>
                 })}
             </div>
             {

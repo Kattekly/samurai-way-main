@@ -1,7 +1,14 @@
 import React from 'react';
 import {connect} from "react-redux";
 import Users from "./Users";
-import {followAC, setUsersAC, unfollowAC, UsersMaxPropsType, UsersPropsType} from "../../Redux/User-reduser";
+import {
+    followAC,
+    setCurrentPageAC,
+    setUsersAC,
+    unfollowAC,
+    UsersMaxPropsType,
+    UsersPropsType
+} from "../../Redux/User-reduser";
 import {ReduxStateType} from "../../Redux/Redux-Stor";
 import {Dispatch} from "redux";
 import UsersClass from "./UsersClass";
@@ -30,6 +37,7 @@ type mapDispatchToPropsType = {
     follow: (userId: number) => void
     unfollow: (userId: number) => void
     setUsers: (users: Array<UsersPropsType>) => void
+    setCurrentPage: (pageNumber: number) => void
 }
 
 //колбеки
@@ -43,6 +51,9 @@ let mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => {
         },
         setUsers: (users: Array<UsersPropsType>) => {
             dispatch(setUsersAC(users))
+        },
+        setCurrentPage: (pageNumber: number) => {
+            dispatch(setCurrentPageAC(pageNumber))
         }
     }
 }
