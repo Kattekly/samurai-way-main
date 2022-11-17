@@ -11,7 +11,7 @@ import {ActionTypes, DialogType, PostType, RootStateType, StorePropsType} from "
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import {Store} from "redux";
 import {ReduxStateType} from "./Redux/Redux-Stor";
-import Users from "./components/Users/Users";
+import Users from "./components/Users/UsersOld";
 import UsersContainer from "./components/Users/UsersContainer";
 
 export type AppPropsType = {

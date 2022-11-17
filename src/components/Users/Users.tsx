@@ -1,33 +1,43 @@
 import React from 'react';
-import s from './Users.module.css'
-import {NewUserPropsType} from "./UsersContainer";
-import axios from "axios";
-import userPhoto from '../../assets/images/user.png'
+import s from "./Users.module.css";
+import userPhoto from "../../assets/images/user.png";
+import {UsersPropsType} from "../../Redux/User-reduser";
 
-const Users = (props: NewUserPropsType) => {
+type UsersFuncPropsType = {
+    totalUsersCount: number
+    pageSize: number
+    currentPage: number
+    onPageChange: (pageNumber: number) => void
+    users: Array<UsersPropsType>
+    follow: (userId: number) => void
+    unfollow: (userId: number) => void
+}
 
-   /* let getUsers = () => {
-        if (props.usersPage.users.length === 0) {
-            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-                debugger
-                props.setUsers(response.data.items)
-            })
-        }
-    }*/
-    /*<button onClick={getUsers}>Get Users</button>*/
 
-    return (
+const Users = (props: UsersFuncPropsType) => {
 
-        <div className={s.usersItems}>
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
+    let pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i)
+    }
 
-            {
-                props.usersPage.users.map(el => <div key={el.id}>
+    return <div className={s.usersItems}>
+        <div>
+            {pages.map(p => {
+                return <span className={String(props.currentPage === p && s.selectedPage)} onClick={() => {
+                    props.onPageChange(p)
+                }}>{p}</span>
+            })}
+        </div>
+        {
+            props.users.map(el => <div key={el.id}>
                 <span>
                     <div>
                         <img src={el.photos.small !== null ? el.photos.small : userPhoto}/>
                     </div>
                 </span>
-                    <span>
+                <span>
                     <div>
                         {el.followed ? <button onClick={() => {
                                 props.unfollow(el.id)
@@ -38,7 +48,7 @@ const Users = (props: NewUserPropsType) => {
 
                     </div>
                 </span>
-                    <span>
+                <span>
     <span>
         <div>{el.name}</div>
         <div>{el.status}</div>
@@ -48,10 +58,9 @@ const Users = (props: NewUserPropsType) => {
         <div>{"el.location.city"}</div>
     </span>
 </span>
-                </div>)
-            }
-        </div>
-    );
+            </div>)
+        }
+    </div>
 };
 
 export default Users;
