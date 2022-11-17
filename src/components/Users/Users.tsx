@@ -19,7 +19,6 @@ const Users = (props: NewUserPropsType) => {
     return (
 
         <div className={s.usersItems}>
-            <div></div>
 
             {
                 props.usersPage.users.map(el => <div key={el.id}>

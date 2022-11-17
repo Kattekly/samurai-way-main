@@ -15,7 +15,8 @@ type mapStateToPropsType = {
 //данные из стейна, пропсы
 let mapStateToProps = (state: ReduxStateType): mapStateToPropsType  => {
     return {
-        usersPage: state.usersPage
+        usersPage: state.usersPage,
+        pageSize: state.usersPage.pageSize
     }
 }
 

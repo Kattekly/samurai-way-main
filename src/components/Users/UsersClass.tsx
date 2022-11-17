@@ -14,6 +14,13 @@ class Users extends React.Component <NewUserPropsType, UsersMaxPropsType> {
 
     render() {
         return <div className={s.usersItems}>
+            <div>
+                <span className={s.selectedPage}>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+            </div>
             {
                 this.props.usersPage.users.map(el => <div key={el.id}>
                 <span>
