@@ -62,7 +62,7 @@ const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {
         case SET_USERS: {
             return {
                 ...state,
-                users: [...state.users, ...action.users]
+                users: action.users
             }
         }
         case SET_CURRENT_PAGE: {

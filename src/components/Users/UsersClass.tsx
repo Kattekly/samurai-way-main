@@ -14,6 +14,9 @@ class Users extends React.Component <NewUserPropsType, UsersMaxPropsType> {
 
     onPageChange = (pageNumber: number) => {
         this.props.setCurrentPage(pageNumber)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
+            this.props.setUsers(response.data.items)
+        })
     }
 
     render() {
@@ -27,7 +30,9 @@ class Users extends React.Component <NewUserPropsType, UsersMaxPropsType> {
         return <div className={s.usersItems}>
             <div>
                 {pages.map(p => {
-                    return <span className={String(this.props.currentPage === p && s.selectedPage)} onClick={() => {this.onPageChange(p)}}>{p}</span>
+                    return <span className={String(this.props.currentPage === p && s.selectedPage)} onClick={() => {
+                        this.onPageChange(p)
+                    }}>{p}</span>
                 })}
             </div>
             {
