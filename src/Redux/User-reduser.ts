@@ -97,6 +97,6 @@ export const unfollowAC = (userId: number) => ({type: UNFOLLOW, userId})
 export const setUsersAC = (users: Array<UsersPropsType>) => ({type: SET_USERS, users})
 export const setCurrentPageAC = (currentPage: number) => ({type: SET_CURRENT_PAGE, currentPage})
 export const setUsersTotalCountAC = (totalCount: number) => ({type: SET_TOTAL_USERS_COUNT, totalCount})
-export const setIsFetchingAC = (isFetching: boolean) => ({type: TOGGLE_IS_FETCHING, isFetching})
+export const toggleIsFetchingAC = (isFetching: boolean) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export default usersReduser;

@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {
     followAC,
     setCurrentPageAC,
-    setUsersAC, setUsersTotalCountAC,
+    setUsersAC, setUsersTotalCountAC, toggleIsFetchingAC,
     unfollowAC,
     UsersMaxPropsType,
     UsersPropsType
@@ -70,6 +70,7 @@ type mapDispatchToPropsType = {
     setUsers: (users: Array<UsersPropsType>) => void
     setCurrentPage: (pageNumber: number) => void
     setUsersTotalCount: (totalCount: number) => void
+    toggleIsFetching: (isFetching: boolean) => void
 }
 
 //колбеки
@@ -89,6 +90,9 @@ let mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => {
         },
         setUsersTotalCount: (totalCount: number) => {
             dispatch(setUsersTotalCountAC(totalCount))
+        },
+        toggleIsFetching: (isFetching: boolean) => {
+            dispatch(toggleIsFetchingAC(isFetching))
         }
     }
 }
