@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
-    followAC,
-    setCurrentPageAC,
-    setUsersAC, setUsersTotalCountAC, toggleIsFetchingAC,
-    unfollowAC,
+    follow,
+    setCurrentPage,
+    setUsers, setUsersTotalCount, toggleIsFetching,
+    unfollow,
     UsersMaxPropsType,
     UsersPropsType
 } from "../../Redux/User-reduser";
@@ -99,13 +99,6 @@ type mapDispatchToPropsType = {
 //             dispatch(toggleIsFetchingAC(isFetching))
 //         }
 //     }
-// }
+// } //заменяется на то, что в экспорте
 
-export default connect(mapStateToProps, {
-    follow: followAC,
-    unfollow: unfollowAC,
-    setUsers: setUsersAC,
-    setCurrentPage: setCurrentPageAC,
-    setUsersTotalCount: setUsersTotalCountAC,
-    toggleIsFetching: toggleIsFetchingAC
-})(UsersContainer)
+export default connect(mapStateToProps, {follow, unfollow, setUsers, setCurrentPage, setUsersTotalCount, toggleIsFetching})(UsersContainer)

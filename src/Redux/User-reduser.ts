@@ -92,11 +92,11 @@ const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {
     }
 };
 
-export const followAC = (userId: number) => ({type: FOLLOW, userId})
-export const unfollowAC = (userId: number) => ({type: UNFOLLOW, userId})
-export const setUsersAC = (users: Array<UsersPropsType>) => ({type: SET_USERS, users})
-export const setCurrentPageAC = (currentPage: number) => ({type: SET_CURRENT_PAGE, currentPage})
-export const setUsersTotalCountAC = (totalCount: number) => ({type: SET_TOTAL_USERS_COUNT, totalCount})
-export const toggleIsFetchingAC = (isFetching: boolean) => ({type: TOGGLE_IS_FETCHING, isFetching})
+export const follow = (userId: number) => ({type: FOLLOW, userId})
+export const unfollow = (userId: number) => ({type: UNFOLLOW, userId})
+export const setUsers = (users: Array<UsersPropsType>) => ({type: SET_USERS, users})
+export const setCurrentPage = (currentPage: number) => ({type: SET_CURRENT_PAGE, currentPage})
+export const setUsersTotalCount = (totalCount: number) => ({type: SET_TOTAL_USERS_COUNT, totalCount})
+export const toggleIsFetching = (isFetching: boolean) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export default usersReduser;
