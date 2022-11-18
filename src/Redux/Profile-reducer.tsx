@@ -4,12 +4,39 @@ const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
 
+
+export type ProfileUserPropsType = {
+    userId: number
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    fullName: string
+    contacts: ContactPropsType
+    photos: photosType
+}
+
+type ContactPropsType = {
+    github: string
+    vk: string
+    facebook: string
+    instagram: string
+    twitter: string
+    website: string
+    youtube: string
+    mainLink: string
+}
+
+type photosType = {
+    small: string
+    large: string
+}
+
 let initialState: ProfilePageType  = {
     posts: [
         {id: 1, message: "Hi, how are yo?", like: 15},
         {id: 2, message: "It's my first post", like: 20}
     ],
-    newPostText: ''
+    newPostText: '',
+    profile: null
 }
 
 export const profileReducer = (state= initialState, action: any) => {
@@ -60,4 +87,4 @@ export  const updateNewPostActionCreator = (text: string) => {
         newText: text
     }  as const
 }
-export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+export const setUserProfile = (profile: null) => ({type: SET_USER_PROFILE, profile})

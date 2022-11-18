@@ -17,7 +17,6 @@ import {Provider} from "react-redux";
         document.getElementById('root')
     );
 
-
 // store.subscribe(rerenderEntireTree)
 
 /*rerenderEntireTree()*/

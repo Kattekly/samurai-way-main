@@ -6,19 +6,20 @@ import {AppPropsType, MessageType} from "../../App";
 import MyPostsContainer from "./My posts/MyPostsContainer";
 import {Store} from "redux";
 import {ReduxStateType} from "../../Redux/Redux-Stor";
-import {ActionTypes} from "../../Redux/State";
+import {ActionTypes, ProfilePageType} from "../../Redux/State";
+import {ProfileUserPropsType} from "../../Redux/Profile-reducer";
 
 
 type ProfileNewType = {
-    store: Store<ReduxStateType, ActionTypes>
+    profile: ProfileUserPropsType
 }
 
-const Profile = () => {
+const Profile = (props: ProfileNewType) => {
 
 
     return (
         <div>
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile}/>
             <MyPostsContainer/>
         </div>
     );

@@ -157,6 +157,7 @@ export type ProfilePageType = {
     addPost?: (newMessage: string) => void
     newPostText: string
     updateNewPostText?: (newText: string) => void
+    profile?: null
 }
 
 export type DialogsDataType = {
