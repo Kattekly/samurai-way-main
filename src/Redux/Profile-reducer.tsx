@@ -87,4 +87,4 @@ export  const updateNewPostActionCreator = (text: string) => {
         newText: text
     }  as const
 }
-export const setUserProfile = (profile: null) => ({type: SET_USER_PROFILE, profile})
+export const setUserProfile = (profile: ProfileUserPropsType) => ({type: SET_USER_PROFILE, profile})
