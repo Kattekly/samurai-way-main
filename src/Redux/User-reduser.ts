@@ -37,7 +37,7 @@ let initialState: UsersMaxPropsType = {
     pageSize: 100,
     totalUsersCount: 0,
     currentPage: 1,
-    isFetching: false
+    isFetching: true
 }
 
 const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {
