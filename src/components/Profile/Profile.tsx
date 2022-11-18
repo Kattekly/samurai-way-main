@@ -19,12 +19,7 @@ const Profile = () => {
     return (
         <div>
             <ProfileInfo/>
-            <MyPostsContainer
-                // store={props.store}
-                /*posts={props.posts}
-                newPostText={props.newPostText}
-                dispatch={props.dispatch}*/
-            />
+            <MyPostsContainer/>
         </div>
     );
 };
