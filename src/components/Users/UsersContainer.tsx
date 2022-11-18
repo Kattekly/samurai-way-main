@@ -13,6 +13,7 @@ import {Dispatch} from "redux";
 import axios from "axios";
 import Users from "./Users";
 import preloader5 from "./../../assets/images/preloader5.gif"
+import Preloader from "../common/Preloader/Preloader";
 
 export type NewUserPropsType = mapStateToPropsType & mapDispatchToPropsType
 
@@ -47,7 +48,7 @@ class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsTyp
 
 
         return <>
-            {this.props.isFetching ? <img src={preloader5}/> : null}
+            {this.props.isFetching ? <Preloader/> : null}
             <Users totalUsersCount={this.props.totalUsersCount} pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage} onPageChange={this.onPageChange}
                    users={this.props.usersPage.users}
