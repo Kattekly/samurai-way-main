@@ -9,10 +9,8 @@ import {
     UsersPropsType
 } from "../../Redux/User-reduser";
 import {ReduxStateType} from "../../Redux/Redux-Stor";
-import {Dispatch} from "redux";
 import axios from "axios";
 import Users from "./Users";
-import preloader5 from "./../../assets/images/preloader5.gif"
 import Preloader from "../common/Preloader/Preloader";
 
 export type NewUserPropsType = mapStateToPropsType & mapDispatchToPropsType
