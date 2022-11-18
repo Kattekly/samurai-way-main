@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './ProfileInfo.module.css'
-import {ProfilePageType} from "../../../../Redux/State";
 import Preloader from "../../../common/Preloader/Preloader";
 import {ProfileUserPropsType} from "../../../../Redux/Profile-reducer";
 
