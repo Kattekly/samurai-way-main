@@ -20,6 +20,7 @@ type mapStateToPropsType = {
     pageSize: number
     totalUsersCount: number
     currentPage: number
+    isFetching: boolean
 }
 
 class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsType> {
@@ -53,7 +54,8 @@ let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => {
         usersPage: state.usersPage,
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage
+        currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching
     }
 }
 

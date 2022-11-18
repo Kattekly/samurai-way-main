@@ -10,6 +10,7 @@ export type UsersMaxPropsType = {
     pageSize: number
     totalUsersCount: number
     currentPage: number
+    isFetching: boolean
 }
 
 export type UsersPropsType = {
@@ -35,7 +36,8 @@ let initialState: UsersMaxPropsType = {
     users: [],
     pageSize: 100,
     totalUsersCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: false
 }
 
 const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {
