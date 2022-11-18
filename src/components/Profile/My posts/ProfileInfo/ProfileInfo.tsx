@@ -20,10 +20,12 @@ const ProfileInfo = (props: ProfileInfoPropsType) => {
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large}/>
                 {props.profile.fullName}
+                {props.profile.lookingForAJobDescription}
                 Ava + Dis
             </div>
         </div>
     )
 };
+
 
 export default ProfileInfo;
