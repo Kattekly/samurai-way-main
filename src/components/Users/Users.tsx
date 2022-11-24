@@ -3,7 +3,7 @@ import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import {UsersPropsType} from "../../Redux/User-reduser";
 import {NavLink} from "react-router-dom";
-import {deleteUnfollow, postFollow} from "../../api/Api";
+import {FollowAPI, UnfollowAPI} from "../../api/Api";
 
 type UsersFuncPropsType = {
     totalUsersCount: number
@@ -48,7 +48,7 @@ const Users = (props: UsersFuncPropsType) => {
                     <div>
                         {el.followed ? <button onClick={() => {
 
-                                deleteUnfollow(el.id).then(data => {
+                                UnfollowAPI.deleteUnfollow(el.id).then(data => {
                                     if (data.resultCode == 0) {
                                         props.unfollow(el.id)
                                     }
@@ -58,7 +58,7 @@ const Users = (props: UsersFuncPropsType) => {
 
                             : <button onClick={() => {
 
-                                postFollow(el.id).then(data => {
+                                FollowAPI.postFollow(el.id).then(data => {
                                     if (data.resultCode == 0) {
                                         props.follow(el.id)
                                     }

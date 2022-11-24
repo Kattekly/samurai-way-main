@@ -12,7 +12,7 @@ import {ReduxStateType} from "../../Redux/Redux-Stor";
 import axios from "axios";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
-import {getUsers} from "../../api/Api";
+import {userAPI} from "../../api/Api";
 
 export type NewUserPropsType = mapStateToPropsType & mapDispatchToPropsType
 
@@ -28,7 +28,7 @@ class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsTyp
     componentDidMount() {
         this.props.toggleIsFetching(true)
 
-        getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+        userAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
             this.props.toggleIsFetching(false)
             this.props.setUsers(data.items)
             this.props.setUsersTotalCount(data.totalCount)
@@ -39,7 +39,7 @@ class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsTyp
         this.props.setCurrentPage(pageNumber)
         this.props.toggleIsFetching(true)
 
-        getUsers(pageNumber, this.props.pageSize)
+        userAPI.getUsers(pageNumber, this.props.pageSize)
             .then(data => {
                 this.props.toggleIsFetching(false)
                 this.props.setUsers(data.items)
