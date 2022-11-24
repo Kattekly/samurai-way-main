@@ -12,6 +12,7 @@ import {ReduxStateType} from "../../Redux/Redux-Stor";
 import axios from "axios";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
+import {getUsers} from "../../api/Api";
 
 export type NewUserPropsType = mapStateToPropsType & mapDispatchToPropsType
 
@@ -26,10 +27,8 @@ type mapStateToPropsType = {
 class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsType> {
     componentDidMount() {
         this.props.toggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
-            {
-                withCredentials: true
-            }).then(response => {
+
+        getUsers().then(response => {
             this.props.toggleIsFetching(false)
             this.props.setUsers(response.data.items)
             this.props.setUsersTotalCount(response.data.totalCount)
@@ -105,4 +104,11 @@ type mapDispatchToPropsType = {
 //     }
 // } //заменяется на то, что в экспорте
 
-export default connect(mapStateToProps, {follow, unfollow, setUsers, setCurrentPage, setUsersTotalCount, toggleIsFetching})(UsersContainer)
+export default connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setUsersTotalCount,
+    toggleIsFetching
+})(UsersContainer)
