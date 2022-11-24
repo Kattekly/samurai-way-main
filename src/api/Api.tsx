@@ -7,7 +7,7 @@ export const getUsers = (currentPage: number, pageSize: number) => {
         }).then(response => response.data)
 }
 
-export const getUnfollow = (id: number) => {
+export const deleteUnfollow = (id: number) => {
     return axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, {
         withCredentials: true,
         headers: {
@@ -16,7 +16,7 @@ export const getUnfollow = (id: number) => {
     }).then(response => response.data)
 }
 
-export const getFollow = (id: number) => {
+export const postFollow = (id: number) => {
     return axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, {}, {
         withCredentials: true,
         headers: {
@@ -26,7 +26,7 @@ export const getFollow = (id: number) => {
 }
 
 export const getHeader = () => {
-   return axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
+    return axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
         withCredentials: true
     }).then(response => response.data)
 }
