@@ -10,6 +10,7 @@ import {ActionTypes, PostType} from "./Redux/State";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 export type AppPropsType = {
     addPost?: (newMessage: string) => void
@@ -32,7 +33,7 @@ const App = (props: AppPropsType) => {
 
     return (
         <div className="app-wrapper">
-            <Header/>
+            <HeaderContainer/>
             <Navbar/>
             <div className='app-wrapper-content'>
                 <Route path="/dialogs" render={() => <DialogsContainer/>}/>
