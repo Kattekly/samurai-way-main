@@ -1,25 +1,30 @@
-
+const SET_USER_DATA = 'SET_USER_DATA'
 
 type initialStatePropsType = {
-    id: number
-    email: string
-    login: string
+    id: number | null
+    email: string | null
+    login: string | null
     isFetching: boolean
 }
 
 let initialState: initialStatePropsType = {
-    id: 2,
-    email: 'blabla@bla.bla',
-    login: '',
-    isFetching: true
+    id: null,
+    email: null,
+    login: null,
+    isFetching: false
 }
 
-import React from 'react';
 
-const AuthReduser = () => {
-    return {
-
+export const AuthReduser = (state = initialState, action: any) => {
+    switch (action.type) {
+        case SET_USER_DATA:
+            return {
+                ...state,
+                ...action.data
+            }
+        default:
+            return state
     }
 };
 
-export default AuthReduser;
+export const setUserData = (id: number | null, email: string | null, login: string | null) => ({type: SET_USER_DATA, data: {id, email, login}})
