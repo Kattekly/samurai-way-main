@@ -3,7 +3,6 @@ import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import {UsersPropsType} from "../../Redux/User-reduser";
 import {NavLink} from "react-router-dom";
-import axios from "axios";
 import {getFollow, getUnfollow} from "../../api/Api";
 
 type UsersFuncPropsType = {
