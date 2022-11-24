@@ -25,7 +25,6 @@ export const UnfollowAPI = {
     }
 }
 
-
 export const FollowAPI = {
     postFollow(id: number) {
         return instance.post(`follow/${id}`, {}).then(response => {
@@ -33,7 +32,6 @@ export const FollowAPI = {
         })
     }
 }
-
 
 export const MyLoginAPI = {
     getHeader() {
