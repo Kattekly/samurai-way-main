@@ -29,7 +29,6 @@ class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsTyp
         this.props.toggleIsFetching(true)
 
         getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-            debugger
             this.props.toggleIsFetching(false)
             this.props.setUsers(data.items)
             this.props.setUsersTotalCount(data.totalCount)

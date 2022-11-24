@@ -4,6 +4,7 @@ import userPhoto from "../../assets/images/user.png";
 import {UsersPropsType} from "../../Redux/User-reduser";
 import {NavLink} from "react-router-dom";
 import axios from "axios";
+import {getFollow, getUnfollow} from "../../api/Api";
 
 type UsersFuncPropsType = {
     totalUsersCount: number
@@ -48,13 +49,8 @@ const Users = (props: UsersFuncPropsType) => {
                     <div>
                         {el.followed ? <button onClick={() => {
 
-                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`, {
-                                    withCredentials: true,
-                                    headers: {
-                                        "API-KEY": "cef20686-9f7c-4e70-b5ff-96c74b679419"
-                                    }
-                                    }).then(response => {
-                                    if (response.data.resultCode == 0) {
+                                getUnfollow(el.id).then(data => {
+                                    if (data.resultCode == 0) {
                                         props.unfollow(el.id)
                                     }
                                 })
@@ -63,13 +59,8 @@ const Users = (props: UsersFuncPropsType) => {
 
                             : <button onClick={() => {
 
-                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`, {},{
-                                    withCredentials: true,
-                                    headers: {
-                                        "API-KEY": "cef20686-9f7c-4e70-b5ff-96c74b679419"
-                                    }
-                                }).then(response => {
-                                    if (response.data.resultCode == 0) {
+                                getFollow(el.id).then(data => {
+                                    if (data.resultCode == 0) {
                                         props.follow(el.id)
                                     }
                                 })
