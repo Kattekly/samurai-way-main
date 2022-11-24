@@ -13,8 +13,8 @@ type UsersFuncPropsType = {
     users: Array<UsersPropsType>
     follow: (userId: number) => void
     unfollow: (userId: number) => void
-    followingInProgress: []
-    toggleFollowingProgress: (isFetching: boolean) => void
+    followingInProgress: Array<number>
+    toggleFollowingProgress: (isFetching: boolean, id: number) => void
 }
 
 
@@ -47,24 +47,23 @@ const Users = (props: UsersFuncPropsType) => {
                 <span>
                     <div>
                         {el.followed ? <button disabled={props.followingInProgress.some(id => id == el.id)} onClick={() => {
-                            debugger
-                                props.toggleFollowingProgress(true)
+                                props.toggleFollowingProgress(true, el.id)
                                 UnfollowAPI.deleteUnfollow(el.id).then(data => {
                                     if (data.resultCode == 0) {
                                         props.unfollow(el.id)
                                     }
-                                    props.toggleFollowingProgress(false)
+                                    props.toggleFollowingProgress(false, el.id)
                                 })
 
                             }}>Unfollow</button>
 
                             : <button disabled={props.followingInProgress.some(id => id == el.id)}  onClick={() => {
-                                props.toggleFollowingProgress(true)
+                                props.toggleFollowingProgress(true, el.id)
                                 FollowAPI.postFollow(el.id).then(data => {
                                     if (data.resultCode == 0) {
                                         props.follow(el.id)
                                     }
-                                    props.toggleFollowingProgress(false)
+                                    props.toggleFollowingProgress(false, el.id)
                                 })
                             }}>Follow</button>}
 

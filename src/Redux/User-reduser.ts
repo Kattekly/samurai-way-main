@@ -13,7 +13,7 @@ export type UsersMaxPropsType = {
     totalUsersCount: number
     currentPage: number
     isFetching: boolean
-    followingInProgress: []
+    followingInProgress: Array<number>
 }
 
 export type UsersPropsType = {
@@ -93,7 +93,9 @@ const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {
         case TOGGLE_IS_FOLLOWING_PROGRESS: {
             return {
                 ...state,
-                followingInProgress: [...state.followingInProgress.filter()]
+                followingInProgress: action.isFetching
+                    ? [...state.followingInProgress, action.userId]
+                    : [state.followingInProgress.filter(id => id != action.userId)]
             }
         }
         default:
@@ -107,6 +109,6 @@ export const setUsers = (users: Array<UsersPropsType>) => ({type: SET_USERS, use
 export const setCurrentPage = (currentPage: number) => ({type: SET_CURRENT_PAGE, currentPage})
 export const setUsersTotalCount = (totalCount: number) => ({type: SET_TOTAL_USERS_COUNT, totalCount})
 export const toggleIsFetching = (isFetching: boolean) => ({type: TOGGLE_IS_FETCHING, isFetching})
-export const toggleFollowingProgress = (isFetching: boolean) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching})
+export const toggleFollowingProgress = (isFetching: boolean, userId: number) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId})
 
 export default usersReduser;
