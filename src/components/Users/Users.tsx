@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
-import {UsersPropsType} from "../../Redux/User-reduser";
+import { UsersPropsType} from "../../Redux/User-reduser";
 import {NavLink} from "react-router-dom";
 import {FollowAPI, UnfollowAPI} from "../../api/Api";
 
@@ -13,6 +13,7 @@ type UsersFuncPropsType = {
     users: Array<UsersPropsType>
     follow: (userId: number) => void
     unfollow: (userId: number) => void
+    toggleFollowingProgress: (isFetching: boolean) => void
 }
 
 
@@ -23,8 +24,6 @@ const Users = (props: UsersFuncPropsType) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }
-
-
 
 
     return <div className={s.usersItems}>
@@ -47,21 +46,23 @@ const Users = (props: UsersFuncPropsType) => {
                 <span>
                     <div>
                         {el.followed ? <button onClick={() => {
-
+                                props.toggleFollowingProgress(true)
                                 UnfollowAPI.deleteUnfollow(el.id).then(data => {
                                     if (data.resultCode == 0) {
                                         props.unfollow(el.id)
                                     }
+                                    props.toggleFollowingProgress(false)
                                 })
 
                             }}>Unfollow</button>
 
                             : <button onClick={() => {
-
+                                props.toggleFollowingProgress(true)
                                 FollowAPI.postFollow(el.id).then(data => {
                                     if (data.resultCode == 0) {
                                         props.follow(el.id)
                                     }
+                                    props.toggleFollowingProgress(false)
                                 })
                             }}>Follow</button>}
 
