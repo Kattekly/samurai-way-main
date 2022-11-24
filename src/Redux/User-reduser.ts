@@ -13,7 +13,7 @@ export type UsersMaxPropsType = {
     totalUsersCount: number
     currentPage: number
     isFetching: boolean
-    followingInProgress: boolean
+    followingInProgress: []
 }
 
 export type UsersPropsType = {
@@ -41,7 +41,7 @@ let initialState: UsersMaxPropsType = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: true,
-    followingInProgress: false
+    followingInProgress: []
 }
 
 const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {
@@ -93,7 +93,7 @@ const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {
         case TOGGLE_IS_FOLLOWING_PROGRESS: {
             return {
                 ...state,
-                followingInProgress: action.isFetching
+                followingInProgress: [...state.followingInProgress.filter()]
             }
         }
         default:
