@@ -21,6 +21,7 @@ type mapStateToPropsType = {
     totalUsersCount: number
     currentPage: number
     isFetching: boolean
+    followingInProgress: boolean
 }
 
 class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsType> {
@@ -53,7 +54,8 @@ class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsTyp
             <Users totalUsersCount={this.props.totalUsersCount} pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage} onPageChange={this.onPageChange}
                    users={this.props.usersPage.users}
-                   follow={this.props.follow} unfollow={this.props.unfollow} toggleFollowingProgress={this.props.toggleFollowingProgress}/>
+                   follow={this.props.follow} unfollow={this.props.unfollow} followingInProgress={this.props.followingInProgress}
+                   toggleFollowingProgress={this.props.toggleFollowingProgress} />
         </>
     }
 }
@@ -65,7 +67,8 @@ let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress
     }
 }
 
