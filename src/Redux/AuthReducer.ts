@@ -10,7 +10,7 @@ export type initialStatePropsType = {
     isAuth: boolean
 }
 
-const initialState = {
+const initialState: initialStatePropsType = {
     id: null,
     email: null,
     login: null,
