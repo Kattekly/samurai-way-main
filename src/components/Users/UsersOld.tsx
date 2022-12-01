@@ -3,6 +3,7 @@ import s from './Users.module.css'
 import {NewUserPropsType} from "./UsersContainer";
 import axios from "axios";
 import userPhoto from '../../assets/images/user.png'
+/*
 
 const UsersOld = (props: NewUserPropsType) => {
 
@@ -53,4 +54,4 @@ const UsersOld = (props: NewUserPropsType) => {
     );
 };
 
-export default UsersOld;
+export default UsersOld;*/
