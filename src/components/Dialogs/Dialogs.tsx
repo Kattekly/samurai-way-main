@@ -33,7 +33,7 @@ const Dialogs = (props: DialogNewType) => {
     }
 
 
-   if(props.isAuth == false) return <Redirect to={'/login'}/>
+   if(!props.isAuth) return <Redirect to={'/login'}/>
 
     return (
         <div className={s.dialogs}>
