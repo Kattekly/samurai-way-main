@@ -93,8 +93,8 @@ export  const updateNewPostActionCreator = (text: string) => {
 
 export const getProfileThunk = (userId: string) => {
     return (dispatch: any) => {
-        ProfileAPI.getProfile(userId).then(data => {
-            dispatch(setUserProfile(data))
+        ProfileAPI.getProfile(userId).then(response => {
+            dispatch(setUserProfile(response.data))
         })
     }
 }
