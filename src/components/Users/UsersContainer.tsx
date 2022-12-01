@@ -27,7 +27,7 @@ type mapStateToPropsType = {
 class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsType> {
     componentDidMount() {
 
-        this.props.getUsersThunkCreator()
+        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize)
 
     /*    this.props.toggleIsFetching(true)
 
