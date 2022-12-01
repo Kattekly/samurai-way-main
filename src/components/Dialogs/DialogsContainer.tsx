@@ -4,6 +4,7 @@ import {sendMessageCreator, updateMessageBodyCreator} from "../../Redux/Dialogs-
 import Dialogs from "./Dialogs";
 
 import {connect} from "react-redux";
+import {ReduxStateType} from "../../Redux/Redux-Stor";
 
 /*type DialogNewType = {
     store: Store<ReduxStateType, ActionTypes>
@@ -26,10 +27,11 @@ import {connect} from "react-redux";
 };*/
 
 //данные из стейна, пропсы
-let mapStateToProps = (state: RootStateType) => {
+let mapStateToProps = (state: ReduxStateType) => {
 
     return {
-        profilePage: state.profilePage
+        profilePage: state.profilePage,
+        isAuth: state.auth.isAuth
     }
 }
 

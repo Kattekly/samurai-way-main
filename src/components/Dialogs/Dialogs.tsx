@@ -5,13 +5,17 @@ import Message from "./Message/Message";
 import {ActionTypes, DialogsDataType} from "../../Redux/State";
 import {Store} from "redux";
 import {ReduxStateType} from "../../Redux/Redux-Stor";
+import {Redirect} from "react-router-dom";
 
 type DialogNewType = {
 
     updateMessageBodyCreator: (body: string) => void
     sendMessageCreator: () => void
     profilePage: DialogsDataType
+    isAuth: boolean
 }
+
+
 const Dialogs = (props: DialogNewType) => {
     let state = props.profilePage
     let dialogsElement = state.dialogs.map(d => <DialogItem key={d.id} name={d.name} id={d.id}/>)
@@ -27,6 +31,9 @@ const Dialogs = (props: DialogNewType) => {
         let body = e.target.value
         props.updateMessageBodyCreator(body)
     }
+
+
+   if(props.isAuth == false) return <Redirect to={'/login'}/>
 
     return (
         <div className={s.dialogs}>
