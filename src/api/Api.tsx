@@ -39,3 +39,9 @@ export const MyLoginAPI = {
     }
 }
 
+export const ProfileAPI = {
+    getProfile(userId: string) {
+        return instance.get(`profile/` + userId)
+            .then(response => response.data)
+    }
+}

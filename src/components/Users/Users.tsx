@@ -14,7 +14,7 @@ type UsersFuncPropsType = {
     follow: (userId: number) => void
     unfollow: (userId: number) => void
     followingInProgress: Array<number>
-    toggleFollowingProgress: (isFetching: boolean, id: number) => void
+    // toggleFollowingProgress: (isFetching: boolean, id: number) => void
 }
 
 

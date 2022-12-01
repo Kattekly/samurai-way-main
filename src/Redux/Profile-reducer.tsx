@@ -1,4 +1,6 @@
 import {ActionTypes, ProfilePageType, RootStateType} from "./State";
+import {MyLoginAPI, ProfileAPI} from "../api/Api";
+import {setAuthUserData} from "./AuthReducer";
 
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
@@ -87,4 +89,15 @@ export  const updateNewPostActionCreator = (text: string) => {
         newText: text
     }  as const
 }
+
+
+export const getProfileThunk = (userId: string) => {
+    return (dispatch: any) => {
+        ProfileAPI.getProfile(userId).then(data => {
+            dispatch(setUserProfile(data))
+        })
+    }
+}
+
+
 export const setUserProfile = (profile: ProfileUserPropsType) => ({type: SET_USER_PROFILE, profile})

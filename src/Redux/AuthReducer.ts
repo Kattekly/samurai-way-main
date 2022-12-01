@@ -1,24 +1,7 @@
+import {MyLoginAPI, UnfollowAPI} from "../api/Api";
+import {toggleFollowingProgress, unfollowSuccess} from "./User-reduser";
+
 const SET_USER_DATA = 'SET_USER_DATA'
-
-/*export type dataStatePropsType = {
-    id: number | null
-    email: string | null
-    login: string | null
-}
-
-export type initialStatePropsType = {
-    data: dataStatePropsType
-    isAuth: boolean
-}
-
-let initialState: initialStatePropsType = {
-    data: {
-        id: null,
-        email: null,
-        login: null
-    },
-    isAuth: false
-}*/
 
 export type initialStatePropsType = {
     id: number | null
@@ -52,3 +35,14 @@ export const setAuthUserData = (id: number | null, email: string | null, login: 
     type: SET_USER_DATA,
     data: {id, email, login}
 })
+
+export const getLogin = () => {
+    return (dispatch: any) => {
+        MyLoginAPI.getHeader().then(data => {
+            if (data.resultCode === 0) {
+                let {id, email, login} = data.data
+                dispatch(setAuthUserData(id, email, login));
+            }
+        })
+    }
+}

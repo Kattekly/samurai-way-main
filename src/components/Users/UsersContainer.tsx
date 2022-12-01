@@ -60,7 +60,7 @@ class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsTyp
                    currentPage={this.props.currentPage} onPageChange={this.onPageChange}
                    users={this.props.usersPage.users}
                    follow={this.props.follow} unfollow={this.props.unfollow} followingInProgress={this.props.followingInProgress}
-                   toggleFollowingProgress={this.props.toggleFollowingProgress} />
+                   /*toggleFollowingProgress={this.props.toggleFollowingProgress}*/ />
         </>
     }
 }
