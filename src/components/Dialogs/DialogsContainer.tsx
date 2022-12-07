@@ -33,7 +33,6 @@ let mapStateToProps = (state: ReduxStateType) => {
 
     return {
         profilePage: state.profilePage,
-        isAuth: state.auth.isAuth
     }
 }
 
