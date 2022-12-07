@@ -46,6 +46,11 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
 
 };
 
+
+let AuthRedirectComponent = () => {
+
+}
+
 type mapStateToPropsType = {
     profile: ProfileUserPropsType
     isAuth: boolean
