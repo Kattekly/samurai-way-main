@@ -11,6 +11,7 @@ import {
 import {ReduxStateType} from "../../Redux/Redux-Stor";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
+import withAuthRedirect from "../../hoc/AuthRedirect";
 
 
 export type NewUserPropsType = mapStateToPropsType & mapDispatchToPropsType
@@ -112,10 +113,12 @@ type mapDispatchToPropsType = {
 //     }
 // } //заменяется на то, что в экспорте
 
+let AuthRedirectComponent = withAuthRedirect(UsersContainer)
+
 export default connect(mapStateToProps, {
     follow,
     unfollow,
     setCurrentPage,
     toggleFollowingProgress,
     getUsers
-})(UsersContainer)
+})(AuthRedirectComponent)
