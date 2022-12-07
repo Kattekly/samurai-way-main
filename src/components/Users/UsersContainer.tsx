@@ -30,26 +30,26 @@ class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsTyp
 
         this.props.getUsers(this.props.currentPage, this.props.pageSize)
 
-    /*    this.props.toggleIsFetching(true)
+        /*    this.props.toggleIsFetching(true)
 
-        userAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-            this.props.toggleIsFetching(false)
-            this.props.setUsers(data.items)
-            this.props.setUsersTotalCount(data.totalCount)
-        })*/
+            userAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+                this.props.toggleIsFetching(false)
+                this.props.setUsers(data.items)
+                this.props.setUsersTotalCount(data.totalCount)
+            })*/
     }
 
     onPageChange = (pageNumber: number) => {
         this.props.setCurrentPage(pageNumber)
         this.props.getUsers(pageNumber, this.props.pageSize)
 
-      /*  this.props.toggleIsFetching(true)
+        /*  this.props.toggleIsFetching(true)
 
-        userAPI.getUsers(pageNumber, this.props.pageSize)
-            .then(data => {
-                this.props.toggleIsFetching(false)
-                this.props.setUsers(data.items)
-            })*/
+          userAPI.getUsers(pageNumber, this.props.pageSize)
+              .then(data => {
+                  this.props.toggleIsFetching(false)
+                  this.props.setUsers(data.items)
+              })*/
     }
 
     render() {
@@ -60,8 +60,9 @@ class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsTyp
             <Users totalUsersCount={this.props.totalUsersCount} pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage} onPageChange={this.onPageChange}
                    users={this.props.usersPage.users}
-                   follow={this.props.follow} unfollow={this.props.unfollow} followingInProgress={this.props.followingInProgress}
-                   /*toggleFollowingProgress={this.props.toggleFollowingProgress}*/ />
+                   follow={this.props.follow} unfollow={this.props.unfollow}
+                   followingInProgress={this.props.followingInProgress}
+                /*toggleFollowingProgress={this.props.toggleFollowingProgress}*/ />
         </>
     }
 }
@@ -113,12 +114,11 @@ type mapDispatchToPropsType = {
 //     }
 // } //заменяется на то, что в экспорте
 
-let AuthRedirectComponent = withAuthRedirect(UsersContainer)
 
-export default connect(mapStateToProps, {
+export default withAuthRedirect(connect(mapStateToProps, {
     follow,
     unfollow,
     setCurrentPage,
     toggleFollowingProgress,
     getUsers
-})(AuthRedirectComponent)
+})(UsersContainer))
