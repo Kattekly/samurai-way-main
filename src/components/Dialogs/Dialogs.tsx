@@ -7,7 +7,7 @@ import {Store} from "redux";
 import {ReduxStateType} from "../../Redux/Redux-Stor";
 import {Redirect} from "react-router-dom";
 
-type DialogNewType = {
+export type DialogNewType = {
 
     updateMessageBodyCreator: (body: string) => void
     sendMessageCreator: () => void
