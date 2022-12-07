@@ -50,12 +50,15 @@ let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
 
 
 type mapStateToPropsType = {
-    profile: ProfileUserPropsType
-    isAuth: boolean
+    profile?: ProfileUserPropsType
+    isAuth?: boolean
 }
 
 let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => ({
     profile: state.messagePage.profile,
+})
+
+let mapStateToPropsForRedirect = (state: ReduxStateType): mapStateToPropsType => ({
     isAuth: state.auth.isAuth
 })
 
@@ -64,5 +67,7 @@ type mapDispatchToPropsType = {
 }
 
 let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
+
+
 
 export default connect(mapStateToProps, {getProfileThunk})(WithUrlDataContainerComponent);
