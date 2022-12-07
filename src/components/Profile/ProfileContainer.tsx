@@ -47,20 +47,21 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
 
 //хок
 let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
-AuthRedirectComponent = connect(mapStateToPropsForRedirect)(AuthRedirectComponent)
+/*AuthRedirectComponent = connect(mapStateToPropsForRedirect)(AuthRedirectComponent)*/
 
 export type mapStateToPropsType = {
-    profile?: ProfileUserPropsType
-    isAuth?: boolean
+    profile: ProfileUserPropsType
 }
 
 let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => ({
     profile: state.messagePage.profile,
 })
 
+/*
 let mapStateToPropsForRedirect = (state: ReduxStateType): mapStateToPropsType => ({
     isAuth: state.auth.isAuth
 })
+*/
 
 type mapDispatchToPropsType = {
     getProfileThunk: (userId: string) => void

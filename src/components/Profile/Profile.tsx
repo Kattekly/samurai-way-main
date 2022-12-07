@@ -4,7 +4,7 @@ import MyPostsContainer from "./My posts/MyPostsContainer";
 import {ProfileUserPropsType} from "../../Redux/Profile-reducer";
 
 
-type ProfileNewType = {
+export type ProfileNewType = {
     profile: ProfileUserPropsType
 }
 
