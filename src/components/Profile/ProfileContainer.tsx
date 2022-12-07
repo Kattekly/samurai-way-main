@@ -47,8 +47,8 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
 };
 
 
-let AuthRedirectComponent = () => {
-
+let AuthRedirectComponent = (props: PropsType) => {
+return <ProfileContainer {...props}/>
 }
 
 type mapStateToPropsType = {
