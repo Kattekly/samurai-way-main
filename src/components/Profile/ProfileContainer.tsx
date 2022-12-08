@@ -12,6 +12,10 @@ type PathParamsType = {
     userId: string
 }
 
+type mapDispatchToPropsType = {
+    getProfileThunk: (userId: string) => void
+}
+
 type ProfileContainerPropsType = mapStateToPropsType & mapDispatchToPropsType
 
 type PropsType = RouteComponentProps<PathParamsType> & ProfileContainerPropsType
@@ -51,8 +55,6 @@ let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
 /*AuthRedirectComponent = connect(mapStateToPropsForRedirect)(AuthRedirectComponent)*/
 
 
-compose()()
-
 export type mapStateToPropsType = {
     profile: ProfileUserPropsType
 }
@@ -67,11 +69,12 @@ let mapStateToPropsForRedirect = (state: ReduxStateType): mapStateToPropsType =>
 })
 */
 
-type mapDispatchToPropsType = {
-    getProfileThunk: (userId: string) => void
-}
 
-let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
+// let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
 
 
-export default connect(mapStateToProps, {getProfileThunk})(WithUrlDataContainerComponent);
+export default compose(
+    connect(mapStateToProps, {getProfileThunk}),
+    withRouter,
+    withAuthRedirect
+)(ProfileContainer)
