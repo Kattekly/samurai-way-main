@@ -1,7 +1,7 @@
 import React from 'react';
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getProfileThunk, ProfileUserPropsType} from "../../Redux/Profile-reducer";
+import {getProfileThunk, getStatusThunk, ProfileUserPropsType, updateStatusThunk} from "../../Redux/Profile-reducer";
 import {ReduxStateType} from "../../Redux/Redux-Stor";
 import {ProfilePageType} from "../../Redux/State";
 import {Redirect, RouteComponentProps, withRouter} from "react-router-dom";
@@ -14,7 +14,8 @@ type PathParamsType = {
 
 type mapDispatchToPropsType = {
     getProfileThunk: (userId: string) => void
-    getUserStatus: (userId: string) => void
+    getStatus: (userId: string) => void
+    updateStatusThunk: (status: string) => void
 }
 
 type ProfileContainerPropsType = mapStateToPropsType & mapDispatchToPropsType
@@ -30,7 +31,7 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
         }
 
         this.props.getProfileThunk(userId)
-        this.props.getUserStatus(userId)
+        this.props.getStatus(userId)
 
         /*ProfileAPI.getProfile(userId).then(response => {
             this.props.setUserProfile(response.data)
@@ -45,7 +46,7 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
         /* if (!this.props.isAuth) return <Redirect to={'/login'}/>*/
         return (
             <div>
-                <Profile {...this.props} profile={this.props.profile}/>
+                <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateStatusThunk={this.props.updateStatusThunk}/>
             </div>
         );
     }
@@ -78,7 +79,7 @@ let mapStateToPropsForRedirect = (state: ReduxStateType): mapStateToPropsType =>
 
 
 export default compose<React.ComponentType>(
-    connect(mapStateToProps, {getProfileThunk}),
+    connect(mapStateToProps, {getProfileThunk, getStatusThunk, updateStatusThunk}),
     withRouter,
     withAuthRedirect
 )(ProfileContainer)

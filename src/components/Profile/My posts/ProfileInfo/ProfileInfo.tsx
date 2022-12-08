@@ -6,6 +6,8 @@ import ProfileStatus from "./ProfileStatus";
 
 type ProfileInfoPropsType = {
     profile: ProfileUserPropsType
+    status: string
+    updateStatusThunk: (status: string) => void
 }
 
 const ProfileInfo = (props: ProfileInfoPropsType) => {
