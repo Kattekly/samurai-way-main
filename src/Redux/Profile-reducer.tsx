@@ -69,6 +69,12 @@ export const profileReducer = (state= initialState, action: any) => {
                 newPostText: action.newText
             }
         }
+        case SET_STATUS: {
+            return {
+                ...state,
+                status: action.status
+            }
+        }
         case SET_USER_PROFILE: {
             return {
                 ...state,
@@ -103,3 +109,14 @@ export const getProfileThunk = (userId: string) => {
 
 
 export const setUserProfile = (profile: ProfileUserPropsType) => ({type: SET_USER_PROFILE, profile})
+
+
+export const setStatus = (status: string) => ({type: SET_STATUS, status})
+
+export const getStatusThunk = (userId: string) => {
+    return (dispatch: any) => {
+        ProfileAPI.getStatus(userId).then(response => {
+            dispatch(setStatus(response.data))
+        })
+    }
+}
