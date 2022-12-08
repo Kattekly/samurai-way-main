@@ -6,19 +6,25 @@ type ProfileStatusPropsType = {
 }
 
 class ProfileStatus extends React.Component<ProfileStatusPropsType> {
+    state = {
+        editMode: false
+    }
+
     render() {
 
         return (
             <div>
-                <div>
-                    <span>{this.props.status}</span>
-                </div>
-                <div>
-                    <input value={this.props.status}/>
-                </div>
+                {!this.state.editMode
+                    ? <div>
+                        <span>{this.props.status}</span>
+                    </div>
+                    : <div>
+                        <input value={this.props.status}/>
+                    </div>
+                }
             </div>
         )
     }
-};
+}
 
 export default ProfileStatus;
