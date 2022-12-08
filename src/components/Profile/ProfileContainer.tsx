@@ -14,7 +14,7 @@ type PathParamsType = {
 
 type mapDispatchToPropsType = {
     getProfileThunk: (userId: string) => void
-    getStatus: (userId: string) => void
+    getStatusThunk: (userId: string) => void
     updateStatusThunk: (status: string) => void
 }
 
@@ -31,7 +31,7 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
         }
 
         this.props.getProfileThunk(userId)
-        this.props.getStatus(userId)
+        this.props.getStatusThunk(userId)
 
         /*ProfileAPI.getProfile(userId).then(response => {
             this.props.setUserProfile(response.data)
