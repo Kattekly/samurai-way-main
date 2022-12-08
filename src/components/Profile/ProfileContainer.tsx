@@ -73,7 +73,7 @@ let mapStateToPropsForRedirect = (state: ReduxStateType): mapStateToPropsType =>
 // let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
 
 
-export default compose(
+export default compose<React.ComponentType>(
     connect(mapStateToProps, {getProfileThunk}),
     withRouter,
     withAuthRedirect

@@ -1,11 +1,10 @@
 import React from 'react';
-import {ActionTypes, RootStateType} from "../../Redux/State";
+import {ActionTypes} from "../../Redux/State";
 import {sendMessageCreator, updateMessageBodyCreator} from "../../Redux/Dialogs-reduser";
-import Dialogs, {DialogNewType} from "./Dialogs";
+import Dialogs from "./Dialogs";
 
 import {connect} from "react-redux";
 import {ReduxStateType} from "../../Redux/Redux-Stor";
-import {Redirect} from "react-router-dom";
 import withAuthRedirect from "../../hoc/AuthRedirect";
 import {compose} from "redux";
 
@@ -54,7 +53,7 @@ let mapDispatchToProps = (dispatch: (action: ActionTypes) => void) => {
 
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent)*/
 
-export default compose(
+export default compose<React.ComponentType>(
     connect(mapStateToProps, mapDispatchToProps),
     withAuthRedirect)
 (Dialogs);
