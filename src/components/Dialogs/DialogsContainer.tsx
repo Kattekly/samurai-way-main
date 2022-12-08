@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import {ReduxStateType} from "../../Redux/Redux-Stor";
 import {Redirect} from "react-router-dom";
 import withAuthRedirect from "../../hoc/AuthRedirect";
+import {compose} from "redux";
 
 /*type DialogNewType = {
     store: Store<ReduxStateType, ActionTypes>
@@ -39,13 +40,21 @@ let mapStateToProps = (state: ReduxStateType) => {
 //колбеки
 let mapDispatchToProps = (dispatch: (action: ActionTypes) => void) => {
     return {
-        updateMessageBodyCreator: (body: string) => {dispatch(updateMessageBodyCreator(body))},
-        sendMessageCreator: () => {dispatch(sendMessageCreator())}
+        updateMessageBodyCreator: (body: string) => {
+            dispatch(updateMessageBodyCreator(body))
+        },
+        sendMessageCreator: () => {
+            dispatch(sendMessageCreator())
+        }
     }
 }
 
-let AuthRedirectComponent = withAuthRedirect(Dialogs)
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent)
+/*let AuthRedirectComponent = withAuthRedirect(Dialogs)
 
-export default DialogsContainer;
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent)*/
+
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect)
+(Dialogs);
