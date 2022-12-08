@@ -11,7 +11,10 @@ class ProfileStatus extends React.Component<ProfileStatusPropsType> {
     }
 
     activateEditMode = () => {
-       alert('Yuuuuu')
+        this.setState({
+            editMode: true
+        })
+        this.state.editMode = true
     }
 
     render() {
