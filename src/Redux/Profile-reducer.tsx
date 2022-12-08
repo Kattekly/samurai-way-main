@@ -33,7 +33,7 @@ type photosType = {
     large: string
 }
 
-let initialState: ProfilePageType  = {
+let initialState: ProfilePageType = {
     posts: [
         {id: 1, message: "Hi, how are yo?", like: 15},
         {id: 2, message: "It's my first post", like: 20}
@@ -43,13 +43,13 @@ let initialState: ProfilePageType  = {
     status: ''
 }
 
-export const profileReducer = (state= initialState, action: any) => {
+export const profileReducer = (state = initialState, action: any) => {
 
-   /* let stateCopy = {
-        ...state,
-        posts: [...state.posts] //если убрать, не будет добавлять пустой пост
-    }
-*/
+    /* let stateCopy = {
+         ...state,
+         posts: [...state.posts] //если убрать, не будет добавлять пустой пост
+     }
+ */
     switch (action.type) {
         case ADD_POST: {
             let newPost = {
@@ -91,11 +91,11 @@ export const addPostActionCreator = (postText: string) => ({
     type: "ADD-POST",
     newPostText: postText
 } as const)
-export  const updateNewPostActionCreator = (text: string) => {
+export const updateNewPostActionCreator = (text: string) => {
     return {
         type: 'UPDATE-NEW-POST-TEXT',
         newText: text
-    }  as const
+    } as const
 }
 
 
@@ -117,6 +117,17 @@ export const getStatusThunk = (userId: string) => {
     return (dispatch: any) => {
         ProfileAPI.getStatus(userId).then(response => {
             dispatch(setStatus(response.data))
+        })
+    }
+}
+
+export const updateStatusThunk = (status: string) => {
+    return (dispatch: any) => {
+        ProfileAPI.updateStatus(status)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(setStatus(status))
+                }
         })
     }
 }
