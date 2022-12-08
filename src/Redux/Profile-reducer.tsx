@@ -5,6 +5,7 @@ import {setAuthUserData} from "./AuthReducer";
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
+const SET_STATUS = 'SET_STATUS'
 
 
 export type ProfileUserPropsType = {
@@ -38,7 +39,8 @@ let initialState: ProfilePageType  = {
         {id: 2, message: "It's my first post", like: 20}
     ],
     newPostText: '',
-    profile: null
+    profile: null,
+    status: ''
 }
 
 export const profileReducer = (state= initialState, action: any) => {

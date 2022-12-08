@@ -29,6 +29,7 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
         }
 
         this.props.getProfileThunk(userId)
+        this.props.getUserStatus(userId)
 
         /*ProfileAPI.getProfile(userId).then(response => {
             this.props.setUserProfile(response.data)
@@ -61,6 +62,7 @@ export type mapStateToPropsType = {
 
 let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => ({
     profile: state.messagePage.profile,
+    status: state.messagePage.status
 })
 
 /*
