@@ -3,6 +3,7 @@ import React, {ChangeEvent} from 'react';
 
 type ProfileStatusPropsType = {
     status: string
+    updateStatusThunk: (status: string) => void
 }
 
 class ProfileStatus extends React.Component<ProfileStatusPropsType> {
@@ -21,7 +22,7 @@ class ProfileStatus extends React.Component<ProfileStatusPropsType> {
         this.setState({
             editMode: false
         })
-        this.props.updateStatus(this.state.status)
+        this.props.updateStatusThunk(this.state.status)
     }
 
     onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +42,7 @@ class ProfileStatus extends React.Component<ProfileStatusPropsType> {
                     </div>
                     : <div>
                         <input onChange={this.onStatusChange} onBlur={this.diactivateEditMode} autoFocus={true}
-                               value={this.props.state.status}/>
+                               value={this.state.status}/>
                     </div>
                 }
             </div>
