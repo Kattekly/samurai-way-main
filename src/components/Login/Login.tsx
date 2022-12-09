@@ -1,7 +1,7 @@
 import React from 'react';
-import {Field, reduxForm} from "redux-form";
+import {Field, InjectedFormProps, reduxForm} from "redux-form";
 
-export const LoginForm = (props: any) => {
+export const LoginForm: React.FC<InjectedFormProps<>> = (props: any) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
