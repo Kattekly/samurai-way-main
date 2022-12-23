@@ -1,9 +1,8 @@
-import React, {LegacyRef} from 'react';
+import React from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import {MessageType} from "../../../App";
 import {InjectedFormProps, reduxForm} from "redux-form";
-import {LoginForm} from "../../Login/Login";
 
 type FormDataType = {
     text: string
@@ -35,20 +34,24 @@ const MyPosts: React.FC<InjectedFormProps<FormDataType>> = (props: MessageType) 
     }
 
 
-    return <div className={s.postsBlock}>
-        My Posts
-        <div>
-            <div>
-                <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div className={s.postsBlock}>
+                My Posts
+                <div>
+                    <div>
+                        <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
+                    </div>
+                    <div>
+                        <button onClick={onAddPost}>Add post</button>
+                    </div>
+                </div>
+                <div className={s.posts}>
+                    {postElement}
+                </div>
             </div>
-            <div>
-                <button onClick={onAddPost}>Add post</button>
-            </div>
-        </div>
-        <div className={s.posts}>
-            {postElement}
-        </div>
-    </div>
+        </form>
+        )
 };
 
 export const RedaxPostForm = reduxForm<FormDataType>({form: 'add Post'})(MyPosts)
