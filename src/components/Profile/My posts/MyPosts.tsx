@@ -1,17 +1,10 @@
-import React from 'react';
+import React, {LegacyRef} from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import {MessageType} from "../../../App";
-import {Field, InjectedFormProps, reduxForm} from "redux-form";
-
-type FormDataType = {
-    text: string
-    addPost: boolean
-}
 
 
-
-const MyPosts: React.FC<InjectedFormProps<FormDataType>> = (props: MessageType) => {
+const MyPosts = (props: MessageType) => {
     console.log({props})
     let postElement = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>)
 
@@ -34,39 +27,20 @@ const MyPosts: React.FC<InjectedFormProps<FormDataType>> = (props: MessageType) 
     }
 
 
-    return (
-        <form onSubmit={props.handleSubmit}>
-            <div className={s.postsBlock}>
-                My Posts
-                <div>
-                    <div>
-                        <Field component={"input"} name={"post"} onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
-                    </div>
-                    <div>
-                        <button onClick={onAddPost}>Add post</button>
-                    </div>
-                </div>
-                <div className={s.posts}>
-                    {postElement}
-                </div>
+    return <div className={s.postsBlock}>
+        My Posts
+        <div>
+            <div>
+                <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
             </div>
-        </form>
-        )
-};
-
-export const RedaxPostForm = reduxForm<FormDataType>({form: 'add Post'})(MyPosts)
-
-/*export const ReduxLoginForm = reduxForm<FormDataType>({form: 'login'})(LoginForm)
-
-const Login = () => {
-    const onSubmit = (formData: FormDataType) => {
-        console.log(formData)
-    }
-
-    return <div>
-        <h1>Login</h1>
-        <ReduxLoginForm onSubmit={onSubmit}/>
+            <div>
+                <button onClick={onAddPost}>Add post</button>
+            </div>
+        </div>
+        <div className={s.posts}>
+            {postElement}
+        </div>
     </div>
-}*/
+};
 
 export default MyPosts;
