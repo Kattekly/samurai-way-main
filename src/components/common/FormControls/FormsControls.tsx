@@ -8,18 +8,15 @@ type FormsControls = {
 }
 
 
-
 export const Textarea: React.FC<FormsControls> = ({input, meta, ...props}) => {
     const hasError = meta.touched && meta.error
 
     return (
-        <div className={s.formControl + ' ' + hasError ? s.error : ''}>
+        <div className={s.formControl + ' ' + (hasError ? s.error : '')}>
             <div>
                 <textarea {...input} {...props}/>
             </div>
-            <span>
-                {hasError && "some error"}
-            </span>
+            {hasError && <span>{meta.error}</span>}
         </div>
     );
 };
