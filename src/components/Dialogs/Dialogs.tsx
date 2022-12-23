@@ -45,13 +45,13 @@ const Dialogs = (props: DialogNewType) => {
             </div>
             <div className={s.messages}>
                 <div>{messageElement}</div>
-                <div>
+                <form>
                     <div><textarea value={newMessageBody} onChange={onNewMessageChange}
                                    placeholder={'Enter your message'}></textarea></div>
                     <div>
                         <button onClick={onSendMessageClick}>Send</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     );

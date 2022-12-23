@@ -2,7 +2,7 @@ import React from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import {MessageType} from "../../../App";
-import {InjectedFormProps, reduxForm} from "redux-form";
+import {Field, InjectedFormProps, reduxForm} from "redux-form";
 
 type FormDataType = {
     text: string
@@ -40,7 +40,7 @@ const MyPosts: React.FC<InjectedFormProps<FormDataType>> = (props: MessageType) 
                 My Posts
                 <div>
                     <div>
-                        <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
+                        <Field component={"input"} name={"post"} onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
                     </div>
                     <div>
                         <button onClick={onAddPost}>Add post</button>
