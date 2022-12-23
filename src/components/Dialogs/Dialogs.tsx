@@ -33,7 +33,7 @@ const Dialogs = (props: DialogNewType) => {
     }
 
 
- /*  if(!props.isAuth) return <Redirect to={'/login'}/>*/
+    /*  if(!props.isAuth) return <Redirect to={'/login'}/>*/
 
     return (
         <div className={s.dialogs}>
@@ -45,16 +45,24 @@ const Dialogs = (props: DialogNewType) => {
             </div>
             <div className={s.messages}>
                 <div>{messageElement}</div>
-                <form>
-                    <div><textarea value={newMessageBody} onChange={onNewMessageChange}
-                                   placeholder={'Enter your message'}></textarea></div>
-                    <div>
-                        <button onClick={onSendMessageClick}>Send</button>
-                    </div>
-                </form>
+
+                <AddMessageForm/>
             </div>
         </div>
     );
 };
+
+
+export const AddMessageForm = () => {
+    return (
+        <form>
+            <div><textarea value={newMessageBody} onChange={onNewMessageChange}
+                           placeholder={'Enter your message'}></textarea></div>
+            <div>
+                <button onClick={onSendMessageClick}>Send</button>
+            </div>
+        </form>
+    )
+}
 
 export default Dialogs;
