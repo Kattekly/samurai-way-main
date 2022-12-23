@@ -45,7 +45,7 @@ const AddNewPostForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <Field name="newPostText"/>
+                <Field component="textarea" name="newPostText"/>
             </div>
             <div>
                 <button>Add post</button>

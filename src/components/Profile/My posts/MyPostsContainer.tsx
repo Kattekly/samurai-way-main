@@ -1,9 +1,6 @@
 import React from 'react';
-import {MessageType} from "../../../App";
-import {addPostActionCreator, updateNewPostActionCreator} from "../../../Redux/Profile-reducer";
+import {addPostActionCreator} from "../../../Redux/Profile-reducer";
 import MyPosts from "./MyPosts";
-import {Store} from "redux";
-import {ReduxStateType} from "../../../Redux/Redux-Stor";
 import {ActionTypes, RootStateType} from "../../../Redux/State";
 import {connect} from "react-redux";
 
@@ -43,11 +40,11 @@ let mapStateToProps = (state: RootStateType) => {
 //колбеки
 let mapDispatchToProps = (dispatch: (action: ActionTypes) => void) => {
     return {
-        updateNewPostText: (text: string) => {
+        /*updateNewPostText: (text: string) => {
             dispatch(updateNewPostActionCreator(text))
-        },
-        addPost: () => {
-            dispatch(addPostActionCreator(''))
+        },*/
+        addPost: (newPostText: string) => {
+            dispatch(addPostActionCreator(newPostText))
         }
     }
 }

@@ -3,7 +3,7 @@ import {MyLoginAPI, ProfileAPI} from "../api/Api";
 import {setAuthUserData} from "./AuthReducer";
 
 const ADD_POST = 'ADD-POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+// const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
 const SET_STATUS = 'SET_STATUS'
 
@@ -33,12 +33,11 @@ type photosType = {
     large: string
 }
 
-let initialState: ProfilePageType = {
+let initialState = {
     posts: [
         {id: 1, message: "Hi, how are yo?", like: 15},
         {id: 2, message: "It's my first post", like: 20}
     ],
-    newPostText: '',
     profile: null,
     status: ''
 }
@@ -54,7 +53,7 @@ export const profileReducer = (state = initialState, action: any) => {
         case ADD_POST: {
             let newPost = {
                 id: new Date().getTime(),
-                message: state.newPostText,
+                message: action.newPostText,
                 like: 0
             };
             return {
@@ -63,12 +62,12 @@ export const profileReducer = (state = initialState, action: any) => {
                 posts: [...state.posts, newPost]
             }
         }
-        case UPDATE_NEW_POST_TEXT: {
+        /*case UPDATE_NEW_POST_TEXT: {
             return {
                 ...state,
                 newPostText: action.newText
             }
-        }
+        }*/
         case SET_STATUS: {
             return {
                 ...state,
@@ -87,16 +86,16 @@ export const profileReducer = (state = initialState, action: any) => {
     }
 }
 
-export const addPostActionCreator = (postText: string) => ({
+export const addPostActionCreator = (newPostText: string) => ({
     type: "ADD-POST",
-    newPostText: postText
+    newPostText: newPostText
 } as const)
-export const updateNewPostActionCreator = (text: string) => {
-    return {
-        type: 'UPDATE-NEW-POST-TEXT',
-        newText: text
-    } as const
-}
+// export const updateNewPostActionCreator = (text: string) => {
+//     return {
+//         type: 'UPDATE-NEW-POST-TEXT',
+//         newText: text
+//     } as const
+// }
 
 
 export const getProfileThunk = (userId: string) => {
