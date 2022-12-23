@@ -20,7 +20,7 @@ export const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
                 <Field placeholder={"Password"} name={"password"} component={Input} validate={[required]}/>
             </div>
             <div>
-                <Field component={"input"} name={"rememberMe"} type={"checkbox"} validate={[required]}/> remember me
+                <Field component={Input} name={"rememberMe"} type={"checkbox"} validate={[required]}/> remember me
             </div>
             <div>
                 <button>Login</button>
