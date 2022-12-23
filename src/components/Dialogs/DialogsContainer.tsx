@@ -1,6 +1,6 @@
 import React from 'react';
 import {ActionTypes} from "../../Redux/State";
-import {sendMessageCreator, updateMessageBodyCreator} from "../../Redux/Dialogs-reduser";
+import {sendMessageCreator} from "../../Redux/Dialogs-reduser";
 import Dialogs from "./Dialogs";
 
 import {connect} from "react-redux";
@@ -39,9 +39,9 @@ let mapStateToProps = (state: ReduxStateType) => {
 //колбеки
 let mapDispatchToProps = (dispatch: (action: ActionTypes) => void) => {
     return {
-        updateMessageBodyCreator: (body: string) => {
+       /* updateMessageBodyCreator: (body: string) => {
             dispatch(updateMessageBodyCreator(body))
-        },
+        },*/
         sendMessageCreator: (newMessageText: string) => {
             dispatch(sendMessageCreator(newMessageText))
         }

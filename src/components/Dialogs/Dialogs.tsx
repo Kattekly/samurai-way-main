@@ -28,10 +28,10 @@ const Dialogs = (props: DialogNewType) => {
     //     props.sendMessageCreator()
     // }
 
-    let onNewMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        let body = e.target.value
-        props.updateMessageBodyCreator(body)
-    }
+    // let onNewMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    //     let body = e.target.value
+    //     props.updateMessageBodyCreator(body)
+    // }
 
     let addNewMessage = (value: any) => {
         props.sendMessageCreator(value.newMessageText)
@@ -56,15 +56,14 @@ const Dialogs = (props: DialogNewType) => {
 };
 
 type FormDataType = {
-    text: string
-    send: boolean
+    newMessageText: string
 }
 
-export const AddMessageForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
+export const AddMessageForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div>
-                <Field component="textarea" name="newMessageBody" placeholder="Enter your message"/>
+                <Field component="textarea" name="newMessageText" placeholder="Enter your message"/>
             </div>
             <div>
                 <button>Send</button>
@@ -73,6 +72,6 @@ export const AddMessageForm: React.FC<InjectedFormProps<FormDataType>> = (props)
     )
 }
 
-const AddMessageFormRedux = reduxForm({form: "dialogAddMessageForm"})(AddMessageForm)
+const AddMessageFormRedux = reduxForm<FormDataType>({form: "dialogAddMessageForm"})(AddMessageForm)
 
 export default Dialogs;

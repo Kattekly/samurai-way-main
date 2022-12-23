@@ -6,7 +6,7 @@ import {Store} from "redux";
 import {ReduxStateType} from "../../../Redux/Redux-Stor";
 import {ActionTypes, RootStateType} from "../../../Redux/State";
 import {connect} from "react-redux";
-import {sendMessageCreator, updateMessageBodyCreator} from "../../../Redux/Dialogs-reduser";
+
 
 /*type ContainerNewType = {
     store: Store<ReduxStateType, ActionTypes>
