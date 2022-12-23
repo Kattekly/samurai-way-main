@@ -3,6 +3,7 @@ import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import {MessageType} from "../../../App";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
+import {required} from "../../../utils/validators/validators";
 
 
 const MyPosts = (props: MessageType) => {
@@ -45,7 +46,7 @@ const AddNewPostForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <Field component="textarea" name="newPostText"/>
+                <Field component="textarea" name="newPostText" validate={[required]} />
             </div>
             <div>
                 <button>Add post</button>
