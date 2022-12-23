@@ -1,9 +1,8 @@
-import {ActionTypes, DialogsDataType} from "./State";
+import {v1} from "uuid";
 
 const SEND_MESSAGE = 'SEND-MESSAGE'
-const NEW_MESSAGE_TEXT = 'NEW-MESSAGE-TEXT'
 
-let initialState: DialogsDataType = {
+let initialState = {
     dialogs: [
         {id: 1, name: "Katerina"},
         {id: 2, name: "Vladimir"},
@@ -18,34 +17,25 @@ let initialState: DialogsDataType = {
         {id: 2, message: "How are you?"},
         {id: 3, message: "Yo"},
     ],
-    newMessageText: ''
 }
 
-export const dialogsReducer = (state = initialState, action: ActionTypes) => {
+type initialStateType = typeof initialState
+
+export const dialogsReducer = (state: initialStateType = initialState, action: sendMessageCreatorType) => {
     switch (action.type) {
         case SEND_MESSAGE:
-            let body = {
-                id: new Date().getTime(),
-                message: state.newMessageText
-            }
-            return  {
+            let newMessage = {id: v1(), message: action.newMessageText}
+            return {
                 ...state,
-                newMessageText: '',
-                messages: [...state.messages, body]
-            }
-
-        case NEW_MESSAGE_TEXT:
-            return  {
-                ...state,
-                newMessageText: action.body
+                messages: [...state.messages, newMessage],
             }
         default:
             return state
     }
 }
 
-export const sendMessageCreator = (newMessageBody: string) => ({
-    type: "SEND-MESSAGE", newMessageBody
+export const sendMessageCreator = (newMessageText: string) => ({
+    type: "SEND-MESSAGE", newMessageText
 } as const)
 
 type sendMessageCreatorType = ReturnType<typeof sendMessageCreator>
