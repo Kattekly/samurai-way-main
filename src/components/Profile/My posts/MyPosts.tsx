@@ -2,9 +2,17 @@ import React, {LegacyRef} from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import {MessageType} from "../../../App";
+import {InjectedFormProps, reduxForm} from "redux-form";
+import {LoginForm} from "../../Login/Login";
+
+type FormDataType = {
+    text: string
+    addPost: boolean
+}
 
 
-const MyPosts = (props: MessageType) => {
+
+const MyPosts: React.FC<InjectedFormProps<FormDataType>> = (props: MessageType) => {
     console.log({props})
     let postElement = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>)
 
@@ -42,5 +50,20 @@ const MyPosts = (props: MessageType) => {
         </div>
     </div>
 };
+
+export const RedaxPostForm = reduxForm<FormDataType>({form: 'add Post'})(MyPosts)
+
+/*export const ReduxLoginForm = reduxForm<FormDataType>({form: 'login'})(LoginForm)
+
+const Login = () => {
+    const onSubmit = (formData: FormDataType) => {
+        console.log(formData)
+    }
+
+    return <div>
+        <h1>Login</h1>
+        <ReduxLoginForm onSubmit={onSubmit}/>
+    </div>
+}*/
 
 export default MyPosts;
