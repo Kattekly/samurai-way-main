@@ -11,7 +11,7 @@ import {Field, InjectedFormProps, reduxForm} from "redux-form";
 export type DialogNewType = {
 
     updateMessageBodyCreator: (body: string) => void
-    sendMessageCreator: () => void
+    sendMessageCreator: (newMessageText: string) => void
     profilePage: DialogsDataType
     isAuth: boolean
 }
@@ -24,9 +24,9 @@ const Dialogs = (props: DialogNewType) => {
 
     let newMessageBody = state.newMessageText;
 
-    let onSendMessageClick = () => {
-        props.sendMessageCreator()
-    }
+    // let onSendMessageClick = () => {
+    //     props.sendMessageCreator()
+    // }
 
     let onNewMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let body = e.target.value
@@ -34,7 +34,7 @@ const Dialogs = (props: DialogNewType) => {
     }
 
     let addNewMessage = (value: any) => {
-        alert(value.newMessageBody)
+        props.sendMessageCreator(value.newMessageText)
     }
     /*  if(!props.isAuth) return <Redirect to={'/login'}/>*/
 

@@ -80,7 +80,7 @@ let store: StorePropsType = {
                    id: new Date().getTime(),
                    message: this._state.profilePage.newMessageText
                }
-                this._state.profilePage.messages.push(body)
+                this._state.profilePage.messages.push()
                 this._state.profilePage.newMessageText = ''
                 this._rerenderEntireTree();
             }else if (action.type === 'NEW-MESSAGE-TEXT') {
@@ -164,7 +164,7 @@ export type ProfilePageType = {
 export type DialogsDataType = {
     dialogs: Array<DialogType>
     messages: Array<MessageType>
-    newMessageText: string
+    newMessageText?: string
 }
 
 type Sidebar = {}

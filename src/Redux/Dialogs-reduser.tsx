@@ -1,7 +1,7 @@
 import {ActionTypes, DialogsDataType} from "./State";
 
 const SEND_MESSAGE = 'SEND-MESSAGE'
-const NEW_MESSAGE_TEXT = 'NEW-MESSAGE-TEXT'
+/*const NEW_MESSAGE_TEXT = 'NEW-MESSAGE-TEXT'*/
 
 let initialState: DialogsDataType = {
     dialogs: [
@@ -26,32 +26,34 @@ export const dialogsReducer = (state = initialState, action: ActionTypes) => {
         case SEND_MESSAGE:
             let body = {
                 id: new Date().getTime(),
-                message: state.newMessageText
+                message: action.newMessageText
             }
-            return  {
+            return {
                 ...state,
                 newMessageText: '',
                 messages: [...state.messages, body]
             }
 
-        case NEW_MESSAGE_TEXT:
-            return  {
-                ...state,
-                newMessageText: action.body
-            }
-        default:
-            return state
+        //     case NEW_MESSAGE_TEXT:
+        //         return  {
+        //             ...state,
+        //             newMessageText: action.body
+        //         }
+        //     default:
+        //         return state
+        // }
     }
 }
 
-export const sendMessageCreator = () => ({
-    type: "SEND-MESSAGE",
+export const sendMessageCreator = (newMessageText: string) => ({
+    type: "SEND-MESSAGE", newMessageText: newMessageText
 } as const)
 
 
+/*
 export const updateMessageBodyCreator = (body: string) => {
     return {
         type: "NEW-MESSAGE-TEXT",
         body: body
     } as const
-}
+}*/
