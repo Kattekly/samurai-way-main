@@ -7,10 +7,19 @@ type FormsControls = {
     meta: WrappedFieldMetaProps
 }
 
+
+
 export const Textarea: React.FC<FormsControls> = ({input, meta, ...props}) => {
+    const hasError = meta.touched && meta.error
+
     return (
-        <div className={s.formControl}>
-            <textarea {...input} {...props}/>
+        <div className={s.formControl + ' ' + hasError ? s.error : ''}>
+            <div>
+                <textarea {...input} {...props}/>
+            </div>
+            <span>
+                {hasError && "some error"}
+            </span>
         </div>
     );
 };
