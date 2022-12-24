@@ -1,5 +1,6 @@
 import {authAPI} from "../api/Api";
 import {Dispatch} from "redux";
+import {stopSubmit} from "redux-form";
 
 const SET_USER_DATA = 'SET_USER_DATA'
 
@@ -36,12 +37,12 @@ export const setAuthUserData = (id: number | null, email: string | null, login: 
 })
 
 export const getLogin = () => (dispatch: Dispatch) => {
-        authAPI.me().then(response => {
-            if (response.data.resultCode === 0) {
-                let {id, email, login} = response.data.data
-                dispatch(setAuthUserData(id, email, login, true));
-            }
-        })
+    authAPI.me().then(response => {
+        if (response.data.resultCode === 0) {
+            let {id, email, login} = response.data.data
+            dispatch(setAuthUserData(id, email, login, true));
+        }
+    })
 }
 
 export const LoginTC = (email: string, password: string, rememberMe: boolean) => (dispatch: any) => {
@@ -49,6 +50,9 @@ export const LoginTC = (email: string, password: string, rememberMe: boolean) =>
         .then(response => {
             if (response.data.resultCode === 0) {
                 dispatch(getLogin())
+            } else {
+                let action = stopSubmit("login", {email: "Неверный email"})
+                dispatch(action)
             }
         })
 }
