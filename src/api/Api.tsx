@@ -36,6 +36,9 @@ export const FollowAPI = {
 export const MyLoginAPI = {
     getHeader() {
         return instance.get(`auth/me`).then(response => response.data)
+    },
+    login(email: string, password: string, rememberMe: boolean) {
+        return instance.post(`auth/login`, {email, password, rememberMe}).then(response => response.data)
     }
 }
 

@@ -1,5 +1,6 @@
 import {MyLoginAPI, UnfollowAPI} from "../api/Api";
 import {toggleFollowingProgress, unfollowSuccess} from "./User-reduser";
+import {FormDataType} from "../components/Login/Login";
 
 const SET_USER_DATA = 'SET_USER_DATA'
 

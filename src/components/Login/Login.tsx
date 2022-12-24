@@ -4,7 +4,7 @@ import {Input} from "../common/FormControls/FormsControls";
 import {required} from "../../utils/validators/validators";
 
 
-type FormDataType = {
+export type FormDataType = {
     login: string
     password: string
     rememberMe: boolean
