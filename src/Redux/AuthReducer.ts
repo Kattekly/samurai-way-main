@@ -1,6 +1,4 @@
-import {MyLoginAPI, UnfollowAPI} from "../api/Api";
-import {toggleFollowingProgress, unfollowSuccess} from "./User-reduser";
-import {FormDataType} from "../components/Login/Login";
+import {authAPI} from "../api/Api";
 
 const SET_USER_DATA = 'SET_USER_DATA'
 
@@ -39,7 +37,7 @@ export const setAuthUserData = (id: number | null, email: string | null, login: 
 
 export const getLogin = () => {
     return (dispatch: any) => {
-        MyLoginAPI.getHeader().then(data => {
+        authAPI.me().then(data => {
             if (data.resultCode === 0) {
                 let {id, email, login} = data.data
                 dispatch(setAuthUserData(id, email, login));
@@ -48,12 +46,12 @@ export const getLogin = () => {
     }
 }
 
-export const Login = (email, password, rememberMe) => (dispatch: any) => {
-        MyLoginAPI.getHeader()
-            .then(data => {
-            if (data.resultCode === 0) {
-                let {id, email, login} = data.data
-                dispatch(setAuthUserData(id, email, login));
-            }
-        })
-}
+// export const Login = (email, password, rememberMe) => (dispatch: any) => {
+//         MyLoginAPI.getHeader()
+//             .then(data => {
+//             if (data.resultCode === 0) {
+//                 let {id, email, login} = data.data
+//                 dispatch(setAuthUserData(id, email, login));
+//             }
+//         })
+// }

@@ -33,11 +33,11 @@ export const FollowAPI = {
     }
 }
 
-export const MyLoginAPI = {
-    getHeader() {
+export const authAPI = {
+    me() {
         return instance.get(`auth/me`).then(response => response.data)
     },
-    login(email: string, password: string, rememberMe: boolean) {
+    login(email: string, password: string, rememberMe: boolean = false) {
         return instance.post(`auth/login`, {email, password, rememberMe}).then(response => response.data)
     }
 }

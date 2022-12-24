@@ -1,6 +1,4 @@
-import {ActionTypes, ProfilePageType, RootStateType} from "./State";
-import {MyLoginAPI, ProfileAPI} from "../api/Api";
-import {setAuthUserData} from "./AuthReducer";
+import {ProfileAPI} from "../api/Api";
 
 const ADD_POST = 'ADD-POST'
 // const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
