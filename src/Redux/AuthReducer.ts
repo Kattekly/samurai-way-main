@@ -1,4 +1,5 @@
 import {authAPI} from "../api/Api";
+import {Dispatch} from "redux";
 
 const SET_USER_DATA = 'SET_USER_DATA'
 
@@ -36,7 +37,7 @@ export const setAuthUserData = (id: number | null, email: string | null, login: 
 })
 
 export const getLogin = () => {
-    return (dispatch: any) => {
+    return (dispatch: Dispatch) => {
         authAPI.me().then(data => {
             if (data.resultCode === 0) {
                 let {id, email, login} = data.data
@@ -46,12 +47,20 @@ export const getLogin = () => {
     }
 }
 
-// export const Login = (email, password, rememberMe) => (dispatch: any) => {
-//         MyLoginAPI.getHeader()
-//             .then(data => {
-//             if (data.resultCode === 0) {
-//                 let {id, email, login} = data.data
-//                 dispatch(setAuthUserData(id, email, login));
-//             }
-//         })
-// }
+export const Login = (email: string, password: string, rememberMe: boolean) => (dispatch: any) => {
+    authAPI.login(email, password, rememberMe)
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(getLogin())
+            }
+        })
+}
+
+export const LoginOut = (email: string, password: string, rememberMe: boolean) => (dispatch: any) => {
+    authAPI.login(email, password, rememberMe)
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(getLogin())
+            }
+        })
+}
