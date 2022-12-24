@@ -27,7 +27,7 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
     componentDidMount() {
         let userId = this.props.match.params.userId
         if (!userId) {
-            userId = '26538'
+            userId = String(this.props.authorizedUserId)
         }
 
         this.props.getProfileThunk(userId)
@@ -62,7 +62,7 @@ let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
 export type mapStateToPropsType = {
     profile: ProfileUserPropsType
     status: string
-    authorizedUserId: number | null
+    authorizedUserId: string | null
     isAuth: boolean
 }
 
