@@ -19,7 +19,7 @@ export const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
                 <Field placeholder={"Email"} name={"email"} component={Input} validate={[required]}/>
             </div>
             <div>
-                <Field placeholder={"Password"} name={"password"} component={Input} validate={[required]}/>
+                <Field placeholder={"Password"} name={"password"} type={"password"} component={Input} validate={[required]}/>
             </div>
             <div>
                 <Field component={Input} name={"rememberMe"} type={"checkbox"} validate={[required]}/> remember me
@@ -44,4 +44,4 @@ const Login = (props: any) => {
     </div>
 }
 
-export default connect(null, {LoginTC}) (Login);
+export default connect(null, {LoginTC})(Login);
