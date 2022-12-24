@@ -38,10 +38,10 @@ export const setAuthUserData = (id: number | null, email: string | null, login: 
 
 export const getLogin = () => {
     return (dispatch: Dispatch) => {
-        authAPI.me().then(data => {
-            if (data.resultCode === 0) {
-                let {id, email, login, isAuth} = data.data
-                dispatch(setAuthUserData(id, email, login, isAuth));
+        authAPI.me().then(response => {
+            if (response.data.resultCode === 0) {
+                let {id, email, login} = response.data.data
+                dispatch(setAuthUserData(id, email, login, true));
             }
         })
     }
@@ -60,7 +60,7 @@ export const LogOut = () => (dispatch: any) => {
     authAPI.logout()
         .then(response => {
             if (response.data.resultCode === 0) {
-                dispatch(getLogin())
+                dispatch(setAuthUserData(null, null, null, false));
             }
         })
 }
