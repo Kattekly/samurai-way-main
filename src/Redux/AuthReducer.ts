@@ -36,18 +36,16 @@ export const setAuthUserData = (id: number | null, email: string | null, login: 
     payload: {id, email, login, isAuth}
 })
 
-export const getLogin = () => {
-    return (dispatch: Dispatch) => {
+export const getLogin = () => (dispatch: Dispatch) => {
         authAPI.me().then(response => {
             if (response.data.resultCode === 0) {
                 let {id, email, login} = response.data.data
                 dispatch(setAuthUserData(id, email, login, true));
             }
         })
-    }
 }
 
-export const Login = (email: string, password: string, rememberMe: boolean) => (dispatch: any) => {
+export const LoginTC = (email: string, password: string, rememberMe: boolean) => (dispatch: any) => {
     authAPI.login(email, password, rememberMe)
         .then(response => {
             if (response.data.resultCode === 0) {
@@ -56,7 +54,7 @@ export const Login = (email: string, password: string, rememberMe: boolean) => (
         })
 }
 
-export const LogOut = () => (dispatch: any) => {
+export const LogOut = () => (dispatch: Dispatch) => {
     authAPI.logout()
         .then(response => {
             if (response.data.resultCode === 0) {

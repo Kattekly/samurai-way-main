@@ -2,6 +2,8 @@ import React from 'react';
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {Input} from "../common/FormControls/FormsControls";
 import {required} from "../../utils/validators/validators";
+import {connect} from "react-redux";
+import {LoginTC} from "../../Redux/AuthReducer";
 
 
 export type FormDataType = {
@@ -42,4 +44,4 @@ const Login = () => {
     </div>
 }
 
-export default Login;
+export default connect(null, {LoginTC}) (Login);
