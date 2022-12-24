@@ -7,7 +7,7 @@ import {LoginTC} from "../../Redux/AuthReducer";
 
 
 export type FormDataType = {
-    login: string
+    email: string
     password: string
     rememberMe: boolean
 }
@@ -16,7 +16,7 @@ export const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field placeholder={"Login"} name={"login"} component={Input} validate={[required]}/>
+                <Field placeholder={"Email"} name={"email"} component={Input} validate={[required]}/>
             </div>
             <div>
                 <Field placeholder={"Password"} name={"password"} component={Input} validate={[required]}/>
@@ -33,9 +33,9 @@ export const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
 
 export const ReduxLoginForm = reduxForm<FormDataType>({form: 'login'})(LoginForm)
 
-const Login = () => {
+const Login = (props: any) => {
     const onSubmit = (formData: FormDataType) => {
-        console.log(formData)
+        props.LoginTC(formData.email, formData.password, formData.rememberMe)
     }
 
     return <div>
