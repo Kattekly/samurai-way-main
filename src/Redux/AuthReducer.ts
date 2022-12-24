@@ -46,13 +46,15 @@ export const getLogin = () => (dispatch: Dispatch) => {
 }
 
 export const LoginTC = (email: string, password: string, rememberMe: boolean) => (dispatch: any) => {
+    let action = stopSubmit("login", {_error: "Неверный email"})
+    dispatch(action)
+    return
     authAPI.login(email, password, rememberMe)
         .then(response => {
             if (response.data.resultCode === 0) {
                 dispatch(getLogin())
             } else {
-                let action = stopSubmit("login", {email: "Неверный email"})
-                dispatch(action)
+
             }
         })
 }
