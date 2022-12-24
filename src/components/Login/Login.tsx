@@ -28,9 +28,11 @@ export const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
             <div>
                 <Field component={Input} name={"rememberMe"} type={"checkbox"} validate={[required]}/> remember me
             </div>
-            <div className={s.formSummaryError}>
-                ERROR
-            </div>
+            {props.error && <div className={s.formSummaryError}>
+                {props.error}
+            </div>}
+
+
             <div>
                 <button>Login</button>
             </div>
