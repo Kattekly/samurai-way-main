@@ -46,7 +46,8 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
         /* if (!this.props.isAuth) return <Redirect to={'/login'}/>*/
         return (
             <div>
-                <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateStatusThunk={this.props.updateStatusThunk}/>
+                <Profile {...this.props} profile={this.props.profile} status={this.props.status}
+                         updateStatusThunk={this.props.updateStatusThunk}/>
             </div>
         );
     }
@@ -61,11 +62,15 @@ let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
 export type mapStateToPropsType = {
     profile: ProfileUserPropsType
     status: string
+    authorizedUserId: number | null
+    isAuth: boolean
 }
 
 let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => ({
     profile: state.messagePage.profile,
-    status: state.messagePage.status
+    status: state.messagePage.status,
+    authorizedUserId: state.auth.userId,
+    isAuth: state.auth.isAuth
 })
 
 /*

@@ -5,14 +5,14 @@ import {stopSubmit} from "redux-form";
 const SET_USER_DATA = 'SET_USER_DATA'
 
 export type initialStatePropsType = {
-    id: number | null
+    userId: number | null
     email: string | null
     login: string | null
     isAuth: boolean
 }
 
 const initialState: initialStatePropsType = {
-    id: null,
+    userId: null,
     email: null,
     login: null,
     isAuth: false
@@ -46,15 +46,13 @@ export const getLogin = () => (dispatch: Dispatch) => {
 }
 
 export const LoginTC = (email: string, password: string, rememberMe: boolean) => (dispatch: any) => {
-
-    dispatch(stopSubmit("login", {_error: "Неверный email или пароль"}))
-
     authAPI.login(email, password, rememberMe)
         .then(response => {
             if (response.data.resultCode === 0) {
                 dispatch(getLogin())
             } else {
-
+                let message = response.data.messages.length > 0 ? response.data.messages[0] : "Неверный email или пароль"
+                dispatch(stopSubmit("login", {_error: message}))
             }
         })
 }
