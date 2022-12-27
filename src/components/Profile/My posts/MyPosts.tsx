@@ -1,11 +1,19 @@
 import React from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
-import {MessageType} from "../../../App";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {Textarea} from "../../common/FormControls/FormsControls";
+import {ActionTypes, PostType} from "../../../Redux/State";
 
+export type MessageType = {
+    newPostText: string
+    posts: Array<PostType>
+    addPost?: (newMessage: string) => void
+    updateNewPostText?: (newText: string) => void
+    dispatch?: (action: ActionTypes) => void
+    newMessageText?: string
+}
 
 const MyPosts = (props: MessageType) => {
     console.log({props})

@@ -1,6 +1,4 @@
-import {Dispatch} from "redux";
-import {authAPI} from "../api/Api";
-import {getLogin, setAuthUserData} from "./AuthReducer";
+import {getLogin} from "./AuthReducer";
 
 const SET_INITIALIZED = 'SET_INITIALIZED'
 
