@@ -2,6 +2,7 @@ import React from 'react';
 import Header from "./Header";
 import {connect} from "react-redux";
 import {initialStatePropsType, LogOut} from "../../Redux/AuthReducer";
+import {ReduxStateType} from "../../Redux/Redux-Stor";
 
 class HeaderContainer extends React.Component<any, any> {
    /* componentDidMount() {
@@ -19,7 +20,7 @@ class HeaderContainer extends React.Component<any, any> {
     }
 }
 
-const mapStateToProps = (state: any): initialStatePropsType => ({
+const mapStateToProps = (state: ReduxStateType): initialStatePropsType => ({
     userId: state.auth.userId,
     email: state.auth.email,
     isAuth: state.auth.isAuth,

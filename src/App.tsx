@@ -15,24 +15,34 @@ import {connect} from "react-redux";
 import {getLogin} from "./Redux/AuthReducer";
 import {compose} from "redux";
 import {initializeApp} from "./Redux/app-reducer";
+import {ReduxStateType} from "./Redux/Redux-Stor";
+import Preloader from "./components/common/Preloader/Preloader";
 
-export type AppPropsType = {
-    addPost?: (newMessage: string) => void
-    updateNewPostText?: (newText: string) => void
-    /* store: Store<ReduxStateType, ActionTypes>*/
+// export type AppPropsType = {
+//     addPost?: (newMessage: string) => void
+//     updateNewPostText?: (newText: string) => void
+//     /* store: Store<ReduxStateType, ActionTypes>*/
+// }
+//
+// export type MessageType = {
+//     newPostText: string
+//     posts: Array<PostType>
+//     addPost?: (newMessage: string) => void
+//     updateNewPostText?: (newText: string) => void
+//     dispatch?: (action: ActionTypes) => void
+//     newMessageText?: string
+// }
+
+
+type mapStateToPropsType = {
+    initialized: boolean
 }
-
-export type MessageType = {
-    newPostText: string
-    posts: Array<PostType>
-    addPost?: (newMessage: string) => void
-    updateNewPostText?: (newText: string) => void
-    dispatch?: (action: ActionTypes) => void
-    newMessageText?: string
+type mapDispatchToPropsType = {
+    initializeApp: () => void
 }
+type AppType = mapDispatchToPropsType & mapStateToPropsType
 
-
-class App extends React.Component<AppPropsType> {
+class App extends React.Component<AppType> {
 
     componentDidMount() {
         this.props.initializeApp()
@@ -40,6 +50,7 @@ class App extends React.Component<AppPropsType> {
 
     render() {
         // const state = props.store.getState()
+        if (!this.props.initialized) return <Preloader/>
 
         return (
             <div className="app-wrapper">
@@ -62,8 +73,8 @@ class App extends React.Component<AppPropsType> {
     }
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: ReduxStateType): mapStateToPropsType => ({
     initialized: state.app.initialized
 })
 
-export default compose(withRouter, connect(null, {initializeApp}))(App);
+export default compose<React.ComponentType>(connect(mapStateToProps, {initializeApp}), withRouter)(App)
