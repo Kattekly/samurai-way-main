@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
 import {authAPI} from "../api/Api";
-import {setAuthUserData} from "./AuthReducer";
+import {getLogin, setAuthUserData} from "./AuthReducer";
 
 const SET_INITIALIZED = 'SET_INITIALIZED'
 
@@ -25,6 +25,7 @@ export const AppReducer = (state = InitialState, action: any) => {
 }
 
 export const initializedSuccess = () => ({type: SET_INITIALIZED})
-export const initialize = () => (dispatch: Dispatch) => {
-
+export const initializeApp = () => (dispatch: any) => {
+    dispatch(getLogin())
+    dispatch(initializedSuccess())
 }

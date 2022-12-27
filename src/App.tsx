@@ -14,6 +14,7 @@ import Login from "./components/Login/Login";
 import {connect} from "react-redux";
 import {getLogin} from "./Redux/AuthReducer";
 import {compose} from "redux";
+import {initializeApp} from "./Redux/app-reducer";
 
 export type AppPropsType = {
     addPost?: (newMessage: string) => void
@@ -61,4 +62,4 @@ class App extends React.Component<AppPropsType> {
     }
 }
 
-export default compose(withRouter, connect(null, {getLogin}))(App);
+export default compose(withRouter, connect(null, {initializeApp}))(App);
