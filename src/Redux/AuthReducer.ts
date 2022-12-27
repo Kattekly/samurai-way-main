@@ -5,14 +5,14 @@ import {stopSubmit} from "redux-form";
 const SET_USER_DATA = 'SET_USER_DATA'
 
 export type initialStatePropsType = {
-    userId: string | null
+    id: string | null
     email: string | null
     login: string | null
     isAuth: boolean
 }
 
 const initialState: initialStatePropsType = {
-    userId: null,
+    id: null,
     email: null,
     login: null,
     isAuth: false

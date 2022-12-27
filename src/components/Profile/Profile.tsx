@@ -12,7 +12,6 @@ export type ProfileNewType = {
 
 const Profile = (props: ProfileNewType) => {
 
-
     return (
         <div>
             <ProfileInfo profile={props.profile} status={props.status} updateStatusThunk={props.updateStatusThunk}/>

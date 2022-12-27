@@ -7,6 +7,7 @@ import {ProfilePageType} from "../../Redux/State";
 import {RouteComponentProps, withRouter} from "react-router-dom";
 import withAuthRedirect from "../../hoc/AuthRedirect";
 import {compose} from "redux";
+import {authAPI} from "../../api/Api";
 
 type PathParamsType = {
     userId: string
@@ -25,18 +26,27 @@ type PropsType = RouteComponentProps<PathParamsType> & ProfileContainerPropsType
 class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
 
     componentDidMount() {
+
         let userId = this.props.match.params.userId
         if (!userId) {
-            userId = this.props.authorizedUserId ? this.props.authorizedUserId.toString() : ''
-            if(userId) {
+            userId = '26538'
+
+            console.log(this.props.authorizedUserId)
+
+            // userId = this.props.authorizedUserId ? this.props.authorizedUserId.toString() : ''
+            /*if(userId) {
                 this.props.history.push('/login')
-            }
+            }*/
+
+
+
                 /*String(this.props.authorizedUserId)*/
                 // '26538'
         }
 
         this.props.getProfileThunk(userId)
         this.props.getStatusThunk(userId)
+
 
         /*ProfileAPI.getProfile(userId).then(response => {
             this.props.setUserProfile(response.data)
@@ -74,8 +84,9 @@ export type mapStateToPropsType = {
 let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => ({
     profile: state.messagePage.profile,
     status: state.messagePage.status,
-    authorizedUserId: state.auth.userId,
+    authorizedUserId: state.auth.id,
     isAuth: state.auth.isAuth
+
 })
 
 /*

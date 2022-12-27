@@ -21,7 +21,7 @@ class HeaderContainer extends React.Component<any, any> {
 }
 
 const mapStateToProps = (state: ReduxStateType): initialStatePropsType => ({
-    userId: state.auth.userId,
+    id: state.auth.id,
     email: state.auth.email,
     isAuth: state.auth.isAuth,
     login: state.auth.login

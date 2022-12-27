@@ -96,12 +96,10 @@ export const addPostActionCreator = (newPostText: string) => ({
 // }
 
 
-export const getProfileThunk = (userId: string) => {
-    return (dispatch: any) => {
+export const getProfileThunk = (userId: string) => (dispatch: any) => {
         ProfileAPI.getProfile(userId).then(response => {
             dispatch(setUserProfile(response.data))
         })
-    }
 }
 
 
