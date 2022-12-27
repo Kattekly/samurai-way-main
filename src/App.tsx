@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
-import {Route} from "react-router-dom";
+import {Route, withRouter} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -11,6 +11,9 @@ import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
+import {connect} from "react-redux";
+import {getLogin} from "./Redux/AuthReducer";
+import {compose} from "redux";
 
 export type AppPropsType = {
     addPost?: (newMessage: string) => void
@@ -29,6 +32,11 @@ export type MessageType = {
 
 
 class App extends React.Component<AppPropsType> {
+
+    componentDidMount() {
+        this.props.getLogin()
+    }
+
     render() {
         // const state = props.store.getState()
 
@@ -53,4 +61,4 @@ class App extends React.Component<AppPropsType> {
     }
 }
 
-export default App;
+export default compose(withRouter, connect(null, {getLogin}))(App);
