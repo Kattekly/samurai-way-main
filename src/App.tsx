@@ -35,7 +35,7 @@ export type MessageType = {
 class App extends React.Component<AppPropsType> {
 
     componentDidMount() {
-        this.props.getLogin()
+        this.props.initializeApp()
     }
 
     render() {
