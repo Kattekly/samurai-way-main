@@ -1,17 +1,16 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
-    follow, getUsers,
+    follow,
+    getUsers,
     setCurrentPage,
     toggleFollowingProgress,
     unfollow,
-    UsersMaxPropsType,
-    UsersPropsType
+    UsersMaxPropsType
 } from "../../Redux/User-reduser";
 import {ReduxStateType} from "../../Redux/Redux-Stor";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
-import withAuthRedirect from "../../hoc/AuthRedirect";
 import {compose} from "redux";
 
 
@@ -125,7 +124,6 @@ type mapDispatchToPropsType = {
 })(UsersContainer))*/
 
 export default compose<React.ComponentType>(
-    withAuthRedirect,
     connect(mapStateToProps, {
         follow,
         unfollow,

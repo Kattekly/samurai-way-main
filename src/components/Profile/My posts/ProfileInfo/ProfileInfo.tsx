@@ -29,5 +29,4 @@ const ProfileInfo = (props: ProfileInfoPropsType) => {
     )
 };
 
-
 export default ProfileInfo;
