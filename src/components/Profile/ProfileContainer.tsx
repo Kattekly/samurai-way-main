@@ -39,9 +39,8 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
             }*/
 
 
-
-                /*String(this.props.authorizedUserId)*/
-                // '26538'
+            /*String(this.props.authorizedUserId)*/
+            // '26538'
         }
 
         this.props.getProfileThunk(userId)
