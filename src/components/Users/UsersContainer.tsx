@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import {
     follow,
-    getUsers,
+    requestUsers,
     setCurrentPage,
     toggleFollowingProgress,
     unfollow,
@@ -17,7 +17,7 @@ import {
     getIsFetching,
     getPageSize,
     getTotalUsersCount,
-    getUsersSelect
+    getUsers
 } from "../../Redux/user-selectors";
 
 
@@ -89,7 +89,7 @@ class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsTyp
 
 let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => {
     return {
-        usersPage: getUsersSelect(state), //users
+        usersPage: getUsers(state), //users
         pageSize: getPageSize(state),
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
@@ -149,6 +149,6 @@ export default compose<React.ComponentType>(
         unfollow,
         setCurrentPage,
         toggleFollowingProgress,
-        getUsers
+        getUsers: requestUsers
     })
 )(UsersContainer)
