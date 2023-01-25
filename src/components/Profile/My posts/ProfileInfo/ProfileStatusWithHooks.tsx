@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 
 
 type ProfileStatusPropsType = {
@@ -10,6 +10,10 @@ export const ProfileStatusWithHooks = (props: ProfileStatusPropsType) => {
 
     let [editMode, setEditMode] = useState(false) //данные хранятся на строне реакта
     let [status, setStatus] = useState(props.status)
+
+    useEffect(() => {
+        setStatus(props.status)
+    }, [])
 
     const activateEditMode = () => {
         setEditMode(true)
