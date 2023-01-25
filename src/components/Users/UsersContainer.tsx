@@ -75,18 +75,6 @@ class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsTyp
 }
 
 //данные из стейна, пропсы
-/*let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => {
-    return {
-        usersPage: state.usersPage,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress
-    }
-}*/
-
-
 let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => {
     return {
         usersPage: getUsers(state), //users
