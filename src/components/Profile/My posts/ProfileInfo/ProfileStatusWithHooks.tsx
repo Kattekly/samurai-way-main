@@ -17,10 +17,11 @@ export const ProfileStatusWithHooks = (props: ProfileStatusPropsType) => {
 
     const diactivateEditMode = () => {
         setEditMode(false)
+        props.updateStatusThunk(status) //отправить родителю, чтобы данные сохранились в бизнесе
     }
 
     const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
-        status: props.status
+        setStatus(e.currentTarget.value)
     }
 
     return (
@@ -31,7 +32,7 @@ export const ProfileStatusWithHooks = (props: ProfileStatusPropsType) => {
                 </div>}
 
             {editMode && <div>
-                <input autoFocus={true} onBlur={diactivateEditMode} onChange={onStatusChange}/>
+                <input autoFocus={true} onBlur={diactivateEditMode} onChange={onStatusChange} value={status}/>
             </div>
             }
         </div>
