@@ -13,7 +13,7 @@ export const ProfileStatusWithHooks = (props: ProfileStatusPropsType) => {
 
     useEffect(() => {
         setStatus(props.status)
-    }, [props.status])
+    }, [props.status]) //синхронизация пропсов и стейта
 
     const activateEditMode = () => {
         setEditMode(true)
