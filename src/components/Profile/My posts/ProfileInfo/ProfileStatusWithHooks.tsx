@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React, {useState} from 'react';
 
 
 type ProfileStatusPropsType = {
@@ -7,15 +7,19 @@ type ProfileStatusPropsType = {
 }
 
 export const ProfileStatusWithHooks = (props: ProfileStatusPropsType) => {
+
+    let [editMode, setEditMode] = useState(true)
+
     return (
         <div>
-            {<div>
-                    <span>{props.status || "no status"} yo </span>
+            {!editMode &&
+                <div>
+                    <span>{props.status || "no status"}</span>
                 </div>}
 
-            { false && <div>
-                    <input  autoFocus={true}/>
-                </div>
+            {editMode && <div>
+                <input autoFocus={true}/>
+            </div>
             }
         </div>
     )
