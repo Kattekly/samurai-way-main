@@ -9,6 +9,7 @@ type ProfileStatusPropsType = {
 export const ProfileStatusWithHooks = (props: ProfileStatusPropsType) => {
 
     let [editMode, setEditMode] = useState(false) //данные хранятся на строне реакта
+    let [status, setStatus] = useState(props.status)
 
     const activateEditMode = () => {
         setEditMode(true)
@@ -19,7 +20,7 @@ export const ProfileStatusWithHooks = (props: ProfileStatusPropsType) => {
     }
 
     const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
-
+        status: props.status
     }
 
     return (
