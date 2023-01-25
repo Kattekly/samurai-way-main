@@ -6,7 +6,7 @@ import {
     setCurrentPage,
     toggleFollowingProgress,
     unfollow,
-    UsersMaxPropsType
+    UsersMaxPropsType, UsersPropsType
 } from "../../Redux/User-reduser";
 import {ReduxStateType} from "../../Redux/Redux-Stor";
 import Users from "./Users";
@@ -17,7 +17,7 @@ import {compose} from "redux";
 export type NewUserPropsType = mapStateToPropsType & mapDispatchToPropsType
 
 type mapStateToPropsType = {
-    usersPage: UsersMaxPropsType
+    usersPage: Array<UsersPropsType> //UsersMaxPropsType
     pageSize: number
     totalUsersCount: number
     currentPage: number
@@ -59,7 +59,7 @@ class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsTyp
             {this.props.isFetching ? <Preloader/> : null}
             <Users totalUsersCount={this.props.totalUsersCount} pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage} onPageChange={this.onPageChange}
-                   users={this.props.usersPage.users}
+                   users={this.props.usersPage} //users
                    follow={this.props.follow} unfollow={this.props.unfollow}
                    followingInProgress={this.props.followingInProgress}
                 /*toggleFollowingProgress={this.props.toggleFollowingProgress}*/ />
@@ -68,7 +68,7 @@ class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsTyp
 }
 
 //данные из стейна, пропсы
-let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => {
+/*let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => {
     return {
         usersPage: state.usersPage,
         pageSize: state.usersPage.pageSize,
@@ -77,7 +77,20 @@ let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => {
         isFetching: state.usersPage.isFetching,
         followingInProgress: state.usersPage.followingInProgress
     }
+}*/
+
+
+let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => {
+    return {
+        usersPage: state.usersPage.users, //users
+        pageSize: state.usersPage.pageSize,
+        totalUsersCount: state.usersPage.totalUsersCount,
+        currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress
+    }
 }
+
 
 type mapDispatchToPropsType = {
     follow: (userId: number) => void
