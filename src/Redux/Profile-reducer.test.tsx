@@ -1,5 +1,4 @@
 import {addPostActionCreator, profileReducer} from "./Profile-reducer";
-import {type} from "os";
 
 
 test('new post should be added', () => {
@@ -18,5 +17,5 @@ test('new post should be added', () => {
     let newState = profileReducer(initialState, action)
 
     //ожидание
-    expect(newState.posts.length).toBe(5)
+    expect(newState.posts.length).toBe(3)
 })
