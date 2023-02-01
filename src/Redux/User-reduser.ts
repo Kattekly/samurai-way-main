@@ -117,6 +117,17 @@ export const toggleFollowingProgress = (isFetching: boolean, userId: number) => 
     userId
 })
 
+//просто функции
+const followUnfollowFlow = async (dispatch: any, userId: number, apiMethod: (userId: number) => any, actionCreator: (userId: number) => {}) => {
+    dispatch(toggleFollowingProgress(true, userId))
+    let data = await apiMethod(userId)
+    if (data.resultCode == 0) {
+        dispatch(actionCreator(userId))
+    }
+    dispatch(toggleFollowingProgress(false, userId))
+}
+
+
 //санки
 export const requestUsers = (page: number, pageSize: number) => async (dispatch: any) => {
     dispatch(toggleIsFetching(true))
@@ -130,22 +141,29 @@ export const requestUsers = (page: number, pageSize: number) => async (dispatch:
 
 
 export const follow = (userId: number) => async (dispatch: any) => {
-    dispatch(toggleFollowingProgress(true, userId))
-    let data = await FollowAPI.postFollow(userId)
+    let apiMethod = FollowAPI.postFollow.bind(FollowAPI)
+    followUnfollowFlow(dispatch, userId, apiMethod, followSuccess)
+
+    /*dispatch(toggleFollowingProgress(true, userId))
+    let data = await apiMethod(userId)
     if (data.resultCode == 0) {
-        dispatch(followSuccess(userId))
+        dispatch(actionCreator(userId))
     }
-    dispatch(toggleFollowingProgress(false, userId))
+    dispatch(toggleFollowingProgress(false, userId))*/
 }
 
 
 export const unfollow = (userId: number) => async (dispatch: any) => {
-    dispatch(toggleFollowingProgress(true, userId))
-    let data = await UnfollowAPI.deleteUnfollow(userId)
+    let apiMethod = UnfollowAPI.deleteUnfollow.bind(UnfollowAPI)
+    followUnfollowFlow(dispatch, userId, apiMethod, unfollowSuccess)
+
+
+    /*dispatch(toggleFollowingProgress(true, userId))
+    let data = await apiMethod(userId)
     if (data.resultCode == 0) {
-        dispatch(unfollowSuccess(userId))
+        dispatch(actionCreator(userId))
     }
-    dispatch(toggleFollowingProgress(false, userId))
+    dispatch(toggleFollowingProgress(false, userId))*/
 }
 
 
