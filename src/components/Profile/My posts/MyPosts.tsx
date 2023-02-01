@@ -15,9 +15,9 @@ export type MessageType = {
     newMessageText?: string
 }
 
-const MyPosts = (props: MessageType) => {
+const MyPosts = React.memo((props: MessageType) => {
     console.log('yo')
-    let postElement = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>)
+    let postElement = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>).reverse()
 
     // let newPostElement = React.createRef <HTMLTextAreaElement>()
 
@@ -45,7 +45,7 @@ const MyPosts = (props: MessageType) => {
             {postElement}
         </div>
     </div>
-};
+});
 
 type FormDataType = {
     newPostText: string
