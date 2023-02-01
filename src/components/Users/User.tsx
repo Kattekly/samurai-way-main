@@ -13,42 +13,36 @@ type UserType = {
 
 const User: React.FC<UserType> = ({user, followingInProgress, unfollow, follow, ...props}) => {
 
-    let el = user
-
     return (
         <div>
                 <span>
                     <div>
-                        <NavLink to={"/profile/" + el.id}>
-                        <img src={el.photos.small !== null ? el.photos.small : userPhoto}/>
+                        <NavLink to={"/profile/" + user.id}>
+                        <img src={user.photos.small !== null ? user.photos.small : userPhoto}/>
                         </NavLink>
                     </div>
                 </span>
             <span>
                     <div>
-                        {el.followed ?
-                            <button disabled={followingInProgress.some(id => id == el.id)} onClick={() => {
-
-                                unfollow(el.id)
-
+                        {user.followed ?
+                            <button disabled={followingInProgress.some(id => id == user.id)} onClick={() => {
+                                unfollow(user.id)
                             }}>Unfollow</button>
 
-                            : <button disabled={followingInProgress.some(id => id == el.id)} onClick={() => {
-
-                                follow(el.id)
-
+                            : <button disabled={followingInProgress.some(id => id == user.id)} onClick={() => {
+                                follow(user.id)
                             }}>Follow</button>}
 
                     </div>
                 </span>
             <span>
     <span>
-        <div>{el.name}</div>
-        <div>{el.status}</div>
+        <div>{user.name}</div>
+        <div>{user.status}</div>
     </span>
     <span>
-        <div>{'el.location.country'}</div>
-        <div>{"el.location.city"}</div>
+        <div>{'user.location.country'}</div>
+        <div>{"user.location.city"}</div>
     </span>
 </span>
         </div>)

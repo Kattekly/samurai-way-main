@@ -11,8 +11,8 @@ type ProfileInfoPropsType = {
     updateStatusThunk: (status: string) => void
 }
 
-const ProfileInfo = (props: ProfileInfoPropsType) => {
-    if (!props.profile) {
+const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateStatusThunk}) => {
+    if (!profile) {
         return <Preloader/>
     }
 
@@ -22,10 +22,10 @@ const ProfileInfo = (props: ProfileInfoPropsType) => {
                 <img src="https://img2.fonwall.ru/o/gw/gory-zakat-solnce.jpg?route=thumb&h=350"/>
             </div>
             <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large}/>
-                {props.profile.fullName}
-                {props.profile.lookingForAJobDescription}
-                <ProfileStatusWithHooks status={props.status} updateStatusThunk={props.updateStatusThunk}/>
+                <img src={profile.photos.large}/>
+                {profile.fullName}
+                {profile.lookingForAJobDescription}
+                <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
             </div>
         </div>
     )
