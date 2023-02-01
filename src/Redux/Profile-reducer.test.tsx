@@ -34,3 +34,15 @@ test('after deleting length of massages de decrement', () => {
     //ожидание
     expect(newState.posts.length).toBe(1)
 })
+
+test('after deleting length shouldnt de decrement if id is incorrect', () => {
+    //стартовые данные
+
+    let action = deletePost(12)
+
+    //экшен
+    let newState = profileReducer(initialState, action)
+
+    //ожидание
+    expect(newState.posts.length).toBe(2)
+})
