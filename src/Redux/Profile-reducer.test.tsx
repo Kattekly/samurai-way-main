@@ -1,6 +1,5 @@
 import {addPostActionCreator, profileReducer} from "./Profile-reducer";
 
-
 test('new post should be added', () => {
     //стартовые данные
     let initialState = {
@@ -18,4 +17,6 @@ test('new post should be added', () => {
 
     //ожидание
     expect(newState.posts.length).toBe(3)
+    expect(newState.posts[2].message).toBe('ananas')
+    expect(newState.posts[2].like).toBe(0)
 })
