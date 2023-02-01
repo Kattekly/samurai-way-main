@@ -36,32 +36,37 @@ export const setAuthUserData = (id: number | null, email: string | null, login: 
     payload: {id, email, login, isAuth}
 })
 
-export const getLogin = () => (dispatch: Dispatch) => {
+/*export const getLogin = () => (dispatch: Dispatch) => {
    return authAPI.me().then(response => {
         if (response.data.resultCode === 0) {
             let {id, email, login} = response.data.data
             dispatch(setAuthUserData(id, email, login, true));
         }
     })
+}*/
+
+
+export const getLogin = () => async (dispatch: Dispatch) => {
+    let response = await authAPI.me()
+    if (response.data.resultCode === 0) {
+        let {id, email, login} = response.data.data
+        dispatch(setAuthUserData(id, email, login, true));
+    }
 }
 
-export const LoginTC = (email: string, password: string, rememberMe: boolean) => (dispatch: any) => {
-    authAPI.login(email, password, rememberMe)
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(getLogin())
-            } else {
-                let message = response.data.messages.length > 0 ? response.data.messages[0] : "Неверный email или пароль"
-                dispatch(stopSubmit("login", {_error: message}))
-            }
-        })
+export const LoginTC = (email: string, password: string, rememberMe: boolean) => async (dispatch: any) => {
+    let response = await authAPI.login(email, password, rememberMe)
+    if (response.data.resultCode === 0) {
+        dispatch(getLogin())
+    } else {
+        let message = response.data.messages.length > 0 ? response.data.messages[0] : "Неверный email или пароль"
+        dispatch(stopSubmit("login", {_error: message}))
+    }
 }
 
-export const LogOut = () => (dispatch: Dispatch) => {
-    authAPI.logout()
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(setAuthUserData(null, null, null, false));
-            }
-        })
+export const LogOut = () => async (dispatch: Dispatch) => {
+    let response = await authAPI.logout()
+    if (response.data.resultCode === 0) {
+        dispatch(setAuthUserData(null, null, null, false));
+    }
 }
