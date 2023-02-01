@@ -3,6 +3,7 @@ import {type} from "os";
 
 
 test('new post should be added', () => {
+    //стартовые данные
     let initialState = {
         posts: [
             {id: 1, message: "Hi, how are yo?", like: 15},
@@ -13,6 +14,9 @@ test('new post should be added', () => {
     }
     let action = addPostActionCreator('ananas')
 
-
+    //экшен
     let newState = profileReducer(initialState, action)
+
+    //ожидание
+    expect(newState.posts.length).toBe(5)
 })
