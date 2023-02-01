@@ -19,9 +19,10 @@ const Pagination: React.FC<PaginationType> = ({currentPage, onPageChange, totalU
     return (
         <div>
             {pages.map(p => {
-                return <span className={String(currentPage === p && s.selectedPage)} onClick={() => {
-                    onPageChange(p)
-                }}>{p}</span>
+                return <span className={String(currentPage === p && s.selectedPage)}
+                             onClick={() => {
+                                 onPageChange(p)
+                             }}>{p}</span>
             })}
         </div>
     );

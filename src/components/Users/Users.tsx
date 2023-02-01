@@ -21,22 +21,9 @@ type UsersFuncPropsType = {
 
 const Users: React.FC<UsersFuncPropsType> = ({currentPage, onPageChange, totalUsersCount, pageSize, ...props}) => {
 
-    let pagesCount = Math.ceil(totalUsersCount / pageSize)
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i)
-    }
-
-
     return <div className={s.usersItems}>
         <Pagination currentPage={currentPage} onPageChange={onPageChange} totalUsersCount={totalUsersCount} pageSize={pageSize}/>
-        {/*<div>
-            {pages.map(p => {
-                return <span className={String(props.currentPage === p && s.selectedPage)} onClick={() => {
-                    props.onPageChange(p)
-                }}>{p}</span>
-            })}
-        </div>*/}
+
         {
             props.users.map(el => <div key={el.id}>
                 <span>
