@@ -1,9 +1,10 @@
 import React from 'react';
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
-import { UsersPropsType} from "../../Redux/User-reduser";
+import {UsersPropsType} from "../../Redux/User-reduser";
 import {NavLink} from "react-router-dom";
 import {FollowAPI, UnfollowAPI} from "../../api/Api";
+import Pagination from "../common/Pagination/Pagination";
 
 type UsersFuncPropsType = {
     totalUsersCount: number
@@ -18,9 +19,9 @@ type UsersFuncPropsType = {
 }
 
 
-const Users = (props: UsersFuncPropsType) => {
+const Users: React.FC<UsersFuncPropsType> = ({currentPage, onPageChange, totalUsersCount, pageSize, ...props}) => {
 
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
+    let pagesCount = Math.ceil(totalUsersCount / pageSize)
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
@@ -28,13 +29,14 @@ const Users = (props: UsersFuncPropsType) => {
 
 
     return <div className={s.usersItems}>
-        <div>
+        <Pagination currentPage={currentPage} onPageChange={onPageChange} totalUsersCount={totalUsersCount} pageSize={pageSize}/>
+        {/*<div>
             {pages.map(p => {
                 return <span className={String(props.currentPage === p && s.selectedPage)} onClick={() => {
                     props.onPageChange(p)
                 }}>{p}</span>
             })}
-        </div>
+        </div>*/}
         {
             props.users.map(el => <div key={el.id}>
                 <span>
@@ -46,9 +48,10 @@ const Users = (props: UsersFuncPropsType) => {
                 </span>
                 <span>
                     <div>
-                        {el.followed ? <button disabled={props.followingInProgress.some(id => id == el.id)} onClick={() => {
+                        {el.followed ?
+                            <button disabled={props.followingInProgress.some(id => id == el.id)} onClick={() => {
 
-                            props.unfollow(el.id)
+                                props.unfollow(el.id)
 
                                 /*props.toggleFollowingProgress(true, el.id)
                                 UnfollowAPI.deleteUnfollow(el.id).then(data => {
@@ -60,7 +63,7 @@ const Users = (props: UsersFuncPropsType) => {
 
                             }}>Unfollow</button>
 
-                            : <button disabled={props.followingInProgress.some(id => id == el.id)}  onClick={() => {
+                            : <button disabled={props.followingInProgress.some(id => id == el.id)} onClick={() => {
 
                                 props.follow(el.id)
 

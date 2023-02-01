@@ -9,15 +9,15 @@ type FormsControls = {
 }
 
 
-const FormControl: React.FC<FormsControls> = ({input, meta, ...props}) => {
-    const hasError = meta.touched && meta.error
+const FormControl: React.FC<FormsControls> = ({input, meta: {touched, error}, children,...props}) => {
+    const hasError = touched && error
 
     return (
         <div className={s.formControl + ' ' + (hasError ? s.error : '')}>
             <div>
-                {props.children}
+                {children}
             </div>
-            {hasError && <span>{meta.error}</span>}
+            {hasError && <span>{error}</span>}
         </div>
     );
 }
