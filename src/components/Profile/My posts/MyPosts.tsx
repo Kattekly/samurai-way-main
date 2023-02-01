@@ -16,8 +16,8 @@ export type MessageType = {
 }
 
 class MyPosts extends React.Component<MessageType> {
-    shouldComponentUpdate(nextProps: Readonly<MessageType>, nextState: Readonly<{}>, nextContext: any): boolean {
-        return nextProps != this.props && nextState != this.state
+    shouldComponentUpdate(nextProps: Readonly<MessageType>, nextState: Readonly<MessageType>, nextContext: any): boolean {
+        return nextProps != this.props || nextState != this.state
     }
 
     render() {
