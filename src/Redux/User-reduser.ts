@@ -118,43 +118,34 @@ export const toggleFollowingProgress = (isFetching: boolean, userId: number) => 
 })
 
 //санки
-export const requestUsers = (page: number, pageSize: number) => {
-    return (dispatch: any) => {
-        dispatch(toggleIsFetching(true))
-        dispatch(setCurrentPage(page))
+export const requestUsers = (page: number, pageSize: number) => async (dispatch: any) => {
+    dispatch(toggleIsFetching(true))
+    dispatch(setCurrentPage(page))
 
-        userAPI.getUsers(page, pageSize).then(data => {
-            dispatch(toggleIsFetching(false))
-            dispatch(setUsers(data.items))
-            dispatch(setUsersTotalCount(data.totalCount))
-        })
-    }
+    let data = await userAPI.getUsers(page, pageSize)
+    dispatch(toggleIsFetching(false))
+    dispatch(setUsers(data.items))
+    dispatch(setUsersTotalCount(data.totalCount))
 }
 
 
-export const follow = (userId: number) => {
-    return (dispatch: any) => {
-        dispatch(toggleFollowingProgress(true, userId))
-        FollowAPI.postFollow(userId).then(data => {
-            if (data.resultCode == 0) {
-                dispatch(followSuccess(userId))
-            }
-            dispatch(toggleFollowingProgress(false, userId))
-        })
+export const follow = (userId: number) => async (dispatch: any) => {
+    dispatch(toggleFollowingProgress(true, userId))
+    let data = await FollowAPI.postFollow(userId)
+    if (data.resultCode == 0) {
+        dispatch(followSuccess(userId))
     }
+    dispatch(toggleFollowingProgress(false, userId))
 }
 
 
-export const unfollow = (userId: number) => {
-    return (dispatch: any) => {
-        dispatch(toggleFollowingProgress(true, userId))
-        UnfollowAPI.deleteUnfollow(userId).then(data => {
-            if (data.resultCode == 0) {
-                dispatch(unfollowSuccess(userId))
-            }
-            dispatch(toggleFollowingProgress(false, userId))
-        })
+export const unfollow = (userId: number) => async (dispatch: any) => {
+    dispatch(toggleFollowingProgress(true, userId))
+    let data = await UnfollowAPI.deleteUnfollow(userId)
+    if (data.resultCode == 0) {
+        dispatch(unfollowSuccess(userId))
     }
+    dispatch(toggleFollowingProgress(false, userId))
 }
 
 
