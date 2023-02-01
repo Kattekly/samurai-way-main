@@ -16,6 +16,10 @@ export type MessageType = {
 }
 
 class MyPosts extends React.Component<MessageType> {
+    shouldComponentUpdate(nextProps: Readonly<MessageType>, nextState: Readonly<{}>, nextContext: any): boolean {
+        return nextProps != this.props && nextState != this.state
+    }
+
     render() {
         console.log(this.props)
         let postElement = this.props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>)
@@ -60,7 +64,8 @@ const AddNewPostForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <Field component={Textarea} name="newPostText" validate={[required, maxLength10]} placeholder="Post message"/>
+                <Field component={Textarea} name="newPostText" validate={[required, maxLength10]}
+                       placeholder="Post message"/>
             </div>
             <div>
                 <button>Add post</button>
