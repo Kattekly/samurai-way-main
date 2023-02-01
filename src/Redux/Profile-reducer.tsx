@@ -103,10 +103,9 @@ export const addPostActionCreator = (newPostText: string) => ({
 
 export const deletePost = (postId: number) => ({type: DELETE_POST, postId})
 
-export const getProfileThunk = (userId: string) => (dispatch: any) => {
-    ProfileAPI.getProfile(userId).then(response => {
-        dispatch(setUserProfile(response.data))
-    })
+export const getProfileThunk = (userId: string) => async (dispatch: any) => {
+    let response = await ProfileAPI.getProfile(userId)
+    dispatch(setUserProfile(response.data))
 }
 
 
@@ -115,21 +114,14 @@ export const setUserProfile = (profile: ProfileUserPropsType) => ({type: SET_USE
 
 export const setStatus = (status: string) => ({type: SET_STATUS, status})
 
-export const getStatusThunk = (userId: string) => {
-    return (dispatch: any) => {
-        ProfileAPI.getStatus(userId).then(response => {
-            dispatch(setStatus(response.data))
-        })
-    }
+export const getStatusThunk = (userId: string) => async (dispatch: any) => {
+    let response = await ProfileAPI.getStatus(userId)
+    dispatch(setStatus(response.data))
 }
 
-export const updateStatusThunk = (status: string) => {
-    return (dispatch: any) => {
-        ProfileAPI.updateStatus(status)
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    dispatch(setStatus(status))
-                }
-            })
+export const updateStatusThunk = (status: string) => async (dispatch: any) => {
+    let response = await ProfileAPI.updateStatus(status)
+    if (response.data.resultCode === 0) {
+        dispatch(setStatus(status))
     }
 }
