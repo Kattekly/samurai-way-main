@@ -4,7 +4,7 @@ const ADD_POST = 'ADD-POST'
 // const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
 const SET_STATUS = 'SET_STATUS'
-
+const DELETE_POST = 'DELETE_POST'
 
 export type ProfileUserPropsType = {
     userId: number
@@ -78,7 +78,12 @@ export const profileReducer = (state = initialState, action: any) => {
                 profile: action.profile
             }
         }
-
+        case DELETE_POST: {
+            return {
+                ...state,
+                posts: state.posts.filter(el => el.id != action.postId)
+            }
+        }
         default:
             return state
     }
@@ -96,10 +101,12 @@ export const addPostActionCreator = (newPostText: string) => ({
 // }
 
 
+export const deletePost = (postId: number) => ({type: DELETE_POST, postId})
+
 export const getProfileThunk = (userId: string) => (dispatch: any) => {
-        ProfileAPI.getProfile(userId).then(response => {
-            dispatch(setUserProfile(response.data))
-        })
+    ProfileAPI.getProfile(userId).then(response => {
+        dispatch(setUserProfile(response.data))
+    })
 }
 
 
@@ -123,6 +130,6 @@ export const updateStatusThunk = (status: string) => {
                 if (response.data.resultCode === 0) {
                     dispatch(setStatus(status))
                 }
-        })
+            })
     }
 }
