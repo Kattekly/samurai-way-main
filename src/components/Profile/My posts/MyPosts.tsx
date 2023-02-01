@@ -15,43 +15,37 @@ export type MessageType = {
     newMessageText?: string
 }
 
-class MyPosts extends React.Component<MessageType> {
-    shouldComponentUpdate(nextProps: Readonly<MessageType>, nextState: Readonly<MessageType>, nextContext: any): boolean {
-        return nextProps != this.props || nextState != this.state
+const MyPosts = (props: MessageType) => {
+    console.log('yo')
+    let postElement = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>)
+
+    // let newPostElement = React.createRef <HTMLTextAreaElement>()
+
+    let onAddPost = (values: any) => {
+        if (props.addPost) {
+            props.addPost(values.newPostText)
+        }
     }
 
-    render() {
-        console.log(this.props)
-        let postElement = this.props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>)
-
-        // let newPostElement = React.createRef <HTMLTextAreaElement>()
-
-        let onAddPost = (values: any) => {
-            if (this.props.addPost) {
-                this.props.addPost(values.newPostText)
-            }
-        }
-
-        /*  let onPostChange = () => {
-              if (newPostElement.current) {
-                  let text = newPostElement.current.value
-                  if (props.updateNewPostText) {
-                      props.updateNewPostText(text)
-                  }
+    /*  let onPostChange = () => {
+          if (newPostElement.current) {
+              let text = newPostElement.current.value
+              if (props.updateNewPostText) {
+                  props.updateNewPostText(text)
               }
           }
-      */
+      }
+  */
 
-        return <div className={s.postsBlock}>
-            My Posts
-            <AddNewPostFormRedux onSubmit={onAddPost}/>
+    return <div className={s.postsBlock}>
+        My Posts
+        <AddNewPostFormRedux onSubmit={onAddPost}/>
 
-            <div className={s.posts}>
-                {postElement}
-            </div>
+        <div className={s.posts}>
+            {postElement}
         </div>
-    }
-}
+    </div>
+};
 
 type FormDataType = {
     newPostText: string
