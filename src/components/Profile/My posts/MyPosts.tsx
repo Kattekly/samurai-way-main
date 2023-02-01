@@ -15,37 +15,39 @@ export type MessageType = {
     newMessageText?: string
 }
 
-const MyPosts = (props: MessageType) => {
-    console.log({props})
-    let postElement = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>)
+class MyPosts extends React.Component<MessageType> {
+    render() {
+        console.log(this.props)
+        let postElement = this.props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>)
 
-    // let newPostElement = React.createRef <HTMLTextAreaElement>()
+        // let newPostElement = React.createRef <HTMLTextAreaElement>()
 
-    let onAddPost = (values: any) => {
-        if (props.addPost) {
-            props.addPost(values.newPostText)
-        }
-    }
-
-  /*  let onPostChange = () => {
-        if (newPostElement.current) {
-            let text = newPostElement.current.value
-            if (props.updateNewPostText) {
-                props.updateNewPostText(text)
+        let onAddPost = (values: any) => {
+            if (this.props.addPost) {
+                this.props.addPost(values.newPostText)
             }
         }
-    }
-*/
 
-    return <div className={s.postsBlock}>
-        My Posts
-        <AddNewPostFormRedux onSubmit={onAddPost}/>
+        /*  let onPostChange = () => {
+              if (newPostElement.current) {
+                  let text = newPostElement.current.value
+                  if (props.updateNewPostText) {
+                      props.updateNewPostText(text)
+                  }
+              }
+          }
+      */
 
-        <div className={s.posts}>
-            {postElement}
+        return <div className={s.postsBlock}>
+            My Posts
+            <AddNewPostFormRedux onSubmit={onAddPost}/>
+
+            <div className={s.posts}>
+                {postElement}
+            </div>
         </div>
-    </div>
-};
+    }
+}
 
 type FormDataType = {
     newPostText: string
