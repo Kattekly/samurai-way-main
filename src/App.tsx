@@ -16,21 +16,6 @@ import {initializeApp} from "./Redux/app-reducer";
 import {ReduxStateType} from "./Redux/Redux-Stor";
 import Preloader from "./components/common/Preloader/Preloader";
 
-// export type AppPropsType = {
-//     addPost?: (newMessage: string) => void
-//     updateNewPostText?: (newText: string) => void
-//     /* store: Store<ReduxStateType, ActionTypes>*/
-// }
-
-// export type MessageType = {
-//     newPostText: string
-//     posts: Array<PostType>
-//     addPost?: (newMessage: string) => void
-//     updateNewPostText?: (newText: string) => void
-//     dispatch?: (action: ActionTypes) => void
-//     newMessageText?: string
-//  }
-
 
 type mapStateToPropsType = {
     initialized: boolean
@@ -47,7 +32,6 @@ class App extends React.Component<AppType> {
     }
 
     render() {
-        // const state = props.store.getState()
         if (!this.props.initialized) return <Preloader/>
 
         return (

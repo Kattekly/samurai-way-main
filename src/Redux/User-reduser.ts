@@ -1,4 +1,5 @@
 import {FollowAPI, UnfollowAPI, userAPI} from "../api/Api";
+import {updateObjectInArray} from "../utils/helpers/object-helper";
 
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"
@@ -51,22 +52,18 @@ const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {
         case FOLLOW:
             return {
                 ...state,
-                users: state.users.map(el => {
+                users: updateObjectInArray(state.users, action.userId, 'id', {followed: true})
+                /*state.users.map(el => {
                     if (el.id === action.userId) {
                         return {...el, followed: true}
                     }
                     return el
-                })
+                })*/
             }
         case UNFOLLOW:
             return {
                 ...state,
-                users: state.users.map(el => {
-                    if (el.id === action.userId) {
-                        return {...el, followed: false}
-                    }
-                    return el
-                })
+                users: updateObjectInArray(state.users, action.userId, 'id', {followed: false})
             }
         case SET_USERS: {
             return {
