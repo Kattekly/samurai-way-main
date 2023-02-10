@@ -19,7 +19,7 @@ type UsersFuncPropsType = {
 const Users: React.FC<UsersFuncPropsType> = ({currentPage, onPageChange, totalUsersCount, pageSize, ...props}) => {
 
     return <div className={s.usersItems}>
-        <Pagination currentPage={currentPage} onPageChange={onPageChange} totalUsersCount={totalUsersCount}
+        <Pagination currentPage={currentPage} onPageChange={onPageChange} totalItemsCount={totalUsersCount}
                     pageSize={pageSize}/>
         <div>
             {props.users.map(el => <User key={el.id} user={el}

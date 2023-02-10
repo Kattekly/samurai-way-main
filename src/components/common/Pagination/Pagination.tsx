@@ -4,13 +4,13 @@ import s from "../../common/Pagination/Pagination.module.css";
 type PaginationType = {
     currentPage: number
     onPageChange: (pageNumber: number) => void
-    totalUsersCount: number
+    totalItemsCount: number
     pageSize: number
 }
 
 
-const Pagination: React.FC<PaginationType> = ({currentPage, onPageChange, totalUsersCount, pageSize}) => {
-    let pagesCount = Math.ceil(totalUsersCount / pageSize)
+const Pagination: React.FC<PaginationType> = ({currentPage, onPageChange, totalItemsCount, pageSize}) => {
+    let pagesCount = Math.ceil(totalItemsCount / pageSize)
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
