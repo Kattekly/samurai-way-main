@@ -20,7 +20,7 @@ const Users: React.FC<UsersFuncPropsType> = ({currentPage, onPageChange, totalUs
 
     return <div className={s.usersItems}>
         <Pagination currentPage={currentPage} onPageChange={onPageChange} totalItemsCount={totalUsersCount}
-                    pageSize={pageSize}/>
+                    pageSize={pageSize} pagesInBlock={10}/>
         <div>
             {props.users.map(el => <User key={el.id} user={el}
                                          followingInProgress={props.followingInProgress}

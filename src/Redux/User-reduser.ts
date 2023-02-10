@@ -40,7 +40,7 @@ type LocationPropsType = {
 
 let initialState: UsersMaxPropsType = {
     users: [],
-    pageSize: 100,
+    pageSize: 10,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: true,

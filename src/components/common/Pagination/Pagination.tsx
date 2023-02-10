@@ -1,36 +1,74 @@
 import React, {useState} from 'react';
 import s from "../../common/Pagination/Pagination.module.css";
+import {requestUsers} from "../../../Redux/User-reduser";
 
 type PaginationType = {
     currentPage: number
     onPageChange: (pageNumber: number) => void
     totalItemsCount: number
     pageSize: number
+    pagesInBlock: number
 }
 
 
-const Pagination: React.FC<PaginationType> = ({currentPage, onPageChange, totalItemsCount, pageSize}) => {
-    let pagesCount = Math.ceil(totalItemsCount / pageSize)
+const Pagination: React.FC<PaginationType> = ({currentPage, onPageChange, totalItemsCount, pageSize, pagesInBlock}) => {
     let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i)
+    const pagesCount = Math.ceil(totalItemsCount / pageSize);
+    const pagesBlocksCount = Math.ceil(pagesCount / pagesInBlock);
+    let [currentPageBlock, setCurrentPageBlock] = useState(1)
+    let leftBlockPageNumber = (currentPageBlock - 1) * 10 + 1;
+    let rightBlockPageNumber = (currentPageBlock - 1) * 10 + 10;
+
+    const nextButtonHandler = () => {
+        setCurrentPageBlock((current) => current + 1)
+    }
+    const prevButtonHandler = () => {
+        setCurrentPageBlock((current) => current - 1)
     }
 
-    let portionCount = Math.ceil(pagesCount / portionSize)
-    let [portionNumber, setPortionNumber] = useState(1)
-    let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
-    let rightPortionPageNumber = portionNumber * portionSize;
+    if (currentPageBlock !== 1) {
+        for (let i = leftBlockPageNumber; i <= rightBlockPageNumber; i++) {
+            pages.push(i)
+        }
+    } else if (currentPageBlock === 1) {
+        for (let i = leftBlockPageNumber; i <= rightBlockPageNumber; i++) {
+            pages.push(i)
+        }
+    } else {
+        if (pagesCount > 10) {
+            if (currentPage > 5) {
+                for (let i = currentPage - 4; i <= currentPage + 5; i++) {
+                    pages.push(i)
+                    if (i === pagesCount) break
+                }
+            } else {
+                for (let i = 1; i <= 10; i++) {
+                    pages.push(i)
+                    if (i === pagesCount) break
+                }
+            }
+        } else {
+            for (let i = 1; i <= pagesCount; i++) {
+                pages.push(i)
+            }
+        }
+    }
+
 
     return (
-        <div>
-            {pages.map(p => {
-                return <span className={String(currentPage === p && s.selectedPage)}
-                             onClick={() => {
-                                 onPageChange(p)
-                             }}>{p}</span>
-            })}
+        <div className={s.items}>
+            {currentPageBlock > 1 && <button onClick={prevButtonHandler}>{"<< "}PREV</button>}
+            {
+                pages.map((p, index) => {
+                    return <span className={String(currentPage === p && s.selectedPage)} key={index}
+                                 onClick={() => {
+                                     onPageChange(p)
+                                 }}> {p} </span>
+                })
+            }
+            {currentPageBlock < pagesBlocksCount && <button onClick={nextButtonHandler}>NEXT</button>}
         </div>
-    );
-};
+    )
+}
 
 export default Pagination;
