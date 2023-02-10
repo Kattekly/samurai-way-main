@@ -57,7 +57,7 @@ const Pagination: React.FC<PaginationType> = ({currentPage, onPageChange, totalI
 
     return (
         <div className={s.items}>
-            {currentPageBlock > 1 && <button onClick={prevButtonHandler}>{"<< "}PREV</button>}
+            {currentPageBlock > 1 && <button onClick={prevButtonHandler}>{"<< "}</button>}
             {
                 pages.map((p, index) => {
                     return <span className={String(currentPage === p && s.selectedPage)} key={index}
@@ -66,7 +66,7 @@ const Pagination: React.FC<PaginationType> = ({currentPage, onPageChange, totalI
                                  }}> {p} </span>
                 })
             }
-            {currentPageBlock < pagesBlocksCount && <button onClick={nextButtonHandler}>NEXT</button>}
+            {currentPageBlock < pagesBlocksCount && <button onClick={nextButtonHandler}>{">>"}</button>}
         </div>
     )
 }
