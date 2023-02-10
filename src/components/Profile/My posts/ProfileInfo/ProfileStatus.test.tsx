@@ -7,7 +7,7 @@ describe("ProfileStatus", () => {
         const component = create(<ProfileStatus status="Alalalol" updateStatusThunk={() => {
         }}/>);
         const instance = component.getInstance();
-        expect(instance.state.status).toBe("Alalalol");
+        expect(instance?.state.status).toBe("Alalalol");
     });
     test("After creating span be correct", () => {
         const component = create(<ProfileStatus status="Alalalol" updateStatusThunk={() => {
@@ -27,7 +27,9 @@ describe("ProfileStatus", () => {
         const component = create(<ProfileStatus status="Alalalol" updateStatusThunk={() => {
         }}/>);
         const root = component.root;
-        let span = root.findByType("input")
-        expect(span).not.toBeNull();
+
+        expect(() => {
+            let input = root.findByType("input")
+        }).toThrow();
     });
-});
+})
