@@ -21,7 +21,7 @@ describe("ProfileStatus", () => {
         }}/>);
         const root = component.root;
         let span = root.findByType("span")
-        expect(span.innerText).toBe("Alalalol");
+        expect(span.children[0]).toBe("Alalalol");
     });
     test("Inputt null", () => {
         const component = create(<ProfileStatus status="Alalalol" updateStatusThunk={() => {
