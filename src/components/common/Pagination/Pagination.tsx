@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from "../../common/Pagination/Pagination.module.css";
 
 type PaginationType = {
@@ -15,6 +15,11 @@ const Pagination: React.FC<PaginationType> = ({currentPage, onPageChange, totalI
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }
+
+    let portionCount = Math.ceil(pagesCount / portionSize)
+    let [portionNumber, setPortionNumber] = useState(1)
+    let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
+    let rightPortionPageNumber = portionNumber * portionSize;
 
     return (
         <div>
