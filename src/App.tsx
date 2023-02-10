@@ -11,6 +11,7 @@ import {compose} from "redux";
 import {initializeApp} from "./Redux/app-reducer";
 import {ReduxStateType} from "./Redux/Redux-Stor";
 import Preloader from "./components/common/Preloader/Preloader";
+import {withSuspense} from "./hoc/withSuspense";
 
 //lazy loading
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
@@ -40,26 +41,10 @@ class App extends React.Component<AppType> {
                 <HeaderContainer/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path="/dialogs" render={() => {
-                        return <React.Suspense fallback={<div>Loading...</div>}>
-                            <DialogsContainer/>
-                        </React.Suspense>
-                    }}/>
-                    <Route path="/profile/:userId?" render={() => {
-                        return <React.Suspense fallback={<div>Loading...</div>}>
-                            <ProfileContainer/>
-                        </React.Suspense>
-                    }}/>
-                    <Route path="/users" render={() => {
-                        return <React.Suspense fallback={<div>Loading...</div>}>
-                            <UsersContainer/>
-                        </React.Suspense>
-                    }}/>
-                    <Route path="/login" render={() => {
-                        return <React.Suspense fallback={<div>Loading...</div>}>
-                            <Login/>
-                        </React.Suspense>
-                    }}/>
+                    <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
+                    <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
+                    <Route path="/users" render={withSuspense(UsersContainer)}/>
+                    <Route path="/login" render={withSuspense(Login)}/>
 
                     <Route path="/news" component={News}/>
                     <Route path="/music" component={Music}/>
