@@ -29,9 +29,22 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateSta
             <div className={s.descriptionBlock}>
                 <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
                 {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}
+                <div>
+                    <b>Full name</b>: {profile.fullName}
+                </div>
+                <div>
+                    <b>Looking for a job</b>: {profile.lookingForAJob ? 'yes' : 'no'}
+                </div>
+                {profile.lookingForAJob &&
+                    <div>
+                        <b>My professionals skills</b>: {profile.lookingForAJobDescription}
+                    </div>
+                }
+                <div>
+                    <b>About me</b>: {profile.aboutMe}
+                </div>
 
-                {profile.fullName}
-                {profile.lookingForAJobDescription}
+
                 <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
             </div>
         </div>
