@@ -22,6 +22,7 @@ type mapDispatchToPropsType = {
     getProfileThunk: (userId: string) => void
     getStatusThunk: (userId: string) => void
     updateStatusThunk: (status: string) => void
+    savePhoto: (file: any) => void
 }
 
 type ProfileContainerPropsType = mapStateToPropsType & mapDispatchToPropsType
@@ -46,7 +47,6 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
     }
 
     componentDidUpdate(prevProps: Readonly<PropsType>, prevState: Readonly<ProfilePageType>, snapshot?: any) {
-        debugger
         if(this.props.match.params.userId != prevProps.match.params.userId) {
             this.refreshProfile()
         }

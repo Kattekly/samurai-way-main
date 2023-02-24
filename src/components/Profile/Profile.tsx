@@ -9,7 +9,7 @@ export type ProfileNewType = {
     status: string
     updateStatusThunk: (status: string) => void
     isOwner: boolean
-    savePhoto: () => void
+    savePhoto: (file: any) => void
 }
 
 const Profile = (props: ProfileNewType) => {
