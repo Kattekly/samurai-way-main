@@ -101,13 +101,6 @@ export const addPostActionCreator = (newPostText: string) => ({
     type: "ADD-POST",
     newPostText: newPostText
 } as const)
-// export const updateNewPostActionCreator = (text: string) => {
-//     return {
-//         type: 'UPDATE-NEW-POST-TEXT',
-//         newText: text
-//     } as const
-// }
-
 
 export const deletePost = (postId: number) => ({type: DELETE_POST, postId})
 export const getProfileThunk = (userId: string) => async (dispatch: any) => {
@@ -135,6 +128,7 @@ export const updateStatusThunk = (status: string) => async (dispatch: any) => {
 export const savePhoto = (file: any) => async (dispatch: any) => {
     let response = await ProfileAPI.savePhoto(file)
     if (response.data.resultCode === 0) {
-        dispatch(savePhotoSuccess(response.data.photos))
+        debugger
+        dispatch(savePhotoSuccess(response.data.data.photos))
     }
 }
