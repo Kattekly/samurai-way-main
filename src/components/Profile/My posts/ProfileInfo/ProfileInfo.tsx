@@ -18,11 +18,8 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateSta
 
     return (
         <div>
-            {/*<div>*/}
-            {/*    <img src="https://img2.fonwall.ru/o/gw/gory-zakat-solnce.jpg?route=thumb&h=350"/>*/}
-            {/*</div>*/}
             <div className={s.descriptionBlock}>
-                <img src={profile.photos.large || userPhoto}/>
+                <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
                 {profile.fullName}
                 {profile.lookingForAJobDescription}
                 <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>

@@ -13,6 +13,9 @@ export type ProfileNewType = {
 const Profile = (props: ProfileNewType) => {
     return (
         <div>
+            {/*<div>*/}
+            {/*    <img src="https://img2.fonwall.ru/o/gw/gory-zakat-solnce.jpg?route=thumb&h=350"/>*/}
+            {/*</div>*/}
             <ProfileInfo profile={props.profile} status={props.status} updateStatusThunk={props.updateStatusThunk}/>
             <MyPostsContainer/>
         </div>
