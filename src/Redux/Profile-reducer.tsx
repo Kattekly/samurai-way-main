@@ -1,10 +1,12 @@
 import {ProfileAPI} from "../api/Api";
+import profile from "../components/Profile/Profile";
 
 const ADD_POST = 'ADD-POST'
 // const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
 const SET_STATUS = 'SET_STATUS'
 const DELETE_POST = 'DELETE_POST'
+const SET_PHOTO_SUCCESED = 'SET_PHOTO_SUCCESED'
 
 export type ProfileUserPropsType = {
     userId: number
@@ -84,6 +86,12 @@ export const profileReducer = (state = initialState, action: any) => {
                 posts: state.posts.filter(el => el.id != action.postId)
             }
         }
+        case SET_PHOTO_SUCCESED: {
+            return {
+                ...state,
+                profile: {...action.profile, photos: action.photos}
+            }
+        }
         default:
             return state
     }
@@ -102,17 +110,15 @@ export const addPostActionCreator = (newPostText: string) => ({
 
 
 export const deletePost = (postId: number) => ({type: DELETE_POST, postId})
-
 export const getProfileThunk = (userId: string) => async (dispatch: any) => {
     let response = await ProfileAPI.getProfile(userId)
     dispatch(setUserProfile(response.data))
 }
-
-
 export const setUserProfile = (profile: ProfileUserPropsType) => ({type: SET_USER_PROFILE, profile})
-
-
 export const setStatus = (status: string) => ({type: SET_STATUS, status})
+export const savePhotoSuccess = (photos: photosType) => ({type: SET_PHOTO_SUCCESED, photos})
+
+
 
 export const getStatusThunk = (userId: string) => async (dispatch: any) => {
     let response = await ProfileAPI.getStatus(userId)
@@ -123,5 +129,12 @@ export const updateStatusThunk = (status: string) => async (dispatch: any) => {
     let response = await ProfileAPI.updateStatus(status)
     if (response.data.resultCode === 0) {
         dispatch(setStatus(status))
+    }
+}
+
+export const savePhoto = (file: any) => async (dispatch: any) => {
+    let response = await ProfileAPI.savePhoto(file)
+    if (response.data.resultCode === 0) {
+        dispatch(savePhotoSuccess(response.data.photos))
     }
 }

@@ -9,6 +9,7 @@ export type ProfileNewType = {
     status: string
     updateStatusThunk: (status: string) => void
     isOwner: boolean
+    savePhoto: () => void
 }
 
 const Profile = (props: ProfileNewType) => {
@@ -17,7 +18,7 @@ const Profile = (props: ProfileNewType) => {
             {/*<div>*/}
             {/*    <img src="https://img2.fonwall.ru/o/gw/gory-zakat-solnce.jpg?route=thumb&h=350"/>*/}
             {/*</div>*/}
-            <ProfileInfo profile={props.profile} status={props.status} updateStatusThunk={props.updateStatusThunk} isOwner={props.isOwner}/>
+            <ProfileInfo profile={props.profile} status={props.status} updateStatusThunk={props.updateStatusThunk} isOwner={props.isOwner} savePhoto={props.savePhoto}/>
             <MyPostsContainer/>
         </div>
     );

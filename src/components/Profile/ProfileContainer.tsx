@@ -1,7 +1,13 @@
 import React from 'react';
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getProfileThunk, getStatusThunk, ProfileUserPropsType, updateStatusThunk} from "../../Redux/Profile-reducer";
+import {
+    getProfileThunk,
+    getStatusThunk,
+    ProfileUserPropsType,
+    savePhoto,
+    updateStatusThunk
+} from "../../Redux/Profile-reducer";
 import {ReduxStateType} from "../../Redux/Redux-Stor";
 import {ProfilePageType} from "../../Redux/State";
 import {RouteComponentProps, withRouter} from "react-router-dom";
@@ -53,7 +59,8 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
             <div>
                 <Profile {...this.props} isOwner={!this.props.match.params.userId}
                          profile={this.props.profile} status={this.props.status}
-                         updateStatusThunk={this.props.updateStatusThunk}/>
+                         updateStatusThunk={this.props.updateStatusThunk}
+                         savePhoto={this.props.savePhoto}/>
             </div>
         );
     }
@@ -91,7 +98,7 @@ let mapStateToPropsForRedirect = (state: ReduxStateType): mapStateToPropsType =>
 
 
 export default compose<React.ComponentType>(
-    connect(mapStateToProps, {getProfileThunk, getStatusThunk, updateStatusThunk}),
+    connect(mapStateToProps, {getProfileThunk, getStatusThunk, updateStatusThunk, savePhoto}),
     withRouter,
     withAuthRedirect
 )(ProfileContainer)
