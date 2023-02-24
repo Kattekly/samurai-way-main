@@ -43,12 +43,18 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateSta
                 <div>
                     <b>About me</b>: {profile.aboutMe}
                 </div>
-
-
+                <div>
+                    <b>Contacts</b>: {profile.contacts}
+                </div>
                 <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
             </div>
         </div>
     )
 };
+
+
+const Contact = ({contactTitle, contactValue}) => {
+
+}
 
 export default ProfileInfo;
