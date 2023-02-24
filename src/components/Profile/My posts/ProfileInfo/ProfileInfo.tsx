@@ -2,7 +2,7 @@ import React from 'react';
 import s from './ProfileInfo.module.css'
 import Preloader from "../../../common/Preloader/Preloader";
 import {ProfileUserPropsType} from "../../../../Redux/Profile-reducer";
-import ProfileStatus from "./ProfileStatus";
+import userPhoto from '../../../../assets/images/user.png'
 import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
 
 type ProfileInfoPropsType = {
@@ -18,11 +18,11 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateSta
 
     return (
         <div>
-            <div>
-                <img src="https://img2.fonwall.ru/o/gw/gory-zakat-solnce.jpg?route=thumb&h=350"/>
-            </div>
+            {/*<div>*/}
+            {/*    <img src="https://img2.fonwall.ru/o/gw/gory-zakat-solnce.jpg?route=thumb&h=350"/>*/}
+            {/*</div>*/}
             <div className={s.descriptionBlock}>
-                <img src={profile.photos.large}/>
+                <img src={profile.photos.large || userPhoto}/>
                 {profile.fullName}
                 {profile.lookingForAJobDescription}
                 <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
