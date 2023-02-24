@@ -40,6 +40,7 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
     }
 
     componentDidUpdate(prevProps: Readonly<PropsType>, prevState: Readonly<ProfilePageType>, snapshot?: any) {
+        debugger
         if(this.props.match.params.userId != prevProps.match.params.userId) {
             this.refreshProfile()
         }
@@ -50,7 +51,8 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
         /* if (!this.props.isAuth) return <Redirect to={'/login'}/>*/
         return (
             <div>
-                <Profile {...this.props} profile={this.props.profile} status={this.props.status}
+                <Profile {...this.props} isOwner={!!this.props.match.params.userId}
+                         profile={this.props.profile} status={this.props.status}
                          updateStatusThunk={this.props.updateStatusThunk}/>
             </div>
         );

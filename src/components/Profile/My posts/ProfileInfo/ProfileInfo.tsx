@@ -9,6 +9,7 @@ type ProfileInfoPropsType = {
     profile: ProfileUserPropsType
     status: string
     updateStatusThunk: (status: string) => void
+    isOwner: boolean
 }
 
 const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateStatusThunk}) => {
