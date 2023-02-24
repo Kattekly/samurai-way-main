@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import s from './ProfileInfo.module.css'
 import Preloader from "../../../common/Preloader/Preloader";
 import {ProfileUserPropsType} from "../../../../Redux/Profile-reducer";
@@ -12,15 +12,23 @@ type ProfileInfoPropsType = {
     isOwner: boolean
 }
 
-const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateStatusThunk}) => {
+const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateStatusThunk, isOwner, savePhoto}) => {
     if (!profile) {
         return <Preloader/>
+    }
+
+    const mainPhotoSelected = (event: ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files) {
+            savePhoto(event.target.files[0])
+        }
     }
 
     return (
         <div>
             <div className={s.descriptionBlock}>
                 <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
+                {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}
+
                 {profile.fullName}
                 {profile.lookingForAJobDescription}
                 <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
