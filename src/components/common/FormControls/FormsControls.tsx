@@ -9,7 +9,7 @@ type FormsControls = {
 }
 
 
-const FormControl: React.FC<FormsControls> = ({input, meta: {touched, error}, children,...props}) => {
+const FormControl: React.FC<FormsControls> = ({input, meta: {touched, error}, children, ...props}) => {
     const hasError = touched && error
 
     return (
