@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import s from "../../common/Pagination/Pagination.module.css";
-import {requestUsers} from "../../../Redux/User-reduser";
 
 type PaginationType = {
     currentPage: number
