@@ -1,11 +1,8 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
-import {ActionTypes, DialogsDataType} from "../../Redux/State";
-import {Store} from "redux";
-import {ReduxStateType} from "../../Redux/Redux-Stor";
-import {Redirect} from "react-router-dom";
+import {DialogsDataType} from "../../Redux/State";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {Textarea} from "../common/FormControls/FormsControls";
 import {maxLengthCreator, required} from "../../utils/validators/validators";
@@ -26,19 +23,9 @@ const Dialogs = (props: DialogNewType) => {
 
     let newMessageBody = state.newMessageText;
 
-    // let onSendMessageClick = () => {
-    //     props.sendMessageCreator()
-    // }
-
-    // let onNewMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    //     let body = e.target.value
-    //     props.updateMessageBodyCreator(body)
-    // }
-
     let addNewMessage = (value: any) => {
         props.sendMessageCreator(value.newMessageText)
     }
-    /*  if(!props.isAuth) return <Redirect to={'/login'}/>*/
 
     return (
         <div className={s.dialogs}>
