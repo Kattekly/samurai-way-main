@@ -18,12 +18,6 @@ export type FormDataType = {
 export const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit, error}) => {
     return (
         <form onSubmit={handleSubmit}>
-
-           {/* {CreateField("Email", "email", [required], Input, null, null)}
-            <Field placeholder={"Email"} name={"email"} component={Input} validate={[required]}/>
-            {CreateField("Password", "password", [required], Input, {type: "password"}, null)}
-            {CreateField(null, "password", [required], Input, {type: "checkbox"}, "remember me")}*/}
-
             <div>
                 <Field placeholder={"Email"} name={"email"} component={Input} validate={[required]}/>
             </div>
@@ -37,7 +31,6 @@ export const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubm
             {error && <div className={s.formSummaryError}>
                 {error}
             </div>}
-
 
             <div>
                 <button>Login</button>
