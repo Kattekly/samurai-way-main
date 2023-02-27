@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import s from './ProfileInfo.module.css'
 import Preloader from "../../../common/Preloader/Preloader";
 import {ContactPropsType, ProfileUserPropsType} from "../../../../Redux/Profile-reducer";
@@ -15,6 +15,8 @@ type ProfileInfoPropsType = {
 
 type NewType = {
     profile: ProfileUserPropsType
+    isOwner?: boolean
+    toEditMode?: () => void
 }
 
 export type ContactType = {
@@ -22,6 +24,8 @@ export type ContactType = {
 }
 
 const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateStatusThunk, isOwner, savePhoto}) => {
+    let [editMode, setEditMode] = useState(false)
+
     if (!profile) {
         return <Preloader/>
     }
@@ -38,7 +42,10 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateSta
                 <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
                 {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}
 
-                {editMode ? <ProfileDataForm profile={profile}/> : <ProfileData profile={profile}/>}
+                {editMode ? <ProfileDataForm profile={profile}/> :
+                    <ProfileData profile={profile} isOwner={isOwner} toEditMode={() => {
+                        setEditMode(true)
+                    }}/>}
 
                 <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
             </div>
@@ -46,8 +53,11 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateSta
     )
 };
 
-const ProfileData: React.FC<NewType> = ({profile}) => {
+const ProfileData: React.FC<NewType> = ({profile, isOwner, toEditMode}) => {
     return <>
+        <div>
+            <button onClick={toEditMode}>edit</button>
+        </div>
         <div>
             <b>Full name</b>: {profile.fullName}
         </div>
