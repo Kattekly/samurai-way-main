@@ -44,7 +44,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateSta
                     <b>About me</b>: {profile.aboutMe}
                 </div>
                 <div>
-                    <b>Contacts</b>: {profile.contacts}
+                    <b>Contacts</b>: {Object.keys(profile.contacts)}
                 </div>
                 <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
             </div>
