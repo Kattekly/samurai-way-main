@@ -13,6 +13,14 @@ type ProfileInfoPropsType = {
     savePhoto: (file: any) => void
 }
 
+type NewType = {
+    profile: ProfileUserPropsType
+}
+
+export type ContactType = {
+    contacts: ContactPropsType
+}
+
 const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateStatusThunk, isOwner, savePhoto}) => {
     if (!profile) {
         return <Preloader/>
@@ -29,14 +37,14 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateSta
             <div className={s.descriptionBlock}>
                 <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
                 {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}
-
+                <ProfileData profile={profile}/>
                 <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
             </div>
         </div>
     )
 };
 
-const ProfileData = ({profile}) => {
+const ProfileData: React.FC<NewType> = ({profile}) => {
     return <>
         <div>
             <b>Full name</b>: {profile.fullName}
@@ -61,7 +69,7 @@ const ProfileData = ({profile}) => {
 }
 
 
-const Contact = ({contactTitle, contactValue}) => {
+const Contact: React.FC<ContactType> = ({contactTitle, contactValue}) => {
     return <div className={s.contact}><b>{contactTitle}</b>: {contactValue}</div>
 }
 
