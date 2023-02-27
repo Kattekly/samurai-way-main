@@ -54,7 +54,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateSta
 
 
 const Contact = ({contactTitle, contactValue}) => {
-
+    return <div><b>{contactTitle}</b>: {contactValue}</div>
 }
 
 export default ProfileInfo;
