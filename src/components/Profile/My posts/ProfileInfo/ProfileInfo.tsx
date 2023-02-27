@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useState} from 'react';
 import s from './ProfileInfo.module.css'
 import Preloader from "../../../common/Preloader/Preloader";
-import {ContactPropsType, ProfileUserPropsType} from "../../../../Redux/Profile-reducer";
+import {ProfileUserPropsType} from "../../../../Redux/Profile-reducer";
 import userPhoto from '../../../../assets/images/user.png'
 import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
 
@@ -19,9 +19,6 @@ type NewType = {
     toEditMode?: () => void
 }
 
-export type ContactType = {
-    contacts: ContactPropsType
-}
 
 const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateStatusThunk, isOwner, savePhoto}) => {
     let [editMode, setEditMode] = useState(false)
@@ -88,7 +85,7 @@ const ProfileDataForm: React.FC<NewType> = ({profile}) => {
 }
 
 
-const Contact: React.FC<ContactType> = ({contactTitle, contactValue}) => {
+const Contact = ({contactTitle, contactValue}) => {
     return <div className={s.contact}><b>{contactTitle}</b>: {contactValue}</div>
 }
 
