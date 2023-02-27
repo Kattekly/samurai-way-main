@@ -37,7 +37,9 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateSta
             <div className={s.descriptionBlock}>
                 <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
                 {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}
-                <ProfileData profile={profile}/>
+
+                {editMode ? <ProfileDataForm profile={profile}/> : <ProfileData profile={profile}/>}
+
                 <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
             </div>
         </div>
@@ -45,6 +47,29 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, updateSta
 };
 
 const ProfileData: React.FC<NewType> = ({profile}) => {
+    return <>
+        <div>
+            <b>Full name</b>: {profile.fullName}
+        </div>
+        <div>
+            <b>Looking for a job</b>: {profile.lookingForAJob ? 'yes' : 'no'}
+        </div>
+        {profile.lookingForAJob &&
+            <div>
+                <b>My professionals skills</b>: {profile.lookingForAJobDescription}
+            </div>
+        }
+        <div>
+            <b>About me</b>: {profile.aboutMe}
+        </div>
+        <div>
+            <b>Contacts</b>: {Object.keys(profile.contacts).map(key => {
+            return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
+        })}
+        </div>
+    </>
+}
+const ProfileDataForm: React.FC<NewType> = ({profile}) => {
     return <>
         <div>
             <b>Full name</b>: {profile.fullName}
