@@ -1,6 +1,5 @@
 import {FollowAPI, UnfollowAPI, userAPI} from "../api/Api";
 import {updateObjectInArray} from "../utils/helpers/object-helper";
-
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"
 const SET_USERS = "SET_USERS"
