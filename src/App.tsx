@@ -29,9 +29,19 @@ type AppType = mapDispatchToPropsType & mapStateToPropsType
 
 class App extends React.Component<AppType> {
 
+    catchAllUnhandledErrors = (e: PromiseRejectionEvent) => {
+        alert('Some error')
+    }
+
     componentDidMount() {
         this.props.initializeApp()
+        window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors)
     }
+
+    componentWillUnmount() {
+        window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors)
+    }
+
 
     render() {
         if (!this.props.initialized) return <Preloader/>
