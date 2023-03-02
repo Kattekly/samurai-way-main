@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
-import {Route, withRouter} from "react-router-dom";
+import {Redirect, Route, withRouter} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -41,6 +41,8 @@ class App extends React.Component<AppType> {
                 <HeaderContainer/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
+                    <Route exact path="/" render={() => <Redirect to={"/profile"}/>}/>
+
                     <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
                     <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
                     <Route path="/users" render={withSuspense(UsersContainer)}/>
@@ -50,7 +52,7 @@ class App extends React.Component<AppType> {
                     <Route path="/music" component={Music}/>
                     <Route path="/settings" component={Settings}/>
 
-                    <Route path="*" render={() => <div>404 NOT FOUND</div>}/>
+                    {/*<Route path="/*" render={() => <div>404 NOT FOUND</div>}/>*/}
                 </div>
             </div>
         );
