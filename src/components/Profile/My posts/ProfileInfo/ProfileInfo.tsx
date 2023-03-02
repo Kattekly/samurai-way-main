@@ -14,7 +14,7 @@ type ProfileInfoPropsType = {
     savePhoto: (file: any) => void
 }
 
-type NewType = {
+export type NewType = {
     profile: ProfileUserPropsType
     isOwner?: boolean
     toEditMode?: () => void
@@ -79,7 +79,12 @@ const ProfileData: React.FC<NewType> = ({profile, isOwner, toEditMode}) => {
 }
 
 
-const Contact = ({contactTitle, contactValue}) => {
+type ContactType = {
+    contactTitle: string
+    contactValue: string
+}
+
+const Contact: React.FC<ContactType> = ({contactTitle, contactValue}) => {
     return <div className={s.contact}><b>{contactTitle}</b>: {contactValue}</div>
 }
 
