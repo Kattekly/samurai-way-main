@@ -15,7 +15,8 @@ const mapStateToProps = (state: ReduxStateType): initialStatePropsType => ({
     id: state.auth.id,
     email: state.auth.email,
     isAuth: state.auth.isAuth,
-    login: state.auth.login
+    login: state.auth.login,
+    captchaUrl: state.auth.captchaUrl
 })
 
 export default connect(mapStateToProps, {LogOut})(HeaderContainer);

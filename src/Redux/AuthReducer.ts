@@ -9,15 +9,16 @@ export type initialStatePropsType = {
     email: string | null
     login: string | null
     isAuth: boolean
+    captchaUrl: string | null
 }
 
 const initialState: initialStatePropsType = {
     id: null,
     email: null,
     login: null,
-    isAuth: false
+    isAuth: false,
+    captchaUrl: null
 }
-
 
 export const AuthReducer = (state = initialState, action: any): initialStatePropsType => {
     switch (action.type) {
@@ -54,8 +55,8 @@ export const getLogin = () => async (dispatch: Dispatch) => {
     }
 }
 
-export const LoginTC = (email: string, password: string, rememberMe: boolean) => async (dispatch: any) => {
-    let response = await authAPI.login(email, password, rememberMe)
+export const LoginTC = (email: string, password: string, rememberMe: boolean, captcha: string) => async (dispatch: any) => {
+    let response = await authAPI.login(email, password, rememberMe, captcha)
     if (response.data.resultCode === 0) {
         dispatch(getLogin())
     } else {
