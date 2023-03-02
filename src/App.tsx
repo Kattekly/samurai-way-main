@@ -50,6 +50,7 @@ class App extends React.Component<AppType> {
                     <Route path="/music" component={Music}/>
                     <Route path="/settings" component={Settings}/>
 
+                    <Route path="*" render={() => <div>404 NOT FOUND</div>}/>
                 </div>
             </div>
         );
