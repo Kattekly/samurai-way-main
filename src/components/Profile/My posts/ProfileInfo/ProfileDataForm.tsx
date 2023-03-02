@@ -15,12 +15,12 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileUserPropsType, PropsTyp
                                                                                                        error
                                                                                                    }) => {
     return <form onSubmit={handleSubmit}>
-        <div>
-            <button>save</button>
-        </div>
+        <div><button>save</button></div>
+
         {error && <div className={s.formSummaryError}>
             {error}
         </div>
+
         }
         <div>
             <b>Full name</b>: {createField<ProfileTypeKeys>("Full name", "fullName", [], Input)}
