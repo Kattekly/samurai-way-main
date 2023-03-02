@@ -5,7 +5,7 @@ import {
     getProfileThunk,
     getStatusThunk,
     ProfileUserPropsType,
-    savePhoto,
+    savePhoto, saveProfile,
     updateStatusThunk
 } from "../../Redux/Profile-reducer";
 import {ReduxStateType} from "../../Redux/Redux-Stor";
@@ -99,7 +99,7 @@ let mapStateToPropsForRedirect = (state: ReduxStateType): mapStateToPropsType =>
 
 
 export default compose<React.ComponentType>(
-    connect(mapStateToProps, {getProfileThunk, getStatusThunk, updateStatusThunk, savePhoto}),
+    connect(mapStateToProps, {getProfileThunk, getStatusThunk, updateStatusThunk, savePhoto, saveProfile}),
     withRouter,
     withAuthRedirect
 )(ProfileContainer)
