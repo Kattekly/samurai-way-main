@@ -1,6 +1,4 @@
 import {ProfileAPI} from "../api/Api";
-import {AppStateType, ReduxStateType} from "./Redux-Stor";
-import {Dispatch} from "redux";
 
 const ADD_POST = 'ADD-POST'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
