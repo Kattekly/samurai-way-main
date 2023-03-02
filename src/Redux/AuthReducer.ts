@@ -75,8 +75,7 @@ export const getCaptchaUrl = () => async (dispatch: any) => {
     const response = await securityAPI.getCaptchaUrl()
     const captchaUrl = response.data.url
 
-        let message = response.data.messages.length > 0 ? response.data.messages[0] : "Неверный email или пароль"
-        dispatch(stopSubmit("login", {_error: message}))
+    dispatch(getCaptchaUrlSuccess(captchaUrl))
 
 }
 
