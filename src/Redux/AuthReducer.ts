@@ -28,6 +28,11 @@ export const AuthReducer = (state = initialState, action: any): initialStateProp
                 ...state,
                 ...action.payload
             }
+        case GET_CAPTCHA_URL:
+            return {
+                ...state,
+                ...action.payload
+            }
         default:
             return state
     }

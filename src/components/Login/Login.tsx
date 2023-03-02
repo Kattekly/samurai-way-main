@@ -66,6 +66,7 @@ const Login: React.FC = () => {
 }
 
 const mapStateToProps = (state: ReduxStateType) => ({
+    captchaUrl: state.auth.captchaUrl,
     isAuth: state.auth.isAuth
 })
 
