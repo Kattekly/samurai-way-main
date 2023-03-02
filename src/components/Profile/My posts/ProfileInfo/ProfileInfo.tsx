@@ -4,6 +4,7 @@ import Preloader from "../../../common/Preloader/Preloader";
 import {ProfileUserPropsType} from "../../../../Redux/Profile-reducer";
 import userPhoto from '../../../../assets/images/user.png'
 import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
+import {ProfileDataForm} from "./ProfileDataForm";
 
 type ProfileInfoPropsType = {
     profile: ProfileUserPropsType
@@ -73,13 +74,6 @@ const ProfileData: React.FC<NewType> = ({profile, isOwner, toEditMode}) => {
             <b>Contacts</b>: {Object.keys(profile.contacts).map(key => {
             return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
         })}
-        </div>
-    </>
-}
-const ProfileDataForm: React.FC<NewType> = ({profile}) => {
-    return <>
-        <div>
-            Form
         </div>
     </>
 }
