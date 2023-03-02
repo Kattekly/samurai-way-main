@@ -23,6 +23,7 @@ type mapDispatchToPropsType = {
     getStatusThunk: (userId: string) => void
     updateStatusThunk: (status: string) => void
     savePhoto: (file: any) => void
+    saveProfile: (profile: ProfileUserPropsType) => Promise<any>
 }
 
 type ProfileContainerPropsType = mapStateToPropsType & mapDispatchToPropsType

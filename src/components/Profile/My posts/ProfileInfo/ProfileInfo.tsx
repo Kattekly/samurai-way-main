@@ -38,11 +38,11 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
 
     const onSubmit = (formData: ProfileUserPropsType) => {
         console.log(formData)
-        saveProfile(formData).then(
-            () => {
-                setEditMode(false);
-            }
-        );
+        // saveProfile(formData).then(
+        //     () => {
+        //         setEditMode(false);
+        //     }
+        // );
     }
 
 
