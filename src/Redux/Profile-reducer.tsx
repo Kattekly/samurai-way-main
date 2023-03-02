@@ -15,7 +15,7 @@ export type ProfileUserPropsType = {
     aboutMe: string
 }
 
-type ContactPropsType = {
+export type ContactPropsType = {
     github: string
     vk: string
     facebook: string

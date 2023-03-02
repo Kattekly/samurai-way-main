@@ -30,3 +30,10 @@ export const Input: React.FC<FormsControls> = (props) => {
     const {input, meta, children, ...restProps} = props
     return <FormControl {...props}><input {...input} {...restProps}/></FormControl>
 }
+
+type FieldType = {
+    placeholder: string
+    name: string
+    validators: []
+    component: any
+}
