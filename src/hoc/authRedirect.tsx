@@ -1,7 +1,7 @@
 import React, {Component, ComponentType} from 'react';
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {ReduxStateType} from "../Redux/Redux-Stor";
+import {ReduxStateType} from "../Redux/redux-stor";
 
 
 type IsAuthPropsType = {

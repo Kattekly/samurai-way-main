@@ -1,4 +1,4 @@
-import {getLogin} from "./AuthReducer";
+import {getLogin} from "./auth-reducer";
 
 const SET_INITIALIZED = 'SET_INITIALIZED'
 

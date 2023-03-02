@@ -1,4 +1,4 @@
-import {ProfileAPI} from "../api/Api";
+import {ProfileAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
 
 const ADD_POST = 'ADD-POST'
@@ -118,9 +118,15 @@ export const getStatusThunk = (userId: string) => async (dispatch: any) => {
 }
 
 export const updateStatusThunk = (status: string) => async (dispatch: any) => {
-    let response = await ProfileAPI.updateStatus(status)
-    if (response.data.resultCode === 0) {
-        dispatch(setStatus(status))
+    try {
+        let response = await ProfileAPI.updateStatus(status)
+        if (response.data.resultCode === 0) {
+            dispatch(setStatus(status))
+        } else if (response.data.resultCode === 1) {
+            alert("Error")
+        }
+    } catch (error) {
+        //
     }
 }
 
@@ -138,12 +144,12 @@ export const saveProfile = (profile: ProfileUserPropsType) => async (dispatch: a
     if (response.data.resultCode === 0) {
         if (userId) {
             dispatch(getProfileThunk(userId))
-        }else {
+        } else {
             throw new Error("userId can't be null")
         }
     } else {
-       /* dispatch(stopSubmit("edit-profile", {"contacts": {"": response.data.messages[0] }}))*/
-        dispatch(stopSubmit("edit-profile", {_error: response.data.messages[0] }))
-        return Promise.reject( response.data.messages[0])
+        /* dispatch(stopSubmit("edit-profile", {"contacts": {"": response.data.messages[0] }}))*/
+        dispatch(stopSubmit("edit-profile", {_error: response.data.messages[0]}))
+        return Promise.reject(response.data.messages[0])
     }
 }

@@ -9,7 +9,7 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./Redux/app-reducer";
-import {ReduxStateType} from "./Redux/Redux-Stor";
+import {ReduxStateType} from "./Redux/redux-stor";
 import Preloader from "./components/common/Preloader/Preloader";
 import {withSuspense} from "./hoc/withSuspense";
 
@@ -41,7 +41,6 @@ class App extends React.Component<AppType> {
     componentWillUnmount() {
         window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors)
     }
-
 
     render() {
         if (!this.props.initialized) return <Preloader/>

@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {Textarea} from "../../common/FormControls/FormsControls";
-import {ActionTypes, PostType} from "../../../Redux/State";
+import {ActionTypes, PostType} from "../../../Redux/state";
 
 export type MessageType = {
     newPostText: string

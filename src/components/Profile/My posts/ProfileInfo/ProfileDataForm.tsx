@@ -2,7 +2,7 @@ import React from "react";
 import {createField, GetStringKeys, Input, Textarea} from "../../../common/FormControls/FormsControls";
 import {InjectedFormProps, reduxForm} from "redux-form";
 import s from './ProfileDataForm.module.css'
-import {ProfileUserPropsType} from "../../../../Redux/Profile-reducer";
+import {ProfileUserPropsType} from "../../../../Redux/profile-reducer";
 
 type PropsType = {
     profile: ProfileUserPropsType

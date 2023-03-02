@@ -1,4 +1,4 @@
-import {FollowAPI, UnfollowAPI, userAPI} from "../api/Api";
+import {FollowAPI, UnfollowAPI, userAPI} from "../api/api";
 import {updateObjectInArray} from "../utils/helpers/object-helper";
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"

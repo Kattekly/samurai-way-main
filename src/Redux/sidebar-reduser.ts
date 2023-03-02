@@ -1,4 +1,4 @@
-import {ActionTypes, RootStateType} from "./State";
+import {ActionTypes, RootStateType} from "./state";
 
 let initialState = {}
 

@@ -1,4 +1,4 @@
-import {authAPI, securityAPI} from "../api/Api";
+import {authAPI, securityAPI} from "../api/api";
 import {Dispatch} from "redux";
 import {stopSubmit} from "redux-form";
 
@@ -6,7 +6,7 @@ const SET_USER_DATA = 'SET_USER_DATA'
 const GET_CAPTCHA_URL = 'GET_CAPTCHA_URL'
 
 export type initialStatePropsType = {
-    id: string | null
+    id: number | null
     email: string | null
     login: string | null
     isAuth: boolean

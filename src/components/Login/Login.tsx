@@ -3,9 +3,9 @@ import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {createField, GetStringKeys, Input} from "../common/FormControls/FormsControls";
 import {required} from "../../utils/validators/validators";
 import {connect, useDispatch, useSelector} from "react-redux";
-import {LoginTC} from "../../Redux/AuthReducer";
+import {LoginTC} from "../../Redux/auth-reducer";
 import {Redirect} from "react-router-dom";
-import {ReduxStateType} from "../../Redux/Redux-Stor";
+import {ReduxStateType} from "../../Redux/redux-stor";
 import s from './../common/FormControls/FormsControls.module.css'
 
 type LoginFormOwnProps = {

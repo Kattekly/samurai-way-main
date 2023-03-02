@@ -1,6 +1,6 @@
 import React from 'react';
 import s from "./Users.module.css";
-import {UsersPropsType} from "../../Redux/User-reduser";
+import {UsersPropsType} from "../../Redux/user-reduser";
 import Pagination from "../common/Pagination/Pagination";
 import User from "./User";
 

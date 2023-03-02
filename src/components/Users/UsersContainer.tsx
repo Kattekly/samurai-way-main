@@ -7,8 +7,8 @@ import {
     toggleFollowingProgress,
     unfollow,
     UsersMaxPropsType, UsersPropsType
-} from "../../Redux/User-reduser";
-import {ReduxStateType} from "../../Redux/Redux-Stor";
+} from "../../Redux/user-reduser";
+import {ReduxStateType} from "../../Redux/redux-stor";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import {compose} from "redux";

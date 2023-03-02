@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useState} from 'react';
 import s from './ProfileInfo.module.css'
 import Preloader from "../../../common/Preloader/Preloader";
-import {ContactPropsType, ProfileUserPropsType} from "../../../../Redux/Profile-reducer";
+import {ContactPropsType, ProfileUserPropsType} from "../../../../Redux/profile-reducer";
 import userPhoto from '../../../../assets/images/user.png'
 import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
 import ProfileDataForm from "./ProfileDataForm";

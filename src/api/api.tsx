@@ -1,5 +1,5 @@
 import axios from "axios";
-import {ProfileUserPropsType} from "../Redux/Profile-reducer";
+import {ProfileUserPropsType} from "../Redux/profile-reducer";
 
 const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
