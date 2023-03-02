@@ -48,14 +48,12 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
     }
 
     componentDidUpdate(prevProps: Readonly<PropsType>, prevState: Readonly<ProfilePageType>, snapshot?: any) {
-        if(this.props.match.params.userId != prevProps.match.params.userId) {
+        if (this.props.match.params.userId != prevProps.match.params.userId) {
             this.refreshProfile()
         }
     }
 
     render() {
-
-        /* if (!this.props.isAuth) return <Redirect to={'/login'}/>*/
         return (
             <div>
                 <Profile {...this.props} isOwner={!this.props.match.params.userId}
@@ -70,8 +68,6 @@ class ProfileContainer extends React.Component <PropsType, ProfilePageType> {
 
 //хок
 let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
-/*AuthRedirectComponent = connect(mapStateToPropsForRedirect)(AuthRedirectComponent)*/
-
 
 export type mapStateToPropsType = {
     profile: ProfileUserPropsType
@@ -87,16 +83,6 @@ let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => ({
     isAuth: state.auth.isAuth
 
 })
-
-/*
-let mapStateToPropsForRedirect = (state: ReduxStateType): mapStateToPropsType => ({
-    isAuth: state.auth.isAuth
-})
-*/
-
-
-// let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
-
 
 export default compose<React.ComponentType>(
     connect(mapStateToProps, {getProfileThunk, getStatusThunk, updateStatusThunk, savePhoto, saveProfile}),
