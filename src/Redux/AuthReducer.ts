@@ -3,6 +3,7 @@ import {Dispatch} from "redux";
 import {stopSubmit} from "redux-form";
 
 const SET_USER_DATA = 'SET_USER_DATA'
+const GET_CAPTCHA_URL = 'GET_CAPTCHA_URL'
 
 export type initialStatePropsType = {
     id: string | null
@@ -35,6 +36,11 @@ export const AuthReducer = (state = initialState, action: any): initialStateProp
 export const setAuthUserData = (id: number | null, email: string | null, login: string | null, isAuth: boolean) => ({
     type: SET_USER_DATA,
     payload: {id, email, login, isAuth}
+})
+
+export const getCaptchaUrlSuccess = (captchaUrl: string | null) => ({
+    type: GET_CAPTCHA_URL,
+    payload: {captchaUrl}
 })
 
 /*export const getLogin = () => (dispatch: Dispatch) => {
