@@ -1,5 +1,6 @@
 import {ProfileAPI} from "../api/Api";
-import {ReduxStateType} from "./Redux-Stor";
+import {AppStateType, ReduxStateType} from "./Redux-Stor";
+import {Dispatch} from "redux";
 
 const ADD_POST = 'ADD-POST'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
@@ -132,11 +133,11 @@ export const savePhoto = (file: any) => async (dispatch: any) => {
     }
 }
 
-export const saveProfile = (profile: ProfileUserPropsType) => async (dispatch: any, getState: ReduxStateType) => {
-    const userId = getState.auth.id
+export const saveProfile = (profile: ProfileUserPropsType) => async (dispatch: any, getState: any) => {
+    const userId = getState().auth.id
     let response = await ProfileAPI.saveProfile(profile)
     if (response.data.resultCode === 0) {
-        if (userId != null) {
+        if (userId) {
             dispatch(getProfileThunk(userId))
         }
     }

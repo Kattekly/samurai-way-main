@@ -31,7 +31,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
     }
 
     const mainPhotoSelected = (event: ChangeEvent<HTMLInputElement>) => {
-        if (event.target.files && event.target.files.length) {
+        if (event.target.files ) {
             savePhoto(event.target.files[0])
         }
     }
