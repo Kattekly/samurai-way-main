@@ -10,3 +10,11 @@
 .contact {
     padding-left: 10px;
 }
+
+.avatarContainer {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    /*align-items: flex-end;*/
+    /*margin-top: -70px*/
+}

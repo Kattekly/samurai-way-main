@@ -2,12 +2,14 @@ import React from 'react';
 import s from "./Header.module.css"
 import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
+import {UserAvatar} from "../Profile/UserAvatar/UserAvatar";
 
 
 type HeaderPropsType = {
     isAuth: boolean
     login: string | null
     logOut: () => {}
+    avatar: string
 }
 
 const Header = (props: HeaderPropsType) => {
@@ -25,7 +27,8 @@ const Header = (props: HeaderPropsType) => {
                 src="https://sun6-22.userapi.com/s/v1/ig2/6EuMk1EjzsaN84R8DYTTnCoPiR4FBc-A93x-PXD_UJeNcNPdWp_j-OzKuDzPwGTUDm4xfHlaDCscM4HvDeGPT0EF.jpg?size=864x864&quality=95&crop=108,108,864,864&ava=1"/>
             <div className={s.loginBlock}>
                 {props.isAuth
-                    ? <div>{props.login} <button onClick={onClickLogoutHandler}>Выйти</button></div>
+                    ? <div>{props.login}  <UserAvatar img={props.avatar} size={36}/>
+                        <button onClick={onClickLogoutHandler}>Выйти</button></div>
                     : <NavLink to={'/login'}>Войти</NavLink>}
             </div>
         </header>

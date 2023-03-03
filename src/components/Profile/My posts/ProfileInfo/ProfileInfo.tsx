@@ -5,6 +5,7 @@ import {ContactPropsType, ProfileUserPropsType} from "../../../../Redux/profile-
 import userPhoto from '../../../../assets/images/user.png'
 import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
 import ProfileDataForm from "./ProfileDataForm";
+import {UserAvatar} from "../../UserAvatar/UserAvatar";
 
 
 type ProfileInfoPropsType = {
@@ -47,9 +48,14 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
     return (
         <div>
             <div className={s.descriptionBlock}>
-
-                <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
-                {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}
+                <div className={s.avatarContainer}>
+                    <UserAvatar img={profile.photos.large}
+                                savePhoto={savePhoto}
+                                size={200}
+                                isOwner={isOwner}/>
+                </div>
+               {/* <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
+                {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}*/}
 
                 {editMode
                     ? <ProfileDataForm onSubmit={onSubmit} profile={profile} initialValues={profile}/>
