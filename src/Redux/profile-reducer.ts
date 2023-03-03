@@ -38,7 +38,7 @@ let initialState = {
         {id: 1, message: "Hi, how are yo?", like: 15},
         {id: 2, message: "It's my first post", like: 20}
     ],
-    profile: null,
+    profile: null as ProfileUserPropsType | null,
     status: ''
 }
 
@@ -89,7 +89,7 @@ export const profileReducer = (state = initialState, action: any) => {
         case SET_PHOTO_SUCCESED: {
             return {
                 ...state,
-                profile: {...action.profile, photos: action.photos}
+                profile: {...state.profile, photos: action.photos} as ProfileUserPropsType
             }
         }
         default:
@@ -109,7 +109,7 @@ export const getProfileThunk = (userId: string) => async (dispatch: any) => {
 }
 export const setUserProfile = (profile: ProfileUserPropsType) => ({type: SET_USER_PROFILE, profile})
 export const setStatus = (status: string) => ({type: SET_STATUS, status})
-export const savePhotoSuccess = (photos: photosType) => ({type: SET_PHOTO_SUCCESED, photos})
+export const savePhotoSuccess = (photos: photosType) => ({type: SET_PHOTO_SUCCESED, photos} as const)
 
 
 export const getStatusThunk = (userId: string) => async (dispatch: any) => {
@@ -130,7 +130,7 @@ export const updateStatusThunk = (status: string) => async (dispatch: any) => {
     }
 }
 
-export const savePhoto = (file: any) => async (dispatch: any) => {
+export const savePhoto = (file: File) => async (dispatch: any) => {
     let response = await ProfileAPI.savePhoto(file)
     if (response.data.resultCode === 0) {
         debugger

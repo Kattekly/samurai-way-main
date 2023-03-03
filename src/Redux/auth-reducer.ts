@@ -7,16 +7,16 @@ const GET_CAPTCHA_URL = 'GET_CAPTCHA_URL'
 
 export type initialStatePropsType = {
     id: number | null
-    email: string
-    login: string
+    email: string | null
+    login: string | null
     isAuth: boolean
     captchaUrl: string | null
 }
 
 const initialState: initialStatePropsType = {
     id: null,
-    email: '',
-    login: '',
+    email: null,
+    login: null,
     isAuth: false,
     captchaUrl: null
 }

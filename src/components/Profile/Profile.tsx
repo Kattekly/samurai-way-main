@@ -5,11 +5,11 @@ import {ProfileUserPropsType} from "../../Redux/profile-reducer";
 
 
 export type ProfileNewType = {
-    profile: ProfileUserPropsType
+    profile: ProfileUserPropsType | null
     status: string
     updateStatusThunk: (status: string) => void
     isOwner: boolean
-    savePhoto: (file: any) => void
+    savePhoto: (file: File) => void
     saveProfile: (profile: ProfileUserPropsType) => Promise<any>
 }
 

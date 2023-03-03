@@ -8,11 +8,11 @@ import ProfileDataForm from "./ProfileDataForm";
 
 
 type ProfileInfoPropsType = {
-    profile: ProfileUserPropsType
+    profile: ProfileUserPropsType | null
     status: string
     updateStatusThunk: (status: string) => void
     isOwner: boolean
-    savePhoto: (file: any) => void
+    savePhoto: (file: File) => void
     saveProfile: (profile: ProfileUserPropsType) => Promise<any>
 }
 
@@ -31,7 +31,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
     }
 
     const mainPhotoSelected = (event: ChangeEvent<HTMLInputElement>) => {
-        if (event.target.files) {
+        if (event.target.files && event.target.files.length) {
             savePhoto(event.target.files[0])
         }
     }
@@ -47,6 +47,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
     return (
         <div>
             <div className={s.descriptionBlock}>
+
                 <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
                 {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}
 
@@ -69,33 +70,33 @@ type ProfileDataPropsType = {
 }
 
 const ProfileData: React.FC<ProfileDataPropsType> = ({profile, isOwner, toEditMode}) => {
-    return <>
-        {isOwner && <div>
-            <button onClick={toEditMode}>edit</button>
-        </div>}
+    return <div>
+        {isOwner && <div><button onClick={toEditMode}>edit</button></div>}
         <div>
             <b>Full name</b>: {profile.fullName}
         </div>
         <div>
-            <b>Looking for a job</b>: {profile.lookingForAJob ? 'yes' : 'no'}
+            <b>Looking for a job</b>: {profile.lookingForAJob ? "yes" : "no"}
         </div>
         {profile.lookingForAJob &&
             <div>
-                <b>My professionals skills</b>: {profile.lookingForAJobDescription}
+                <b>My professional skills</b>: {profile.lookingForAJobDescription}
             </div>
         }
+
         <div>
             <b>About me</b>: {profile.aboutMe}
         </div>
         <div>
-            <b>Contacts</b>: {Object.keys(profile.contacts).map(key => {
-            return <Contact key={key} contactTitle={key}
-                            contactValue={profile.contacts[key as keyof ContactPropsType]}/>
-        })}
+            <b>Contacts</b>: {
+            Object
+                .keys(profile.contacts)
+                .map((key)  => {
+                    return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key as keyof ContactPropsType]}/>
+                })}
         </div>
-    </>
+    </div>
 }
-
 
 type ContactType = {
     contactTitle: string
