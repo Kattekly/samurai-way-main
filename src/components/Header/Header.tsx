@@ -22,7 +22,7 @@ const Header = (props: HeaderPropsType) => {
     return (
         <header className={s.header}>
             <img
-                src="https://e7.pngegg.com/pngimages/342/288/png-clipart-globe-logo-music-globe-miscellaneous-map.png"/>
+                src="https://sun6-22.userapi.com/s/v1/ig2/6EuMk1EjzsaN84R8DYTTnCoPiR4FBc-A93x-PXD_UJeNcNPdWp_j-OzKuDzPwGTUDm4xfHlaDCscM4HvDeGPT0EF.jpg?size=864x864&quality=95&crop=108,108,864,864&ava=1"/>
             <div className={s.loginBlock}>
                 {props.isAuth
                     ? <div>{props.login} - <button onClick={onClickLogoutHandler}>Выйти</button></div>
