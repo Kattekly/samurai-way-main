@@ -1,7 +1,8 @@
 .header {
     grid-area: header;
     background-color: #ee9da6;
-
+    font-family: 'El Messiri', sans-serif;
+    font-size: 20px;
 }
 .header img {
     width: 50px;
