@@ -1,9 +1,37 @@
 .header {
     grid-area: header;
+    background-color: white;
+    font-family: 'El Messiri', sans-serif;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*.header{
+    grid-area: header;
     background-color: #ee9da6;
     font-family: 'El Messiri', sans-serif;
     font-size: 20px;
-}
+    display: flex;
+    align-items: center;
+    width: 98%;
+    z-index: 1;
+    border-radius: 5px;
+    margin: 10px;
+    justify-content: space-between;
+}*/
+
+/*.headerContainer{
+    position: fixed;
+    grid-area: header;
+    width: 100%;
+    !*height: 70px;*!
+    background-color: #006d77;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+}*/
+
 .header img {
     width: 50px;
 }
@@ -14,6 +42,55 @@
 }
 
 .loginBlock a {
-    color: white;
+    color: black;
 
+}
+
+.name{
+    margin: 15px 5px;
+    color: black;
+    font-weight: bold;
+}
+
+.logo{
+    width: 40px;
+    margin: 5px 5px;
+
+}
+.logoAndTitle{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.loginBlock{
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loginBlock > span{
+    margin-right: 10px;
+}
+.link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link:visited{
+    color: black;
+}
+.link:link{
+    color: black;
+}
+.active{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
 }

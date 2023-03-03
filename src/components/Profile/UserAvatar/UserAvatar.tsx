@@ -13,7 +13,7 @@ export const UserAvatar: FC<UserAvatarPropsType> = ({img, size, isOwner, savePho
     const avatarSize = {
         width: `${size}px`,
         height: `${size}px`,
-        border: `5px solid #e9ecef`
+        border: `5px solid white`
     }
 
     const onChangeMainPhoto = (event: ChangeEvent<HTMLInputElement>) => {
