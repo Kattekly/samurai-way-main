@@ -2,7 +2,7 @@ import React, {ChangeEvent, useState} from 'react';
 import s from './ProfileInfo.module.css'
 import Preloader from "../../../common/Preloader/Preloader";
 import {ContactPropsType, ProfileUserPropsType} from "../../../../Redux/profile-reducer";
-import userPhoto from '../../../../assets/images/user.png'
+import userPhoto from '../../../../assets/images/user2.jpg'
 import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
 import ProfileDataForm from "./ProfileDataForm";
 import {UserAvatar} from "../../UserAvatar/UserAvatar";
@@ -49,7 +49,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
         <div>
             <div className={s.descriptionBlock}>
                 <div className={s.avatarContainer}>
-                    <UserAvatar img={profile.photos.large}
+                    <UserAvatar img={profile.photos.large || userPhoto}
                                 savePhoto={savePhoto}
                                 size={200}
                                 isOwner={isOwner}/>

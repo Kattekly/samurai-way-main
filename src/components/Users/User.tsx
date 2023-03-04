@@ -1,5 +1,5 @@
 import React from 'react';
-import userPhoto from "../../assets/images/user.png";
+import userPhoto from "../../assets/images/user2.jpg";
 import {UsersPropsType} from "../../Redux/user-reduser";
 import {NavLink} from "react-router-dom";
 
