@@ -1,9 +1,38 @@
 import React from 'react';
-import {addPostActionCreator} from "../../../Redux/profile-reducer";
+import {addLike, addPostActionCreator} from "../../../Redux/profile-reducer";
 import MyPosts from "./MyPosts";
-import {ActionTypes, RootStateType} from "../../../Redux/state";
+import {ActionTypes, PostType, RootStateType} from "../../../Redux/state";
 import {connect} from "react-redux";
+import {ReduxStateType} from "../../../Redux/redux-stor";
 
+
+type mapStateToPropsType = {
+    posts: Array<PostType>
+    userName: string
+    userAvatar: string
+}
+type mapDispatchToPropsType  = {
+    addLike: (count: number, id: number) => void
+}
+
+let mapStateToProps = (state: ReduxStateType):mapStateToPropsType => {
+    return {
+        posts: state.messagePage.posts,
+        userName: state.messagePage.profile.fullName,
+        userAvatar: state.messagePage.profile.photos.small
+    }
+}
+
+let mapDispatchToProps = (dispatch: any): mapDispatchToPropsType => {
+    return {
+        addLike: (count: number, id: number) => dispatch(addLike(count, id)),
+    }
+}
+
+
+
+
+export const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
 
 /*type ContainerNewType = {
     store: Store<ReduxStateType, ActionTypes>
@@ -29,6 +58,7 @@ const MyPostsContainer1 = (props: ContainerNewType) => {
 
 };*/
 
+/*
 //данные из стейна, пропсы
 let mapStateToProps = (state: RootStateType) => {
     return {
@@ -40,9 +70,9 @@ let mapStateToProps = (state: RootStateType) => {
 //колбеки
 let mapDispatchToProps = (dispatch: (action: ActionTypes) => void) => {
     return {
-        /*updateNewPostText: (text: string) => {
+        /!*updateNewPostText: (text: string) => {
             dispatch(updateNewPostActionCreator(text))
-        },*/
+        },*!/
         addPost: (newPostText: string) => {
             dispatch(addPostActionCreator(newPostText))
         }
@@ -52,4 +82,4 @@ let mapDispatchToProps = (dispatch: (action: ActionTypes) => void) => {
 
 const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
 
-export default MyPostsContainer;
+export default MyPostsContainer;*/

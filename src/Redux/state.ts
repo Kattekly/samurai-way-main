@@ -2,6 +2,7 @@ import {profileReducer} from "./profile-reducer";
 import {dialogsReducer} from "./dialogs-reduser";
 import {sidebarReducer} from "./sidebar-reduser";
 
+/*
 let store: StorePropsType = {
     _state: {
         profilePage: {
@@ -42,7 +43,7 @@ let store: StorePropsType = {
         this._rerenderEntireTree = observer
     },
 
- /*   addPost (newPostText: string) {
+ /!*   addPost (newPostText: string) {
         let newPost = {
             id: 5,
             message: this._state.messagePage.newPostText,
@@ -55,13 +56,13 @@ let store: StorePropsType = {
     updateNewPostText (newText: string) {
         this._state.messagePage.newPostText = newText
         this._rerenderEntireTree()
-    },*/
+    },*!/
 
     dispatch (action) {
-        /*this._state.messagePage = profileReducer(this._state.messagePage, action)
+        /!*this._state.messagePage = profileReducer(this._state.messagePage, action)
         this._state.profilePage = dialogsReducer(this._state.profilePage, action)
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
-        this._rerenderEntireTree();*/
+        this._rerenderEntireTree();*!/
 
             if (action.type === 'ADD-POST') {
             let newPost = {
@@ -89,6 +90,7 @@ let store: StorePropsType = {
             }
     }
 }
+*/
 
 /*let body = this._state.profilePage.newMessageText
 this._state.profilePage.newMessageText = ''
@@ -146,9 +148,9 @@ export type DialogType = {
 }
 
 export type PostType = {
-    id?: number
-    message?: string
-    like?: number
+    id: number
+    message: string
+    like: number
 
 }
 

@@ -1,8 +1,10 @@
 import React from 'react';
 import ProfileInfo from "./My posts/ProfileInfo/ProfileInfo";
-import MyPostsContainer from "./My posts/MyPostsContainer";
+
 import {ProfileUserPropsType} from "../../Redux/profile-reducer";
 import s from "./Profile.module.css"
+import {MyPostsContainer} from "./My posts/MyPostsContainer";
+import {v1} from "uuid";
 
 export type ProfileNewType = {
     profile: ProfileUserPropsType | null
@@ -23,7 +25,7 @@ const Profile = (props: ProfileNewType) => {
             <ProfileInfo profile={props.profile} saveProfile={props.saveProfile} status={props.status}
                          updateStatusThunk={props.updateStatusThunk} isOwner={props.isOwner}
                          savePhoto={props.savePhoto}/>
-            <MyPostsContainer/>
+            <MyPostsContainer addPost={() => {}} key={''} newPostText={''} updateNewPostText={() => {}} newMessageText={''} dispatch={() => {}}/>
         </div>
     );
 };

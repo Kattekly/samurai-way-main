@@ -13,11 +13,20 @@ export type MessageType = {
     updateNewPostText?: (newText: string) => void
     dispatch?: (action: ActionTypes) => void
     newMessageText?: string
+    userName: string
+    userAvatar: string
+    addLike: (count: number, id: number) => void
 }
 
 const MyPosts = React.memo((props: MessageType) => {
 
-    let postElement = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like}/>).reverse()
+    let postElement = props.posts.map(elem => <Post key={elem.id}
+                                                 id={elem.id}
+                                                 message={elem.message}
+                                                 like={elem.like}
+                                                 userName={props.userName}
+                                                 userAvatar={props.userAvatar}
+                                                 addLike={props.addLike}/>).reverse()
 
     // let newPostElement = React.createRef <HTMLTextAreaElement>()
 

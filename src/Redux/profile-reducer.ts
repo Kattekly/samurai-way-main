@@ -6,6 +6,7 @@ const SET_USER_PROFILE = 'SET_USER_PROFILE'
 const SET_STATUS = 'SET_STATUS'
 const DELETE_POST = 'DELETE_POST'
 const SET_PHOTO_SUCCESED = 'SET_PHOTO_SUCCESED'
+const ADD_LIKE = 'ADD_LIKE'
 
 export type ProfileUserPropsType = {
     userId: number
@@ -112,6 +113,12 @@ export const profileReducer = (state = initialState, action: any) => {
                 profile: {...state.profile, photos: action.photos} as ProfileUserPropsType
             }
         }
+        case ADD_LIKE: {
+            return {
+                ...state,
+                posts: state.posts.map(elem => elem.id === action.id ? {...elem, like: action.count} : elem)
+            }
+        }
         default:
             return state
     }
@@ -130,6 +137,9 @@ export const getProfileThunk = (userId: string) => async (dispatch: any) => {
 export const setUserProfile = (profile: ProfileUserPropsType) => ({type: SET_USER_PROFILE, profile})
 export const setStatus = (status: string) => ({type: SET_STATUS, status})
 export const savePhotoSuccess = (photos: photosType) => ({type: SET_PHOTO_SUCCESED, photos} as const)
+export const addLike = (count: number, id: number) => {
+    return {type: ADD_LIKE, count: count, id: id} as const
+}
 
 
 export const getStatusThunk = (userId: string) => async (dispatch: any) => {
