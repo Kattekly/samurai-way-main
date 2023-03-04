@@ -6,6 +6,7 @@ import userPhoto from '../../../../assets/images/user2.jpg'
 import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
 import ProfileDataForm from "./ProfileDataForm";
 import {UserAvatar} from "../../UserAvatar/UserAvatar";
+import {Button} from "@material-ui/core";
 
 
 type ProfileInfoPropsType = {
@@ -79,7 +80,7 @@ type ProfileDataPropsType = {
 const ProfileData: React.FC<ProfileDataPropsType> = ({profile, isOwner, toEditMode}) => {
     return <div>
         {isOwner && <div>
-            <button onClick={toEditMode}>Edit profile</button>
+            <Button variant="outlined" color="primary" onClick={toEditMode}>Edit profile</Button>
         </div>}
         <div>
             <b>Full name</b>: {profile.fullName}
