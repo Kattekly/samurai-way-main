@@ -1,7 +1,9 @@
-import React from 'react';
-import {Field, WrappedFieldInputProps, WrappedFieldMetaProps, WrappedFieldProps} from "redux-form";
+import React, {FC} from 'react';
+import {Field, submit, WrappedFieldInputProps, WrappedFieldMetaProps, WrappedFieldProps} from "redux-form";
 import s from './FormsControls.module.css'
 import {FieldValidatorType} from "../../../utils/validators/validators";
+import {useDispatch} from "react-redux";
+import {Button} from "@material-ui/core";
 
 type FormsControls = {
     input: WrappedFieldInputProps
@@ -45,5 +47,27 @@ export function createField<FormKeysType extends string>(placeholder: string | u
         /> {text}
     </div>
 }
+
+type ButtonSubmitProps = {
+    form: any
+}
+export const ButtonSubmit: FC<ButtonSubmitProps> = ({form}) => {
+    const dispatch = useDispatch();
+
+    const onClickSubmit = () => {
+        dispatch(submit(form));
+    };
+
+    return (
+        <Button
+            type="submit"
+            color="primary"
+            variant="contained"
+            onClick={onClickSubmit}
+        >
+            Send
+        </Button>
+    );
+};
 
 export type GetStringKeys<T> = Extract<keyof T, string>

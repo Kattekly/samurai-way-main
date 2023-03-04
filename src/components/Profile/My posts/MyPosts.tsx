@@ -19,34 +19,40 @@ export type MessageType = {
 }
 
 const MyPosts = React.memo((props: MessageType) => {
+    return (
+        <div className={s.myPostsContainer}>
+            <AddPostContainer/>
+            {props.posts.map(elem => {
+                    return (<Post key={elem.id}
+                                  id={elem.id}
+                                  message={elem.message}
+                                  like={elem.like}
+                                  userName={props.userName}
+                                  userAvatar={props.userAvatar}
+                                  addLike={props.addLike}/>)
+                })}
+        </div>
+    )
+})
+// let newPostElement = React.createRef <HTMLTextAreaElement>()
 
-    let postElement = props.posts.map(elem => <Post key={elem.id}
-                                                 id={elem.id}
-                                                 message={elem.message}
-                                                 like={elem.like}
-                                                 userName={props.userName}
-                                                 userAvatar={props.userAvatar}
-                                                 addLike={props.addLike}/>).reverse()
-
-    // let newPostElement = React.createRef <HTMLTextAreaElement>()
-
-    let onAddPost = (values: any) => {
+/*    let onAddPost = (values: any) => {
         if (props.addPost) {
             props.addPost(values.newPostText)
         }
-    }
+    }*/
 
-    /*  let onPostChange = () => {
-          if (newPostElement.current) {
-              let text = newPostElement.current.value
-              if (props.updateNewPostText) {
-                  props.updateNewPostText(text)
-              }
+/*  let onPostChange = () => {
+      if (newPostElement.current) {
+          let text = newPostElement.current.value
+          if (props.updateNewPostText) {
+              props.updateNewPostText(text)
           }
       }
-  */
+  }
+*/
 
-    return <div className={s.postsBlock}>
+/*    return <div className={s.postsBlock}>
         My Posts
         <AddNewPostFormRedux onSubmit={onAddPost}/>
 
@@ -77,6 +83,6 @@ const AddNewPostForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit
     )
 }
 
-const AddNewPostFormRedux = reduxForm<FormDataType>({form: "ProfileAddNewPostForm"})(AddNewPostForm)
+const AddNewPostFormRedux = reduxForm<FormDataType>({form: "ProfileAddNewPostForm"})(AddNewPostForm)*/
 
 export default MyPosts;
