@@ -26,13 +26,24 @@ const Header = (props: HeaderPropsType) => {
     return (
         <header className={s.header}>
 
-                <div className={s.logoAndTitle}>
-                    <span>
+                {/*<div className={s.logoAndTitle}>*/}
+                    {/*<span>
                     <img
                         src="https://sun6-22.userapi.com/s/v1/ig2/6EuMk1EjzsaN84R8DYTTnCoPiR4FBc-A93x-PXD_UJeNcNPdWp_j-OzKuDzPwGTUDm4xfHlaDCscM4HvDeGPT0EF.jpg?size=864x864&quality=95&crop=108,108,864,864&ava=1"/>
-                    </span>
-                    <span className={s.name}>SOCIAL NETWORK</span>
+                    </span>*/}
 
+            <div className={s.imgWrapper}>
+                <img
+                    alt={"logo"}
+                    src={'https://sun6-22.userapi.com/s/v1/ig2/6EuMk1EjzsaN84R8DYTTnCoPiR4FBc-A93x-PXD_UJeNcNPdWp_j-OzKuDzPwGTUDm4xfHlaDCscM4HvDeGPT0EF.jpg?size=864x864&quality=95&crop=108,108,864,864&ava=1'}>
+
+                </img>
+
+
+            </div>
+            <div className={s.titleWrapper}>
+                    <span className={s.name}>SOCIAL NETWORK</span>
+            </div>
                 {props.isAuth
                     ? <div className={s.loginBlock}>
                         <span>{props.login}</span>
@@ -46,7 +57,7 @@ const Header = (props: HeaderPropsType) => {
                         Login
                     </NavLink>}
 
-            </div>
+           {/* </div>*/}
 
             {/*<div className={s.loginBlock}>*/}
             {/*    {props.isAuth*/}

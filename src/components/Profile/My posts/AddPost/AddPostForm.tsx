@@ -8,6 +8,7 @@ export type AddPostFormDataType = {
     post: string
 }
 const maxLength = maxLengthCreator(100)
+
 const AddPostForm: FC<InjectedFormProps<AddPostFormDataType>> = (props) => {
     const {handleSubmit} = props
     return (

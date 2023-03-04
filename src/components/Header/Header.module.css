@@ -1,11 +1,31 @@
 .header {
-    grid-area: header;
-    /*background-color: white;*/
+/*    grid-area: header;
+    !*background-color: white;*!
     font-family: 'El Messiri', sans-serif;
     font-size: 20px;
     display: flex;
     justify-content: space-between;
+    background-color: green;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    grid-area: header;
+    align-items: center;
     background-color: green;
+}
+
+.imgWrapper {
+    width: 50px;
+    height: 50px;
+}
+.header img {
+    max-height:100%;
+}
+.titleWrapper {
+
+}
+.titleWrapper p {
+    font-weight: bold;
 }
 
 /*.header{
