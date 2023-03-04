@@ -1,6 +1,6 @@
 import {FC} from "react";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
-import {ButtonSubmit, Textarea} from "../../../common/FormControls/FormsControls";
+import {ButtonSubmit, TextareaFC} from "../../../common/FormControls/FormsControls";
 import {maxLengthCreator} from "../../../../utils/validators/validators";
 import s from "./AddPostForm.module.css"
 
@@ -16,7 +16,7 @@ const AddPostForm: FC<InjectedFormProps<AddPostFormDataType>> = (props) => {
                 <Field placeholder='Enter you post'
                        type='text'
                        name='post'
-                       component={Textarea}
+                       component={TextareaFC}
                        validate={[maxLength]}
                 />
             </div>

@@ -1,0 +1,23 @@
+.postContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0,0,0, .2);
+    margin-top: 10px;
+    background: ghostwhite;
+}
+
+.title {
+    color: #006d77;
+    margin-top: 10px;
+}
+
+.newPost {
+    margin-top: 5px;
+}
+
+.buttonContainer{
+    align-self: flex-end;
+    margin-top: 10px;
+}

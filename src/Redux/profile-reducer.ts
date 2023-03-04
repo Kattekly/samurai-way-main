@@ -79,8 +79,8 @@ export const profileReducer = (state = initialState, action: any) => {
             };
             return {
                 ...state,
-                newPostText: '',
-                posts: [...state.posts, newPost]
+                posts: [newPost, ...state.posts],
+                newPost: ''
             }
         }
         /*case UPDATE_NEW_POST_TEXT: {

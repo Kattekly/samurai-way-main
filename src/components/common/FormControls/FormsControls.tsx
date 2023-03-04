@@ -3,7 +3,7 @@ import {Field, submit, WrappedFieldInputProps, WrappedFieldMetaProps, WrappedFie
 import s from './FormsControls.module.css'
 import {FieldValidatorType} from "../../../utils/validators/validators";
 import {useDispatch} from "react-redux";
-import {Button} from "@material-ui/core";
+import {Button, TextField, TextFieldProps} from "@material-ui/core";
 
 type FormsControls = {
     input: WrappedFieldInputProps
@@ -69,5 +69,26 @@ export const ButtonSubmit: FC<ButtonSubmitProps> = ({form}) => {
         </Button>
     );
 };
+
+export const TextareaFC: FC<WrappedFieldProps & TextFieldProps> = ({
+                                                                       input,
+                                                                       placeholder,
+                                                                       variant,
+                                                                       type,
+                                                                       meta: {touched, error},
+                                                                       ...custom
+                                                                   }) => {
+    return (
+        <TextField {...input}
+                   style={{marginBottom: '10px'}}
+                   error={touched && error}
+                   helperText={touched && error}
+                   fullWidth
+                   label={placeholder}
+                   type={type}
+                   variant={variant ? variant : 'outlined'}
+                   size='small'/>
+    )
+}
 
 export type GetStringKeys<T> = Extract<keyof T, string>
