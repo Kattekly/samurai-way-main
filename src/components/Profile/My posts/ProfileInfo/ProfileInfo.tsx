@@ -54,16 +54,17 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                                 size={200}
                                 isOwner={isOwner}/>
                 </div>
-               {/* <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
+                {/* <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
                 {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}*/}
-
-                {editMode
-                    ? <ProfileDataForm onSubmit={onSubmit} profile={profile} initialValues={profile}/>
-                    : <ProfileData profile={profile} isOwner={isOwner} toEditMode={() => {
-                        setEditMode(true)
-                    }}/>}
-
+                <div className={s.infoContainer}>
+                    {editMode
+                        ? <ProfileDataForm onSubmit={onSubmit} profile={profile} initialValues={profile}/>
+                        : <ProfileData profile={profile} isOwner={isOwner} toEditMode={() => {
+                            setEditMode(true)
+                        }}/>}
+                </div>
                 <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
+
             </div>
         </div>
     )
@@ -77,7 +78,9 @@ type ProfileDataPropsType = {
 
 const ProfileData: React.FC<ProfileDataPropsType> = ({profile, isOwner, toEditMode}) => {
     return <div>
-        {isOwner && <div><button onClick={toEditMode}>edit</button></div>}
+        {isOwner && <div>
+            <button onClick={toEditMode}>Edit profile</button>
+        </div>}
         <div>
             <b>Full name</b>: {profile.fullName}
         </div>
@@ -97,8 +100,9 @@ const ProfileData: React.FC<ProfileDataPropsType> = ({profile, isOwner, toEditMo
             <b>Contacts</b>: {
             Object
                 .keys(profile.contacts)
-                .map((key)  => {
-                    return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key as keyof ContactPropsType]}/>
+                .map((key) => {
+                    return <Contact key={key} contactTitle={key}
+                                    contactValue={profile.contacts[key as keyof ContactPropsType]}/>
                 })}
         </div>
     </div>

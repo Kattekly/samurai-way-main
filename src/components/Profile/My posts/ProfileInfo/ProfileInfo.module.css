@@ -18,3 +18,11 @@
     align-items: flex-end;
     margin-top: -100px
 }
+
+.infoContainer {
+    margin-top: -130px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

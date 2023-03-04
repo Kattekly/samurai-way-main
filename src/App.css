@@ -9,6 +9,7 @@
 "nav content content";
     grid-template-rows: 50px 1fr;
     grid-template-columns: 2fr 10fr;
+
 }
 
 .app-wrapper-content {
