@@ -1,10 +1,11 @@
 .header {
     grid-area: header;
-    background-color: white;
+    /*background-color: white;*/
     font-family: 'El Messiri', sans-serif;
     font-size: 20px;
     display: flex;
     justify-content: space-between;
+    background-color: green;
 }
 
 /*.header{
