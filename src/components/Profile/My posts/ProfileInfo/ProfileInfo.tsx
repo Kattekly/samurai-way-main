@@ -57,6 +57,12 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                 </div>
                 {/* <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
                 {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}*/}
+
+                <div className={s.profileInfo}>
+                    <div>{profile.fullName}</div>
+                    <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
+                </div>
+
                 <div className={s.infoContainer}>
                     {editMode
                         ? <ProfileDataForm onSubmit={onSubmit} profile={profile} initialValues={profile}/>
@@ -64,7 +70,6 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                             setEditMode(true)
                         }}/>}
                 </div>
-                <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
 
             </div>
         </div>
@@ -79,6 +84,7 @@ type ProfileDataPropsType = {
 
 const ProfileData: React.FC<ProfileDataPropsType> = ({profile, isOwner, toEditMode}) => {
     return <div>
+
         {isOwner && <div>
             <Button variant="outlined" color="primary" onClick={toEditMode}>Edit profile</Button>
         </div>}
