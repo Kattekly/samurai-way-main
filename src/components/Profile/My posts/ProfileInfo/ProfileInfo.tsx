@@ -54,13 +54,16 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                                 savePhoto={savePhoto}
                                 size={200}
                                 isOwner={isOwner}/>
+
+
                 </div>
                 {/* <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
                 {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}*/}
 
                 <div className={s.profileInfo}>
-                    <div>{profile.fullName}</div>
-                    <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
+                    <span>{profile.fullName}
+                        <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
+                    </span>
                 </div>
 
                 <div className={s.infoContainer}>
