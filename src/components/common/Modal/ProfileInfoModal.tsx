@@ -4,7 +4,7 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import {LearnMore, ProfileLearnPropsType} from "../../Profile/My posts/ProfileInfo/ProfileInfo";
-import {ProfileUserPropsType} from "../../../Redux/profile-reducer";
+import s from "./ProfileInfoModal.module.css"
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -34,7 +34,7 @@ export const ProfileInfoModal: React.FC<ProfileLearnPropsType> = ({profile}) => 
 
     return (
         <div>
-            <button type="button" onClick={handleOpen}>
+            <button type="button" className={s.button} onClick={handleOpen}>
                 Learn more
             </button>
             <Modal

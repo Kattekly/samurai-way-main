@@ -37,7 +37,9 @@
 }
 
 .name {
+
     font-size: 24px;
+    word-wrap: break-word
 }
 
 .buttonClass {
@@ -53,5 +55,6 @@
 }
 
 .more {
-    padding-left: 15px;
+    margin-left: -50px;
+    margin-top: 53px;
 }
