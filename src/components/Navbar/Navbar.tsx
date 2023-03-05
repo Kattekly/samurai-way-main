@@ -5,6 +5,8 @@ import SvgIcon, {SvgIconProps} from '@material-ui/core/SvgIcon';
 import BuildIcon from '@material-ui/icons/Build';
 import HeadsetIcon from '@material-ui/icons/Headset';
 import PeopleIcon from '@material-ui/icons/People';
+import TextsmsIcon from '@material-ui/icons/Textsms';
+import WebAssetIcon from '@material-ui/icons/WebAsset';
 
 function HomeIcon(props: SvgIconProps) {
     return (
@@ -23,6 +25,7 @@ const Navbar = () => {
                 <NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>
             </div>
             <div className={`${s.item} ${s.active}`}>
+                <TextsmsIcon color="primary" fontSize="small"/>
                 <NavLink to="/dialogs" activeClassName={s.active}>Messages</NavLink>
             </div>
             <div className={`${s.item} ${s.active}`}>
@@ -30,6 +33,7 @@ const Navbar = () => {
                 <NavLink to="/users" activeClassName={s.active}>Users</NavLink>
             </div>
             <div className={s.item}>
+                <WebAssetIcon color="primary" fontSize="small"/>
                 <NavLink to="/news" activeClassName={s.active}>News</NavLink>
             </div>
             <div className={s.item}>
