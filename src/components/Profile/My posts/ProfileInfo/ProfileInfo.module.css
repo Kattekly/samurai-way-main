@@ -20,7 +20,7 @@
 }
 
 .infoContainer {
-    margin-top: -60px;
+    margin-top: -50px;
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -33,4 +33,22 @@
     justify-content: flex-start;
     padding-left: 230px;
     margin-top: -138px;
+    font-size: 20px;
+}
+
+.name {
+    font-size: 26px;
+    font-family: 'Shantell Sans', cursive;
+}
+
+.buttonClass {
+    color: #346297;
+    background-color: #c5d0db;
+    border: none;
+    height: 30px;
+    font-size: 18px;
+    margin: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 8px;
 }
