@@ -67,6 +67,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                     </span>
 
                     <div className={s.more}>
+
                         <ProfileInfoModal profile={profile}/>
                     </div>
                 </div>
