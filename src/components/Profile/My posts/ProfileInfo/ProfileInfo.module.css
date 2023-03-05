@@ -20,7 +20,7 @@
 }
 
 .infoContainer {
-    margin-top: -50px;
+    margin-top: -65px;
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -33,12 +33,11 @@
     justify-content: flex-start;
     padding-left: 230px;
     margin-top: -138px;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .name {
-    font-size: 26px;
-    font-family: 'Shantell Sans', cursive;
+    font-size: 24px;
 }
 
 .buttonClass {
@@ -48,7 +47,7 @@
     height: 30px;
     font-size: 18px;
     margin: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     border-radius: 8px;
 }

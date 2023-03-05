@@ -63,6 +63,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                 <div className={s.profileInfo}>
                     <span> <b className={s.name}>{profile.fullName}</b>
                         <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
+                        <b>About me</b>: {profile.aboutMe}
                     </span>
                 </div>
 
