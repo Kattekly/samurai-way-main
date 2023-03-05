@@ -6,7 +6,6 @@ import userPhoto from '../../../../assets/images/user2.jpg'
 import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
 import ProfileDataForm from "./ProfileDataForm";
 import {UserAvatar} from "../../UserAvatar/UserAvatar";
-import {Button} from "@material-ui/core";
 import {ProfileInfoModal} from "../../../common/Modal/ProfileInfoModal";
 
 
@@ -66,7 +65,10 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                         <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
                         <b>Looking for a job</b>: {profile.lookingForAJob ? "yes" : "no"}
                     </span>
-                    <div className={s.more}> <ProfileInfoModal profile={profile}/></div>
+
+                    <div className={s.more}>
+                        <ProfileInfoModal profile={profile}/>
+                    </div>
                 </div>
 
                 <div className={s.infoContainer}>

@@ -5,6 +5,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import {LearnMore, ProfileLearnPropsType} from "../../Profile/My posts/ProfileInfo/ProfileInfo";
 import s from "./ProfileInfoModal.module.css"
+import ErrorOutlineIcon from "@material-ui/icons/ErrorOutline";
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -34,6 +35,7 @@ export const ProfileInfoModal: React.FC<ProfileLearnPropsType> = ({profile}) => 
 
     return (
         <div>
+            <ErrorOutlineIcon color="disabled" fontSize="small" className={s.icon}/>
             <button type="button" className={s.button} onClick={handleOpen}>
                 Learn more
             </button>

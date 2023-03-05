@@ -48,6 +48,7 @@
 }
 
 .buttonClass {
+    cursor: pointer;
     color: #346297;
     background-color: #c5d0db;
     border: none;

@@ -1,4 +1,12 @@
 .button {
+    cursor: pointer;
     border: none;
     background-color: white;
+    padding-left: 0;
+}
+
+.icon {
+    position: relative;
+    right: 7px;
+    top: 4px;
 }
