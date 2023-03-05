@@ -64,7 +64,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                     <span> <b className={s.name}>{profile.fullName}</b>
                         <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
                         <b>About me</b>: {profile.aboutMe}
-                        <span className={s.more}>Learn more</span>
+                        <span className={s.more} onClick={()=> {}}>Learn more</span>
                     </span>
                 </div>
 
@@ -87,13 +87,8 @@ type ProfileDataPropsType = {
     toEditMode: () => void
 }
 
-const ProfileData: React.FC<ProfileDataPropsType> = ({profile, isOwner, toEditMode}) => {
+const LearnMore: React.FC<ProfileDataPropsType> = ({profile, isOwner, toEditMode}) => {
     return <div>
-
-        {isOwner && <div>
-            <button className={s.buttonClass} onClick={toEditMode}>Edit profile</button>
-            {/*<Button variant="outlined" color="primary" onClick={toEditMode}>Edit profile</Button>*/}
-        </div>}
         <div>
             <b>Full name</b>: {profile.fullName}
         </div>
@@ -118,6 +113,16 @@ const ProfileData: React.FC<ProfileDataPropsType> = ({profile, isOwner, toEditMo
                                     contactValue={profile.contacts[key as keyof ContactPropsType]}/>
                 })}
         </div>
+    </div>
+}
+
+const ProfileData: React.FC<ProfileDataPropsType> = ({profile, isOwner, toEditMode}) => {
+    return <div>
+
+        {isOwner && <div>
+            <button className={s.buttonClass} onClick={toEditMode}>Edit profile</button>
+            {/*<Button variant="outlined" color="primary" onClick={toEditMode}>Edit profile</Button>*/}
+        </div>}
     </div>
 }
 
