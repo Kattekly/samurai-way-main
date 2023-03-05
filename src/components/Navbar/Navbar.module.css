@@ -1,6 +1,6 @@
 .nav {
     grid-area: nav;
-    background-color: #dce1e6;
+    background-color: #edeef0;
     padding: 20px;
 }
 
@@ -22,4 +22,5 @@
 .reclama img {
     width: 140px;
     height: 199px;
+    border-radius: 15px;
 }

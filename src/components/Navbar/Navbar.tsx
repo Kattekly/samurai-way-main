@@ -39,7 +39,7 @@ const Navbar = () => {
             </div>
             <div className={s.reclama}>
                 Place for your advertisement:
-                <img  alt='big content'
+                <img alt='big content'
                      src='https://i.pinimg.com/originals/8c/f2/c2/8cf2c2b62722f1971a7aad52fc597d22.jpg'/>
             </div>
         </nav>
