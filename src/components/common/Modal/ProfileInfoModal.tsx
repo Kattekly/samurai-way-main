@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
+        borderRadius: 15
     },
 }));
 
@@ -39,6 +40,10 @@ export const ProfileInfoModal: React.FC<ProfileLearnPropsType> = ({profile}) => 
             <button type="button" className={s.button} onClick={handleOpen}>
                 Learn more
             </button>
+            <span className={s.log}>
+                {`${document.body.scrollTop = document.documentElement.scrollTop = 0}`}
+            </span>
+
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -53,7 +58,7 @@ export const ProfileInfoModal: React.FC<ProfileLearnPropsType> = ({profile}) => 
             >
                 <Fade in={open}>
                     <div className={classes.paper}>
-                        <h2 id="transition-modal-title">Detailed Information</h2>
+                        <h2 id="transition-modal-title" className={s.title}>Detailed Information</h2>
                         <p id="transition-modal-description"><LearnMore profile={profile}/></p>
                     </div>
                 </Fade>

@@ -8,7 +8,6 @@ import ProfileDataForm from "./ProfileDataForm";
 import {UserAvatar} from "../../UserAvatar/UserAvatar";
 import {ProfileInfoModal} from "../../../common/Modal/ProfileInfoModal";
 
-
 type ProfileInfoPropsType = {
     profile: ProfileUserPropsType | null
     status: string
@@ -84,7 +83,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
         </div>
     )
 };
-
+/*<ProfileDataForm onSubmit={onSubmit} profile={profile} initialValues={profile}/>*/
 export type ProfileDataPropsType = {
     profile: ProfileUserPropsType
     isOwner: boolean

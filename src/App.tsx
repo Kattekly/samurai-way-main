@@ -12,6 +12,7 @@ import {initializeApp} from "./Redux/app-reducer";
 import {ReduxStateType} from "./Redux/redux-stor";
 import Preloader from "./components/common/Preloader/Preloader";
 import {withSuspense} from "./hoc/withSuspense";
+import {ProfileDataForm} from "./components/Profile/My posts/ProfileInfo/ProfileDataForm";
 
 //lazy loading
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
@@ -49,7 +50,6 @@ class App extends React.Component<AppType> {
             <div className="app-wrapper">
                 <HeaderContainer/>
 
-
                     <Navbar/>
                     <div className='app-wrapper-content'>
                         <Route exact path="/" render={() => <Redirect to={"/profile"}/>}/>
@@ -58,6 +58,7 @@ class App extends React.Component<AppType> {
                         <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
                         <Route path="/users" render={withSuspense(UsersContainer)}/>
                         <Route path="/login" render={withSuspense(Login)}/>
+                        <Route path="/edit" component={ProfileDataForm}/>
 
                         <Route path="/news" component={News}/>
                         <Route path="/music" component={Music}/>
