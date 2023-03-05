@@ -7,6 +7,7 @@ import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
 import ProfileDataForm from "./ProfileDataForm";
 import {UserAvatar} from "../../UserAvatar/UserAvatar";
 import {Button} from "@material-ui/core";
+import {ProfileInfoModal} from "../../../common/Modal/ProfileInfoModal";
 
 
 type ProfileInfoPropsType = {
@@ -65,6 +66,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                         <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
                         <b>About me</b>: {profile.aboutMe}
                         <span className={s.more} onClick={()=> {}}>Learn more</span>
+                        <ProfileInfoModal profile={profile}/>
                     </span>
                 </div>
 
@@ -87,7 +89,11 @@ type ProfileDataPropsType = {
     toEditMode: () => void
 }
 
-const LearnMore: React.FC<ProfileDataPropsType> = ({profile, isOwner, toEditMode}) => {
+export type ProfileLearnPropsType = {
+    profile: ProfileUserPropsType
+}
+
+export const LearnMore: React.FC<ProfileLearnPropsType> = ({profile}) => {
     return <div>
         <div>
             <b>Full name</b>: {profile.fullName}
