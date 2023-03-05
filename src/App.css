@@ -1,8 +1,3 @@
-* {
-    word-wrap: break-word;
-    word-break: break-word;
-}
-
 .app-wrapper {
     margin: 0 auto;
     display: grid;
@@ -16,5 +11,5 @@
 
 .app-wrapper-content {
     grid-area: content;
-    background-color: pink;
+    background-color: #dce1e6;
 }

@@ -1,9 +1,9 @@
 .descriptionBlock {
     padding: 10px;
-    background-color: cornflowerblue;
+    background-color: white;
     height: 140px;
-    border-radius: 15px 15px 0 0;
-    margin-top: -4px
+    /*border-radius: 15px 15px 0 0;*/
+    margin-top: -4px;
 }
 
 .mainPhoto {
