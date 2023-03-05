@@ -6,12 +6,6 @@
     margin-top: -4px;
 }
 
-/*.profile {*/
-/*    position: relative;*/
-/*    top: -100px;*/
-/*    left: 250px;*/
-/*}*/
-
 .mainPhoto {
     max-width: 200px;
     border-radius: 100px;
@@ -48,7 +42,6 @@
 }
 
 .name {
-
     font-size: 24px;
     word-wrap: break-word
 }

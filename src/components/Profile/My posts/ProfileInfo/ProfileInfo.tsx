@@ -85,7 +85,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
     )
 };
 
-type ProfileDataPropsType = {
+export type ProfileDataPropsType = {
     profile: ProfileUserPropsType
     isOwner: boolean
     toEditMode: () => void

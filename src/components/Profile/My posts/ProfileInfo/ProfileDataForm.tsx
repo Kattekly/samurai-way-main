@@ -4,7 +4,7 @@ import {InjectedFormProps, reduxForm} from "redux-form";
 import s from './ProfileDataForm.module.css'
 import {ProfileUserPropsType} from "../../../../Redux/profile-reducer";
 
-type PropsType = {
+export type PropsType = {
     profile: ProfileUserPropsType
 }
 type ProfileTypeKeys = GetStringKeys<ProfileUserPropsType>
