@@ -3,6 +3,8 @@ import s from "./Navbar.module.css"
 import {NavLink} from "react-router-dom";
 import SvgIcon, {SvgIconProps} from '@material-ui/core/SvgIcon';
 import BuildIcon from '@material-ui/icons/Build';
+import HeadsetIcon from '@material-ui/icons/Headset';
+import PeopleIcon from '@material-ui/icons/People';
 
 function HomeIcon(props: SvgIconProps) {
     return (
@@ -24,12 +26,14 @@ const Navbar = () => {
                 <NavLink to="/dialogs" activeClassName={s.active}>Messages</NavLink>
             </div>
             <div className={`${s.item} ${s.active}`}>
+                <PeopleIcon color="primary" fontSize="small"/>
                 <NavLink to="/users" activeClassName={s.active}>Users</NavLink>
             </div>
             <div className={s.item}>
                 <NavLink to="/news" activeClassName={s.active}>News</NavLink>
             </div>
             <div className={s.item}>
+                <HeadsetIcon color="primary" fontSize="small"/>
                 <NavLink to="/music" activeClassName={s.active}>Music</NavLink>
             </div>
             <div className={s.item}>
