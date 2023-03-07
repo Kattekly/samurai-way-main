@@ -31,7 +31,7 @@ const Dialogs = (props: DialogNewType) => {
         <div className={s.dialogs}>
 
             <div className={s.dialogsItems}>
-                <img src='https://pixelbox.ru/wp-content/uploads/2021/09/avatar-boys-vk-60-scaled.jpg'/>
+               {/* <img src='https://pixelbox.ru/wp-content/uploads/2021/09/avatar-boys-vk-60-scaled.jpg'/>*/}
                 {dialogsElement}
 
             </div>
