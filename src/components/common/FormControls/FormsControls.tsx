@@ -66,14 +66,12 @@ export const ButtonSubmit: FC<ButtonSubmitProps> = ({form}) => {
     };
 
     return (
-        <Button
-            type="submit"
-            color="primary"
-            variant="contained"
+        <button
+            className={s.button}
             onClick={onClickSubmit}
         >
             Send
-        </Button>
+        </button>
     );
 };
 

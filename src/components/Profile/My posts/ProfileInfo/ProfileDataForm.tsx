@@ -11,7 +11,11 @@ export type PropsType = {
 }
 type ProfileTypeKeys = GetStringKeys<ProfileUserPropsType>
 
-export const ProfileDataForm: React.FC<InjectedFormProps<ProfileUserPropsType, PropsType> & PropsType> = ({handleSubmit, profile, error}) => {
+export const ProfileDataForm: React.FC<InjectedFormProps<ProfileUserPropsType, PropsType> & PropsType> = ({
+                                                                                                              handleSubmit,
+                                                                                                              profile,
+                                                                                                              error
+                                                                                                          }) => {
     const contacts = {
         facebook: '',
         website: '',
@@ -35,7 +39,7 @@ export const ProfileDataForm: React.FC<InjectedFormProps<ProfileUserPropsType, P
                        component={TextareaFC}
                        validate={[required]}
                 />
-                <Field placeholder='About'
+                <Field placeholder='About me'
                        type='text'
                        name='aboutMe'
                        component={TextareaFC}
@@ -51,12 +55,12 @@ export const ProfileDataForm: React.FC<InjectedFormProps<ProfileUserPropsType, P
                        name='lookingForAJobDescription'
                        component={TextareaFC}
                 />
-
+                <h3 className={s.title}>Me contacts</h3>
                 {Object.keys(contacts).map(key => <Field placeholder={key}
-                                                      key={key}
-                                                      type='text'
-                                                      name={key}
-                                                      component={TextareaFC}
+                                                         key={key}
+                                                         type='text'
+                                                         name={key}
+                                                         component={TextareaFC}
                 />)}
 
                 <div>

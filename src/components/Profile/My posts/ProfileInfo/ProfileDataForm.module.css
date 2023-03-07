@@ -33,3 +33,8 @@
 .buttonClass:hover {
     background: #e1e3e6;
 }
+
+.title {
+    color: #346297;
+    text-align: center
+}
