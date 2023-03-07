@@ -1,5 +1,5 @@
 .formContainer {
-    
+
 }
 
 .formSummaryError {
@@ -15,10 +15,15 @@
     border: none;
     height: 30px;
     font-size: 16px;
-    margin: 10px;
+    /*margin: 10px;*/
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 8px;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
 }
 
 .buttonClass:hover {

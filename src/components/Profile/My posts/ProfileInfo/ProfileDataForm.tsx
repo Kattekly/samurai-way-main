@@ -1,12 +1,5 @@
 import React from "react";
-import {
-    CheckboxTC,
-    createField,
-    GetStringKeys,
-    Input,
-    Textarea,
-    TextareaFC
-} from "../../../common/FormControls/FormsControls";
+import {CheckboxTC, GetStringKeys, TextareaFC} from "../../../common/FormControls/FormsControls";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import s from './ProfileDataForm.module.css'
 import {ProfileUserPropsType} from "../../../../Redux/profile-reducer";
@@ -18,12 +11,7 @@ export type PropsType = {
 }
 type ProfileTypeKeys = GetStringKeys<ProfileUserPropsType>
 
-export const ProfileDataForm: React.FC<InjectedFormProps<ProfileUserPropsType, PropsType> & PropsType> = ({
-                                                                                                              handleSubmit,
-                                                                                                              profile,
-                                                                                                              error
-
-                                                                                                          }) => {
+export const ProfileDataForm: React.FC<InjectedFormProps<ProfileUserPropsType, PropsType> & PropsType> = ({handleSubmit, profile, error}) => {
     const contacts = {
         facebook: '',
         website: '',
