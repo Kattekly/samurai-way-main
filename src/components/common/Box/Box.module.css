@@ -13,7 +13,8 @@
     box-shadow: 1px 1px 2px rgba(0, 0, 4, 0.8), -1px -1px 2px rgba(0, 0, 3, 0.9);
     position: relative;
     top: -334px;
-    left: 10px;
+    left: 150px;
+    z-index: 1;
 }
 
 .title {
