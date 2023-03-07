@@ -45,6 +45,8 @@
     position: absolute;
     bottom: 130px;
     left: 240px;
+    width: 500px;
+    word-break: break-word;
 }
 
 .name {

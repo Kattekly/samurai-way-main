@@ -20,8 +20,12 @@ export const ProfileStatusWithHooks = (props: ProfileStatusPropsType) => {
     }
 
     const diactivateEditMode = () => {
-        setEditMode(false)
-        props.updateStatusThunk(status) //отправить родителю, чтобы данные сохранились в бизнесе
+        if (status.length < 100) {
+            setEditMode(false)
+            props.updateStatusThunk(status) //отправить родителю, чтобы данные сохранились в бизнесе
+        } else {
+            return alert('Status must be less than 100 characters')
+        }
     }
 
     const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
