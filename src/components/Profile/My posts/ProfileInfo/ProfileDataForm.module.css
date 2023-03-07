@@ -3,9 +3,13 @@
 }
 
 .formSummaryError {
-    border: solid red 1px;
+   /* border: solid red 1px;
     padding: 5px;
-    color: purple;
+    color: purple;*/
+    color: red;
+    margin: 10px 5px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 12px;
 }
 
 .buttonClass {

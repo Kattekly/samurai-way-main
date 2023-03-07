@@ -27,11 +27,8 @@ export const ProfileDataForm: React.FC<InjectedFormProps<ProfileUserPropsType, P
         <Box title={'My information'}>
             <form onSubmit={handleSubmit} id="myForm" className={s.formContainer}>
 
-                {error && <div className={s.formSummaryError}>
-                    {error}
-                </div>
+                {error && <div className={s.formSummaryError}>{error}</div>}
 
-                }
                 <Field placeholder='Full name'
                        type='text'
                        name='fullName'
