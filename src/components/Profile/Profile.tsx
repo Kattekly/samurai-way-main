@@ -17,7 +17,7 @@ export type ProfileNewType = {
 
 const Profile = (props: ProfileNewType) => {
     return (
-        <div>
+        <div className={s.profileContainer}>
             <div >
                 <img className={s.headerImg} alt='big content'
                      src='https://sun9-28.userapi.com/impf/IZV8ZqKT5iFUZ5RcKf17lskCX9W354PG0UFpWg/BogcuCe_SGc.jpg?size=1920x768&quality=95&crop=0,25,2560,1022&sign=0cc3f2d38c31cc82955bebdec766f149&type=cover_group'/>

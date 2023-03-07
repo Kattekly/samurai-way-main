@@ -1,5 +1,5 @@
 import React from "react";
-import {CheckboxTC, GetStringKeys, TextareaFC} from "../../../common/FormControls/FormsControls";
+import {CheckboxTC, createField, GetStringKeys, Input, TextareaFC} from "../../../common/FormControls/FormsControls";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import s from './ProfileDataForm.module.css'
 import {ProfileUserPropsType} from "../../../../Redux/profile-reducer";
@@ -16,17 +16,6 @@ export const ProfileDataForm: React.FC<InjectedFormProps<ProfileUserPropsType, P
                                                                                                               profile,
                                                                                                               error
                                                                                                           }) => {
-    const contacts = {
-        facebook: '',
-        website: '',
-        vk: '',
-        twitter: '',
-        instagram: '',
-        youtube: '',
-        github: '',
-        mainLink: '',
-    }
-
     return <div>
         <Box title={'My information'}>
             <form onSubmit={handleSubmit} id="myForm" className={s.formContainer}>
@@ -56,12 +45,20 @@ export const ProfileDataForm: React.FC<InjectedFormProps<ProfileUserPropsType, P
                        component={TextareaFC}
                 />
                 <h3 className={s.title}>Me contacts</h3>
-                {Object.keys(contacts).map(key => <Field placeholder={key}
-                                                         key={key}
-                                                         type='text'
-                                                         name={key}
-                                                         component={TextareaFC}
-                />)}
+               {/* {Object.keys(profile.contacts).map(key => {
+                    return <div key={key} className={s.contact}>
+                        <b>{key}: {createField(key, "contacts." + key, [], Input)}</b>
+                    </div>
+                })}*/}
+
+                {Object.keys(profile.contacts).map(key =>
+                        <Field placeholder={key}
+                                key={key}
+                                type='text'
+                                name={key}
+                                component={TextareaFC}/>
+
+                )}
 
                 <div>
                     <button className={s.buttonClass}>Save</button>
