@@ -64,7 +64,6 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                         <ProfileStatusWithHooks status={status} updateStatusThunk={updateStatusThunk}/>
                         <b>Looking for a job</b>: {profile.lookingForAJob ? "yes" : "no"}
                     </span>
-
                     <div className={s.more}>
 
                         <ProfileInfoModal profile={profile}/>
