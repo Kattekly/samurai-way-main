@@ -1,9 +1,17 @@
 import React from "react";
-import {createField, GetStringKeys, Input, Textarea} from "../../../common/FormControls/FormsControls";
-import {InjectedFormProps, reduxForm} from "redux-form";
+import {
+    CheckboxTC,
+    createField,
+    GetStringKeys,
+    Input,
+    Textarea,
+    TextareaFC
+} from "../../../common/FormControls/FormsControls";
+import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import s from './ProfileDataForm.module.css'
 import {ProfileUserPropsType} from "../../../../Redux/profile-reducer";
 import {Box} from "../../../common/Box/Box";
+import {required} from "../../../../utils/validators/validators";
 
 export type PropsType = {
     profile: ProfileUserPropsType
@@ -24,24 +32,29 @@ export const ProfileDataForm: React.FC<InjectedFormProps<ProfileUserPropsType, P
                 </div>
 
                 }
-                <div>
-                    <b>Full name</b>: {createField<ProfileTypeKeys>("Full name", "fullName", [], Input)}
-                </div>
-                <div>
-                    <b>Looking for a
-                        job</b>: {createField<ProfileTypeKeys>("", "lookingForAJob", [], Input, {type: "checkbox"})}
-                </div>
+                <Field placeholder='Full name'
+                       type='text'
+                       name='fullName'
+                       component={TextareaFC}
+                       validate={[required]}
+                />
+                <Field placeholder='About'
+                       type='text'
+                       name='aboutMe'
+                       component={TextareaFC}
+                       validate={[required]}
+                />
+                <Field type='checkbox'
+                       name='lookingForAJob'
+                       component={CheckboxTC}
+                       validate={[required]}
+                       label='Looking for a job'/>
+                <Field placeholder='Skills'
+                       type='text'
+                       name='lookingForAJobDescription'
+                       component={TextareaFC}
+                />
 
-                <div>
-                    <b>My professional skills</b>:
-                    {createField<ProfileTypeKeys>("My professional skills", "lookingForAJobDescription", [], Textarea)}
-                </div>
-
-
-                <div>
-                    <b>About me</b>:
-                    {createField<ProfileTypeKeys>("About me", "aboutMe", [], Textarea)}
-                </div>
                 <div>
                     <b>Contacts</b>: {Object.keys(profile.contacts).map(key => {
                     return <div key={key} className={s.contact}>

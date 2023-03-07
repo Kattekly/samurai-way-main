@@ -3,7 +3,14 @@ import {Field, submit, WrappedFieldInputProps, WrappedFieldMetaProps, WrappedFie
 import s from './FormsControls.module.css'
 import {FieldValidatorType} from "../../../utils/validators/validators";
 import {useDispatch} from "react-redux";
-import {Button, TextField, TextFieldProps} from "@material-ui/core";
+import {
+    Button, Checkbox,
+    CheckboxProps,
+    FormControlLabel,
+    FormControlLabelProps,
+    TextField,
+    TextFieldProps
+} from "@material-ui/core";
 
 type FormsControls = {
     input: WrappedFieldInputProps
@@ -90,5 +97,22 @@ export const TextareaFC: FC<WrappedFieldProps & TextFieldProps> = ({
                    size='small'/>
     )
 }
+
+
+export const CheckboxTC: FC<WrappedFieldProps & CheckboxProps & FormControlLabelProps> = ({
+                                                                                              input,
+                                                                                              label
+                                                                                          }) => (
+    <FormControlLabel
+        control={
+            <Checkbox
+                checked={!!input.value}
+                onChange={input.onChange}
+                color='primary'
+            />
+        }
+        label={label}
+    />
+);
 
 export type GetStringKeys<T> = Extract<keyof T, string>
