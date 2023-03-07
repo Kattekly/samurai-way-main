@@ -22,7 +22,19 @@ export const ProfileDataForm: React.FC<InjectedFormProps<ProfileUserPropsType, P
                                                                                                               handleSubmit,
                                                                                                               profile,
                                                                                                               error
+
                                                                                                           }) => {
+    const contacts = {
+        facebook: '',
+        website: '',
+        vk: '',
+        twitter: '',
+        instagram: '',
+        youtube: '',
+        github: '',
+        mainLink: '',
+    }
+
     return <div>
         <Box title={'My information'}>
             <form onSubmit={handleSubmit} id="myForm" className={s.formContainer}>
@@ -55,13 +67,12 @@ export const ProfileDataForm: React.FC<InjectedFormProps<ProfileUserPropsType, P
                        component={TextareaFC}
                 />
 
-                <div>
-                    <b>Contacts</b>: {Object.keys(profile.contacts).map(key => {
-                    return <div key={key} className={s.contact}>
-                        <b>{key}: {createField(key, "contacts." + key, [], Input)}</b>
-                    </div>
-                })}
-                </div>
+                {Object.keys(contacts).map(key => <Field placeholder={key}
+                                                      key={key}
+                                                      type='text'
+                                                      name={key}
+                                                      component={TextareaFC}
+                />)}
 
                 <div>
                     <button className={s.buttonClass}>Save</button>
