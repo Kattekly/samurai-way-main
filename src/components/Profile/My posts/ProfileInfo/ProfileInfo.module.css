@@ -63,6 +63,9 @@
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 8px;
+    position: relative;
+    top: -76px;
+    right: 20px;
 }
 
 .buttonClass:hover {
@@ -74,10 +77,4 @@
     margin-left: 200px;
     margin-top: -100px;
     bottom: -76px;
-}
-
-.other {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 40px;
 }
