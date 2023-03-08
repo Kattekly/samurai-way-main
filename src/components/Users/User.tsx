@@ -24,7 +24,7 @@ const User: React.FC<UserType> = ({user, followingInProgress, unfollow, follow, 
                         </NavLink>
                     </div>
                 </span>
-            </div>
+
             <span>
                     <div>
                         {user.followed ?
@@ -37,7 +37,9 @@ const User: React.FC<UserType> = ({user, followingInProgress, unfollow, follow, 
                             }}>Follow</button>}
 
                     </div>
+
                 </span>
+            </div>
             <span>
     <span>
         <div className={s.userInfo}>
