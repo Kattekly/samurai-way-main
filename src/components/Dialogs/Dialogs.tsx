@@ -20,7 +20,7 @@ const Dialogs = (props: DialogNewType) => {
 
     let dialogsElement = state.dialogs.map(elem => <DialogsItems id={elem.id} name={elem.name} avatar={elem.avatar}
                                                                  key={elem.id}/>)
-    let messageElement = state.messages.map(m => <DialogsMessages key={m.id} message={m.message} id={m.id}/>)
+    let messageElement = state.messages.map(m => <DialogsMessages key={m.id} message={m.message} id={m.id} avatar={m.avatar}/>)
 
     let newMessageBody = state.newMessageText;
 

@@ -4,18 +4,16 @@ const SEND_MESSAGE = 'SEND-MESSAGE'
 
 let initialState = {
     dialogs: [
-        {id: 1, name: "Katerina"},
-        {id: 2, name: "Vladimir"},
-        {id: 3, name: "Andrey"},
+        {id: 1, name: "Katerina", avatar: 'https://cdn-icons-png.flaticon.com/512/194/194938.png'},
+        {id: 2, name: "Vladimir", avatar: 'https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector.png'},
+        {id: 3, name: "Andrey", avatar: "https://img2.freepng.ru/20180904/vji/kisspng-avatar-image-computer-icons-likengo-usertesting-index-5b8ec1242fdcf5.6000571015360822121961.jpg"},
         {id: 4, name: "Valera"},
         {id: 5, name: "Maksim"},
-        {id: 6, name: "Maria"},
-        {id: 7, name: "Karina"}
     ],
     messages: [
-        {id: 1, message: "Hi"},
-        {id: 2, message: "How are you?"},
-        {id: 3, message: "Yo"},
+        {id: 1, message: "Hi", avatar: "https://img2.freepng.ru/20180904/vji/kisspng-avatar-image-computer-icons-likengo-usertesting-index-5b8ec1242fdcf5.6000571015360822121961.jpg"},
+        {id: 2, message: "How are you?", avatar: 'https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector.png'},
+        {id: 3, message: "Yo", avatar: 'https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector.png'},
     ],
 }
 
