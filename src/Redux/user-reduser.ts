@@ -7,6 +7,7 @@ const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT"
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
 const TOGGLE_IS_FOLLOWING_PROGRESS = "TOGGLE_IS_FOLLOWING_PROGRESS"
+const SET_PAGE_SIZE = "SET_PAGE_SIZE"
 
 
 export type UsersMaxPropsType = {
@@ -96,6 +97,8 @@ const usersReduser = (state = initialState, action: any): UsersMaxPropsType => {
                     : [state.followingInProgress.filter(id => id != action.userId)]
             }
         }
+        case SET_PAGE_SIZE:
+            return {...state, pageSize: action.pageSize}
         default:
             return state
     }
@@ -112,6 +115,7 @@ export const toggleFollowingProgress = (isFetching: boolean, userId: number) => 
     isFetching,
     userId
 })
+export const setPageSize = (pageSize: number) => {return {type: SET_PAGE_SIZE, pageSize}}
 
 //просто функции
 const followUnfollowFlow = async (dispatch: any, userId: number, apiMethod: (userId: number) => any, actionCreator: (userId: number) => {}) => {
@@ -125,13 +129,15 @@ const followUnfollowFlow = async (dispatch: any, userId: number, apiMethod: (use
 
 
 //санки
-export const requestUsers = (page: number, pageSize: number) => async (dispatch: any) => {
+export const requestUsers = (currentPage: number, pageSize: number) => async (dispatch: any) => {
     dispatch(toggleIsFetching(true))
-    dispatch(setCurrentPage(page))
+    dispatch(setCurrentPage(currentPage))
 
-    let data = await userAPI.getUsers(page, pageSize)
+    let data = await userAPI.getUsers(currentPage, pageSize)
     dispatch(toggleIsFetching(false))
     dispatch(setUsers(data.items))
+    dispatch(setCurrentPage(currentPage))
+    dispatch(setPageSize(pageSize))
     dispatch(setUsersTotalCount(data.totalCount))
 }
 

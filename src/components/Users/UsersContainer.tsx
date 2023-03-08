@@ -46,9 +46,9 @@ class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsTyp
             })*/
     }
 
-    onPageChange = (pageNumber: number) => {
-        this.props.setCurrentPage(pageNumber)
-        this.props.getUsers(pageNumber, this.props.pageSize)
+    onPageChange = (pageNumber: number,  pageSize: number = 10) => {
+        /*this.props.setCurrentPage(pageNumber)*/
+        this.props.getUsers(pageNumber, pageSize)
 
         /*  this.props.toggleIsFetching(true)
 
