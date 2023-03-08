@@ -46,3 +46,28 @@
 .name{
     font-weight: bold;
 }
+
+.usersContainer{
+    display: flex;
+    margin: 10px 0;
+
+}
+
+.usersCards{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+.usersCards nav{
+    align-self: flex-start;
+}
+
+.content{
+    grid-area: content;
+    background-color: #e9ecef;
+    min-height: 100vh;
+    height: max-content;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-top: 10px;
+}

@@ -18,7 +18,13 @@ type UsersFuncPropsType = {
 
 const Users: React.FC<UsersFuncPropsType> = ({currentPage, onPageChange, totalUsersCount, pageSize, ...props}) => {
 
-    return <div className={s.usersItems}>
+    return  <div className='content'>
+
+        <div className={s.usersContainer}>
+
+            <div className={s.usersCards}>
+
+    <div className={s.usersItems}>
         <Pagination currentPage={currentPage} onPageChange={onPageChange} totalItemsCount={totalUsersCount}
                     pageSize={pageSize} pagesInBlock={10}/>
         <div>
@@ -26,7 +32,10 @@ const Users: React.FC<UsersFuncPropsType> = ({currentPage, onPageChange, totalUs
                                          followingInProgress={props.followingInProgress}
                                          unfollow={props.unfollow} follow={props.follow}/>)}
         </div>
+    </div>
 
+            </div>
+    </div>
     </div>
 };
 
