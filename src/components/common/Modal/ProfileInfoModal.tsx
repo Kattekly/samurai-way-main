@@ -36,7 +36,7 @@ export const ProfileInfoModal: React.FC<ProfileLearnPropsType> = ({profile}) => 
 
     return (
         <div>
-            <ErrorOutlineIcon color="disabled" fontSize="small" className={s.icon}/>
+            <ErrorOutlineIcon color="disabled" fontSize="small" className={s.icon} onClick={handleOpen}/>
             <button type="button" className={s.button} onClick={handleOpen}>
                 Learn more
             </button>

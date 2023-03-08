@@ -6,6 +6,7 @@
 }
 
 .icon {
+    cursor: pointer;
     position: relative;
     right: 7px;
     top: 4px;
