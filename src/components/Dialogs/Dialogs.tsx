@@ -4,6 +4,7 @@ import Message from "./Message/Message";
 import {DialogsDataType} from "../../Redux/state";
 import {MessageReduxForm} from "./Message/MessageForm";
 import {DialogsItems} from "./DialogItem/DialogsItems";
+import {DialogsMessages} from "./DialogsMessages";
 
 export type DialogNewType = {
 
@@ -17,8 +18,9 @@ export type DialogNewType = {
 const Dialogs = (props: DialogNewType) => {
     let state = props.profilePage
 
-    let dialogsElement = state.dialogs.map(elem => <DialogsItems id={elem.id} name={elem.name} avatar={elem.avatar} key={elem.id}/>)
-    let messageElement = state.messages.map(m => <Message key={m.id} message={m.message} id={m.id}/>)
+    let dialogsElement = state.dialogs.map(elem => <DialogsItems id={elem.id} name={elem.name} avatar={elem.avatar}
+                                                                 key={elem.id}/>)
+    let messageElement = state.messages.map(m => <DialogsMessages key={m.id} message={m.message} id={m.id}/>)
 
     let newMessageBody = state.newMessageText;
 
@@ -27,18 +29,22 @@ const Dialogs = (props: DialogNewType) => {
     }
 
     return (
-        <div className={s.dialogsContainer}>
+        <div className={s.content}>
+            <div className={s.dialogsContainer}>
 
-            <div className={s.dialogsItems}>
-               {/* <img src='https://pixelbox.ru/wp-content/uploads/2021/09/avatar-boys-vk-60-scaled.jpg'/>*/}
-                {dialogsElement}
+                <div className={s.dialogs}>
+                    <div className={s.dialogsItems}>
+                        {/* <img src='https://pixelbox.ru/wp-content/uploads/2021/09/avatar-boys-vk-60-scaled.jpg'/>*/}
+                        {dialogsElement}
 
-            </div>
-            <div className={s.messages}>
-                <div>{messageElement}</div>
+                    </div>
+                    <div className={s.dialogsMessages}>
+                        <div>{messageElement}</div>
 
-                <div className={s.addDialogContainer}>
-                    <MessageReduxForm onSubmit={addNewMessage}/>
+                        <div className={s.addDialogContainer}>
+                            <MessageReduxForm onSubmit={addNewMessage}/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

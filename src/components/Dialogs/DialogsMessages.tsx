@@ -6,7 +6,8 @@ import React from "react";
 type DialogsMessagesProps = {
     message: string
     avatar?: string
-    key: string
+    key: number
+    id: number
 }
 export const DialogsMessages = (props: DialogsMessagesProps) => {
     return (
