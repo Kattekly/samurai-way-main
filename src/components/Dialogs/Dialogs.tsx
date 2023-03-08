@@ -1,12 +1,9 @@
 import React from 'react';
 import s from './Dialogs.module.css'
-import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
 import {DialogsDataType} from "../../Redux/state";
-import {Field, InjectedFormProps, reduxForm} from "redux-form";
-import {Textarea} from "../common/FormControls/FormsControls";
-import {maxLengthCreator, required} from "../../utils/validators/validators";
 import {MessageReduxForm} from "./Message/MessageForm";
+import {DialogsItems} from "./DialogItem/DialogsItems";
 
 export type DialogNewType = {
 
@@ -19,7 +16,8 @@ export type DialogNewType = {
 
 const Dialogs = (props: DialogNewType) => {
     let state = props.profilePage
-    let dialogsElement = state.dialogs.map(d => <DialogItem key={d.id} name={d.name} id={d.id}/>)
+
+    let dialogsElement = state.dialogs.map(elem => <DialogsItems id={elem.id} name={elem.name} avatar={elem.avatar} key={elem.id}/>)
     let messageElement = state.messages.map(m => <Message key={m.id} message={m.message} id={m.id}/>)
 
     let newMessageBody = state.newMessageText;

@@ -140,11 +140,13 @@ export type ActionTypes = ReturnType<typeof addPostActionCreator> | ReturnType<t
 export type MessageType = {
     id: number
     message: string
+    avatar?: string
 }
 
 export type DialogType = {
     id: number
     name: string
+    avatar: string
 }
 
 export type PostType = {
