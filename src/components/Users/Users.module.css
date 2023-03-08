@@ -101,3 +101,7 @@
     padding-right: 15px;
     border-radius: 8px;
 }
+
+.button:hover {
+    opacity: 0.8;
+}

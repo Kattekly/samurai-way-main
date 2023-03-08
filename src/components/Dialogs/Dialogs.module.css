@@ -1,6 +1,6 @@
 .content{
     grid-area: content;
-    background-color: #e9ecef;
+
     min-height: 100vh;
     height: max-content;
     border-radius: 5px;
@@ -14,7 +14,7 @@
 .dialogs {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 60%;
 }
 .sidebar{
     width: 30%;
@@ -83,25 +83,3 @@
 /*    border-radius: 30px;*/
 /*}*/
 
-
-
-
-.addDialogContainer {
-    background: ghostwhite;
-    border-radius: 5px;
-    box-shadow: 1px 1px 5px rgba(0,0,0, .2);
-    margin: 20px 10px 10px 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-}
-.messageInput {
-    background-color: transparent;
-    width: 99%;
-    height: 80px;
-    border: 2px solid #D3CDD7;
-    border-radius: 5px;
-    column-count: auto;
-    resize: none;
-    outline: none;
-}
