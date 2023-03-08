@@ -14,6 +14,7 @@
     box-shadow: 1px 1px 5px rgba(0,0,0, .2);
     justify-content: space-between;
     font-size: 14px;
+    position: relative
 }
 .avatar{
     width: 70px;
@@ -21,25 +22,28 @@
     border-radius: 50%;
     margin: 10px;
 }
-.userInfo{
+.userInfo {
     display: flex;
     flex-direction: column;
     /*justify-content: space-between;*/
     width: 50%;
+    /*padding-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;*/
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.name {
     font-weight: bold;
     color: #346297;
     font-size: 16px;
 }
-.userInfo a{
-    text-decoration: none;
-    font-size: 16px;
-    color: #006d77;
-}
-.userLocation{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
+
+
 .avatarAndButton{
     display: flex;
     flex-direction: column;
@@ -54,7 +58,6 @@
 .usersContainer{
     display: flex;
     margin: 10px 0;
-
 }
 
 .usersCards{
@@ -74,4 +77,5 @@
     border-radius: 5px;
     margin-right: 10px;
     margin-top: 10px;
+    margin-bottom: 10px;
 }

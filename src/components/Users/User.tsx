@@ -41,16 +41,19 @@ const User: React.FC<UserType> = ({user, followingInProgress, unfollow, follow, 
                 </span>
             </div>
             <span>
-    <span>
-        <div className={s.userInfo}>
-        <div>{user.name}</div>
+     <div className={s.userInfo}>
+                <span>
+
+        <div className={s.name}>{user.name}</div>
         <div>{user.status}</div>
-            </div>
+
     </span>
+
     <span>
         <div>{'user.location.country'}</div>
         <div>{"user.location.city"}</div>
     </span>
+        </div>
 </span>
         </div>)
 
