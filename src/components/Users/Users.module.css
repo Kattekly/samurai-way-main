@@ -92,10 +92,12 @@
 
 .button {
     cursor: pointer;
-    color: #346297;
-    background-color: #c5d0db;
+    color: #e1e3e6;
+    background-color: #346297;
     border: none;
     height: 30px;
     font-size: 16px;
-    margin: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 8px;
 }
