@@ -26,7 +26,7 @@
 .dialogsItems {
     margin: 20px 10px 10px 10px;
     display: flex;
-    background: red;
+    background: ghostwhite;
     border-radius: 5px;
     box-shadow: 1px 1px 5px rgba(0,0,0, .2);
 }
