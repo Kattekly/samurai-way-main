@@ -16,7 +16,9 @@
     align-items: center;
     text-decoration: none;
     font-size: 14px;
-    color: #006d77;
+    color: #346297;
+    font-weight: 600;
+
 }
 .dialogsItems a.active{
     color: #BC9CB0;
