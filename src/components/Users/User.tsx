@@ -2,6 +2,7 @@ import React from 'react';
 import userPhoto from "../../assets/images/user2.jpg";
 import {UsersPropsType} from "../../Redux/user-reduser";
 import {NavLink} from "react-router-dom";
+import s from "./Users.module.css";
 
 type UserType = {
     user: UsersPropsType
@@ -14,7 +15,8 @@ type UserType = {
 const User: React.FC<UserType> = ({user, followingInProgress, unfollow, follow, ...props}) => {
 
     return (
-        <div>
+        <div className={s.userCardContainer}>
+            <div className={s.avatarAndButton}>
                 <span>
                     <div>
                         <NavLink to={"/profile/" + user.id}>
@@ -22,6 +24,7 @@ const User: React.FC<UserType> = ({user, followingInProgress, unfollow, follow, 
                         </NavLink>
                     </div>
                 </span>
+            </div>
             <span>
                     <div>
                         {user.followed ?
@@ -37,8 +40,10 @@ const User: React.FC<UserType> = ({user, followingInProgress, unfollow, follow, 
                 </span>
             <span>
     <span>
+        <div className={s.userInfo}>
         <div>{user.name}</div>
         <div>{user.status}</div>
+            </div>
     </span>
     <span>
         <div>{'user.location.country'}</div>
