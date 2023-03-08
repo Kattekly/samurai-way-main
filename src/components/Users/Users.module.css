@@ -84,8 +84,18 @@
     margin-bottom: 10px;
 }
 
-.button {
+.buttonContainer {
     position: absolute;
     top: 30px;
     right: 30px;
+}
+
+.button {
+    cursor: pointer;
+    color: #346297;
+    background-color: #c5d0db;
+    border: none;
+    height: 30px;
+    font-size: 16px;
+    margin: 10px;
 }

@@ -26,13 +26,13 @@ const User: React.FC<UserType> = ({user, followingInProgress, unfollow, follow, 
                 </span>
             </div>
             <span>
-                    <div className={s.button}>
+                    <div className={s.buttonContainer}>
                         {user.followed ?
-                            <button disabled={followingInProgress.some(id => id == user.id)} onClick={() => {
+                            <button disabled={followingInProgress.some(id => id == user.id)} className={s.button} onClick={() => {
                                 unfollow(user.id)
                             }}>Unfollow</button>
 
-                            : <button disabled={followingInProgress.some(id => id == user.id)} onClick={() => {
+                            : <button disabled={followingInProgress.some(id => id == user.id)} className={s.button} onClick={() => {
                                 follow(user.id)
                             }}>Follow</button>}
 
