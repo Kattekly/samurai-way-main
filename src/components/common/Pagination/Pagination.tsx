@@ -10,7 +10,7 @@ type PaginationType = {
 }
 
 
-const Pagination: React.FC<PaginationType> = ({currentPage, onPageChange, totalItemsCount, pageSize, pagesInBlock}) => {
+export const Pagination: React.FC<PaginationType> = ({currentPage, onPageChange, totalItemsCount, pageSize, pagesInBlock}) => {
     let pages = [];
     const pagesCount = Math.ceil(totalItemsCount / pageSize);
     const pagesBlocksCount = Math.ceil(pagesCount / pagesInBlock);
@@ -69,5 +69,3 @@ const Pagination: React.FC<PaginationType> = ({currentPage, onPageChange, totalI
         </div>
     )
 }
-
-export default Pagination;
