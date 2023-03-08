@@ -3,6 +3,7 @@ import s from "./Users.module.css";
 import {UsersPropsType} from "../../Redux/user-reduser";
 import Pagination from "../common/Pagination/Pagination";
 import User from "./User";
+import {CustomPagination} from "../common/Pagination/CustomPagination";
 
 type UsersFuncPropsType = {
     totalUsersCount: number
@@ -25,6 +26,11 @@ const Users: React.FC<UsersFuncPropsType> = ({currentPage, onPageChange, totalUs
             <div className={s.usersCards}>
 
     <div className={s.usersItems}>
+        {/*<CustomPagination currentPage={currentPage}
+                          totalUsersCount={totalUsersCount}
+                          pageSize={pageSize}
+                          onPageChanged={onPageChange}/>*/}
+
         <Pagination currentPage={currentPage} onPageChange={onPageChange} totalItemsCount={totalUsersCount}
                     pageSize={pageSize} pagesInBlock={10}/>
         <div>
