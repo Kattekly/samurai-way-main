@@ -24,9 +24,9 @@ const User: React.FC<UserType> = ({user, followingInProgress, unfollow, follow, 
                         </NavLink>
                     </div>
                 </span>
-
+            </div>
             <span>
-                    <div>
+                    <div className={s.button}>
                         {user.followed ?
                             <button disabled={followingInProgress.some(id => id == user.id)} onClick={() => {
                                 unfollow(user.id)
@@ -39,7 +39,7 @@ const User: React.FC<UserType> = ({user, followingInProgress, unfollow, follow, 
                     </div>
 
                 </span>
-            </div>
+
             <span>
      <div className={s.userInfo}>
                 <span>

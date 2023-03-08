@@ -5,23 +5,25 @@
     margin: 10px;
 }
 
-.userCardContainer{
+.userCardContainer {
     padding: 10px;
     margin: 10px;
     display: flex;
     background: ghostwhite;
     border-radius: 5px;
-    box-shadow: 1px 1px 5px rgba(0,0,0, .2);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
     justify-content: space-between;
     font-size: 14px;
     position: relative
 }
-.avatar{
+
+.avatar {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     margin: 10px;
 }
+
 .userInfo {
     display: flex;
     flex-direction: column;
@@ -44,32 +46,34 @@
 }
 
 
-.avatarAndButton{
+.avatarAndButton {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 20%;
 }
-.name{
+
+.name {
     font-weight: bold;
 }
 
-.usersContainer{
+.usersContainer {
     display: flex;
     margin: 10px 0;
 }
 
-.usersCards{
+.usersCards {
     display: flex;
     flex-direction: column;
     width: 60%;
 }
-.usersCards nav{
+
+.usersCards nav {
     align-self: flex-start;
 }
 
-.content{
+.content {
     grid-area: content;
     background-color: #e9ecef;
     min-height: 100vh;
@@ -78,4 +82,10 @@
     margin-right: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
 }
