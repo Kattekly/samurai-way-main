@@ -34,16 +34,7 @@ type mapStateToPropsType = {
 
 class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsType> {
     componentDidMount() {
-
         this.props.getUsers(this.props.currentPage, this.props.pageSize)
-
-        /*    this.props.toggleIsFetching(true)
-
-            userAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-                this.props.toggleIsFetching(false)
-                this.props.setUsers(data.items)
-                this.props.setUsersTotalCount(data.totalCount)
-            })*/
     }
 
     onPageChange = (pageNumber: number,  pageSize: number = 10) => {
