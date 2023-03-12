@@ -71,7 +71,6 @@ let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => {
 type mapDispatchToPropsType = {
     follow: (userId: number) => void
     unfollow: (userId: number) => void
-    /*setUsers: (users: Array<UsersPropsType>) => void*/
     setCurrentPage: (pageNumber: number) => void
     /*setUsersTotalCount: (totalCount: number) => void
     toggleIsFetching: (isFetching: boolean) => void*/
