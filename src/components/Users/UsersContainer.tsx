@@ -76,15 +76,6 @@ type mapDispatchToPropsType = {
     getUsers: (currentPage: number, pageSize: number) => void
 }
 
-
-/*export default withAuthRedirect(connect(mapStateToProps, {
-    follow,
-    unfollow,
-    setCurrentPage,
-    toggleFollowingProgress,
-    getUsers
-})(UsersContainer))*/
-
 export default compose<React.ComponentType>(
     connect(mapStateToProps, {
         follow,
