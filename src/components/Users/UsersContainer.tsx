@@ -37,7 +37,7 @@ class UsersContainer extends React.Component <NewUserPropsType, UsersMaxPropsTyp
         this.props.getUsers(this.props.currentPage, this.props.pageSize)
     }
 
-    onPageChange = (pageNumber: number,  pageSize: number = 10) => {
+    onPageChange = (pageNumber: number, pageSize: number = 10) => {
         this.props.getUsers(pageNumber, pageSize)
     }
 
@@ -66,7 +66,6 @@ let mapStateToProps = (state: ReduxStateType): mapStateToPropsType => {
         followingInProgress: getFollowingInProgress(state)
     }
 }
-
 
 type mapDispatchToPropsType = {
     follow: (userId: number) => void
