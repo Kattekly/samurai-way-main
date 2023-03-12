@@ -72,8 +72,6 @@ type mapDispatchToPropsType = {
     follow: (userId: number) => void
     unfollow: (userId: number) => void
     setCurrentPage: (pageNumber: number) => void
-    /*setUsersTotalCount: (totalCount: number) => void
-    toggleIsFetching: (isFetching: boolean) => void*/
     toggleFollowingProgress: (isFetching: boolean, id: number) => void
     getUsers: (currentPage: number, pageSize: number) => void
 }
