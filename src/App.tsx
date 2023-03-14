@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
-import {Redirect, Route, withRouter} from "react-router-dom";
+import {Redirect, Route, Switch, withRouter} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -49,29 +49,35 @@ class App extends React.Component<AppType> {
 
         return (
             <div>
-
                 <div>
                     <HeaderContainer/>
                     <div className="app-wrapper">
+
                         <Navbar/>
-
                         <div className='app-wrapper-content'>
-                            <Route exact path="/" render={() => <Redirect to={"/profile"}/>}/>
+                            <Switch>
+                                <Route exact path="/" render={() => <Redirect to={"/profile"}/>}/>
 
-                            <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
-                            <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
-                            <Route path="/users" render={withSuspense(UsersContainer)}/>
+                                <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
+                                <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
+                                <Route path="/users" render={withSuspense(UsersContainer)}/>
+                                <Route exact path="/login" render={withSuspense(Login)}/>
 
-                            <Route path="/login" render={withSuspense(Login)}/>
+                                <Route path="/edit" component={ProfileDataForm}/>
 
-                            <Route path="/edit" component={ProfileDataForm}/>
-
-                            <Route path="/news" component={News}/>
-                            <Route path="/music" component={Music}/>
-                            <Route path="/settings" component={Settings}/>
-
+                                <Route path="/news" component={News}/>
+                                <Route path="/music" component={Music}/>
+                                <Route path="/settings" component={Settings}/>
+                                <Route path='*' render={() => <div className="content" style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    width: "100%",
+                                    justifyContent: "center"
+                                }}><h1>404: PAGE NOT FOUND</h1></div>}/>
+                            </Switch>
                             {/*<Route path="/*" render={() => <div>404 NOT FOUND</div>}/>*/}
                         </div>
+
                     </div>
                 </div>
             </div>
