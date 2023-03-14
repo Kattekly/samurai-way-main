@@ -16,7 +16,7 @@ type LoginFormOwnProps = {
 type LoginFormValuesTypeKeys = GetStringKeys<FormDataType>
 
 
-const Login: React.FC = () => {
+const Login: React.FC<LoginFormOwnProps> = () => {
     const captchaUrl = useSelector((state: ReduxStateType) => state.auth.captchaUrl)
     const isAuth = useSelector((state: ReduxStateType) => state.auth.isAuth)
     const dispatch = useDispatch()
