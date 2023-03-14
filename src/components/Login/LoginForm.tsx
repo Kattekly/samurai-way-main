@@ -4,7 +4,7 @@ import {ButtonSubmit, CheckboxTC, TextareaFC} from "../common/FormControls/Forms
 import s from './Login.module.css'
 
 export type FormDataType = {
-    login: string
+    email: string
     password: string
     rememberMe: boolean
     captcha: string
@@ -21,7 +21,7 @@ const LoginForm: React.FC<PropsType & InjectedFormProps<FormDataType, PropsType>
             <div className={s.data}>
                 <Field placeholder='Email'
                        type='text'
-                       name='login'
+                       name='email'
                        variant='standard'
                        component={TextareaFC}
                        validate={[required]}
