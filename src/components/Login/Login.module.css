@@ -23,6 +23,7 @@
 .title{
     color: #006d77;
     font-size: 36px;
+    text-align: center
 }
 .button{
     display: flex;

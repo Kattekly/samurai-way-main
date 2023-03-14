@@ -29,7 +29,7 @@ const Login: React.FC = () => {
         return <Redirect to={'/profile'}/>
     }
 
-    return  <div className='content'>
+    return  <div>
         <div className={s.container}>
             <h2 className={s.title}> LOGIN </h2>
             <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>

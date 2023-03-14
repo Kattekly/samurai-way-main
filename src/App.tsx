@@ -13,6 +13,7 @@ import {ReduxStateType} from "./Redux/redux-stor";
 import Preloader from "./components/common/Preloader/Preloader";
 import {withSuspense} from "./hoc/withSuspense";
 import {ProfileDataForm} from "./components/Profile/My posts/ProfileInfo/ProfileDataForm";
+import {LoginModal} from "./components/Login/LoginModal";
 
 //lazy loading
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
@@ -57,7 +58,7 @@ class App extends React.Component<AppType> {
                         <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
                         <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
                         <Route path="/users" render={withSuspense(UsersContainer)}/>
-                        <Route path="/login" render={withSuspense(Login)}/>
+                        <Route path="/login" render={withSuspense(LoginModal)}/>
                         <Route path="/edit" component={ProfileDataForm}/>
 
                         <Route path="/news" component={News}/>
