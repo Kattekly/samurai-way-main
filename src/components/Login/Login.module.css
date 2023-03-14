@@ -7,7 +7,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     background-size: cover;
-    padding-left: 20px;
+    padding-left: 40px;
 }
 .form{
     box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
@@ -24,8 +24,8 @@
     color: #346297;
     font-size: 36px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 .button{
     display: flex;

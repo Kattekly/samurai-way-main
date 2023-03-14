@@ -75,7 +75,6 @@ class App extends React.Component<AppType> {
                                     justifyContent: "center"
                                 }}><h1>404: PAGE NOT FOUND</h1></div>}/>
                             </Switch>
-                            {/*<Route path="/*" render={() => <div>404 NOT FOUND</div>}/>*/}
                         </div>
 
                     </div>
