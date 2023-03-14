@@ -48,26 +48,33 @@ class App extends React.Component<AppType> {
         if (!this.props.initialized) return <Preloader/>
 
         return (
-            <div className='app-header'> <HeaderContainer/>
-            <div className="app-wrapper">
-                    <Navbar/>
-                    <div className='app-wrapper-content'>
-                        <Route exact path="/" render={() => <Redirect to={"/profile"}/>}/>
+            <div>
 
-                        <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
-                        <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
-                        <Route path="/users" render={withSuspense(UsersContainer)}/>
-                        <Route path="/login" render={withSuspense(Login)}/>
-                        <Route path="/edit" component={ProfileDataForm}/>
+                <div>
+                    <HeaderContainer/>
+                    <div className="app-wrapper">
+                        <Navbar/>
 
-                        <Route path="/news" component={News}/>
-                        <Route path="/music" component={Music}/>
-                        <Route path="/settings" component={Settings}/>
+                        <div className='app-wrapper-content'>
+                            <Route exact path="/" render={() => <Redirect to={"/profile"}/>}/>
 
-                        {/*<Route path="/*" render={() => <div>404 NOT FOUND</div>}/>*/}
+                            <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
+                            <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
+                            <Route path="/users" render={withSuspense(UsersContainer)}/>
+
+                            <Route path="/login" render={withSuspense(Login)}/>
+
+                            <Route path="/edit" component={ProfileDataForm}/>
+
+                            <Route path="/news" component={News}/>
+                            <Route path="/music" component={Music}/>
+                            <Route path="/settings" component={Settings}/>
+
+                            {/*<Route path="/*" render={() => <div>404 NOT FOUND</div>}/>*/}
+                        </div>
                     </div>
                 </div>
-                </div>
+            </div>
         );
     }
 }
