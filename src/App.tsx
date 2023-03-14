@@ -48,10 +48,8 @@ class App extends React.Component<AppType> {
         if (!this.props.initialized) return <Preloader/>
 
         return (
-            <div> <HeaderContainer/>
+            <div className='app-header'> <HeaderContainer/>
             <div className="app-wrapper">
-
-
                     <Navbar/>
                     <div className='app-wrapper-content'>
                         <Route exact path="/" render={() => <Redirect to={"/profile"}/>}/>
