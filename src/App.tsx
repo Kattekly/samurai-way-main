@@ -48,8 +48,9 @@ class App extends React.Component<AppType> {
         if (!this.props.initialized) return <Preloader/>
 
         return (
+            <div> <HeaderContainer/>
             <div className="app-wrapper">
-                <HeaderContainer/>
+
 
                     <Navbar/>
                     <div className='app-wrapper-content'>
@@ -58,7 +59,7 @@ class App extends React.Component<AppType> {
                         <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
                         <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
                         <Route path="/users" render={withSuspense(UsersContainer)}/>
-                        <Route path="/login" render={withSuspense(LoginModal)}/>
+                        <Route path="/login" render={withSuspense(Login)}/>
                         <Route path="/edit" component={ProfileDataForm}/>
 
                         <Route path="/news" component={News}/>
@@ -67,6 +68,7 @@ class App extends React.Component<AppType> {
 
                         {/*<Route path="/*" render={() => <div>404 NOT FOUND</div>}/>*/}
                     </div>
+                </div>
                 </div>
         );
     }
