@@ -12,8 +12,6 @@ A training project based on the materials of the YouTube channel IT-KAMASUTRA "T
 
 <!-- LINKS  -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/OlgaKapskaya/cards.svg?style=for-the-badge
-[contributors-url]: https://github.com/OlgaKapskaya/cards/graphs/contributors
 [react.js]: https://img.shields.io/badge/React-0769AD?style=for-the-badge&logo=react&logoColor=white
 [react-url]: https://reactjs.org/
 [red]: https://img.shields.io/badge/Redux%20-0769AD?style=for-the-badge&logo=redux&logoColor=white
