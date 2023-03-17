@@ -13,7 +13,6 @@ import {ReduxStateType} from "./Redux/redux-stor";
 import Preloader from "./components/common/Preloader/Preloader";
 import {withSuspense} from "./hoc/withSuspense";
 import {ProfileDataForm} from "./components/Profile/My posts/ProfileInfo/ProfileDataForm";
-import {LoginModal} from "./components/Login/LoginModal";
 
 //lazy loading
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
