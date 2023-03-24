@@ -8,6 +8,7 @@ import {Redirect} from "react-router-dom";
 import {ReduxStateType} from "../../Redux/redux-stor";
 import s from './Login.module.css'
 import {FormDataType, LoginReduxForm} from "./LoginForm";
+import {FormControl, FormLabel} from "@material-ui/core";
 
 type LoginFormOwnProps = {
     captchaUrl: string | null
@@ -31,7 +32,22 @@ const Login: React.FC<LoginFormOwnProps> = () => {
 
     return  <div>
         <div className={s.container}>
+            <FormLabel>
+                <p>
+                    To log in get registered <a href={'https://social-network.samuraijs.com/'}
+                                                target={'_blank'}>here</a>
+                </p>
+                <p>
+                    or use common test account credentials:
+                </p>
+                <p> Email: free@samuraijs.com
+                </p>
+                <p>
+                    Password: free
+                </p>
+            </FormLabel>
             <h2 className={s.title}> LOGIN: </h2>
+
             <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
         </div>
     </div>
