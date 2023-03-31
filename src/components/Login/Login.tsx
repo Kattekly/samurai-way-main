@@ -30,7 +30,7 @@ const Login: React.FC<LoginFormOwnProps> = () => {
         return <Redirect to={'/profile'}/>
     }
 
-    return  <div>
+    return <div>
         <div className={s.container}>
             <FormLabel className={s.text}>
                 <p>
