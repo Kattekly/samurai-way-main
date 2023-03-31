@@ -32,7 +32,7 @@ const Login: React.FC<LoginFormOwnProps> = () => {
 
     return  <div>
         <div className={s.container}>
-            <FormLabel>
+            <FormLabel className={s.text}>
                 <p>
                     To log in get registered <a href={'https://social-network.samuraijs.com/'}
                                                 target={'_blank'}>here</a>
@@ -46,9 +46,12 @@ const Login: React.FC<LoginFormOwnProps> = () => {
                     Password: free
                 </p>
             </FormLabel>
-            <h2 className={s.title}> LOGIN: </h2>
+            <div className={s.titleForm}>
+                <h2 className={s.title}> LOGIN: </h2>
 
-            <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
+                <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
+            </div>
+
         </div>
     </div>
 }

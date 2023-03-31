@@ -3,9 +3,9 @@
     width: 100%;
     height: 90vh;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+justify-content: flex-end;
+align-items: flex-start;
+    flex-direction: row-reverse;
     background-size: cover;
     padding-left: 40px;
 }
@@ -38,4 +38,9 @@
     margin: 10px 5px;
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
     font-size: 12px;
+}
+
+.text {
+padding-left: 50px;
+  padding-top: 100px;
 }
