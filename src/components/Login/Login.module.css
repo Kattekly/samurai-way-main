@@ -1,39 +1,43 @@
 
-.container{
+.container {
     width: 100%;
     height: 90vh;
     display: flex;
-justify-content: flex-end;
-align-items: flex-start;
+    justify-content: flex-end;
+    align-items: flex-start;
     flex-direction: row-reverse;
     background-size: cover;
     padding-left: 40px;
 }
-.form{
+
+.form {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
     border-radius: 5px;
     background: ghostwhite;
     padding: 20px;
     width: 300px;
 }
-.data{
+
+.data {
     margin: 5px;
 }
 
-.title{
+.title {
     color: #346297;
     font-size: 36px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
 }
-.button{
+
+.button {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 10px;
 }
-.error{
+
+.error {
     color: red;
     margin: 10px 5px;
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
@@ -41,6 +45,6 @@ align-items: flex-start;
 }
 
 .text {
-padding-left: 50px;
-  padding-top: 100px;
+    padding-left: 50px;
+    padding-top: 100px;
 }
