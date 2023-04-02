@@ -37,11 +37,3 @@ export const sendMessageCreator = (newMessageText: string) => ({
 } as const)
 
 type sendMessageCreatorType = ReturnType<typeof sendMessageCreator>
-
-/*
-export const updateMessageBodyCreator = (body: string) => {
-    return {
-        type: "NEW-MESSAGE-TEXT",
-        body: body
-    } as const
-}*/
