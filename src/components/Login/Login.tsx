@@ -1,14 +1,12 @@
 import React from 'react';
-import {Field, InjectedFormProps, reduxForm} from "redux-form";
-import {createField, GetStringKeys, Input} from "../common/FormControls/FormsControls";
-import {required} from "../../utils/validators/validators";
+import {GetStringKeys} from "../common/FormControls/FormsControls";
 import {connect, useDispatch, useSelector} from "react-redux";
 import {LoginTC} from "../../Redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 import {ReduxStateType} from "../../Redux/redux-stor";
 import s from './Login.module.css'
 import {FormDataType, LoginReduxForm} from "./LoginForm";
-import {FormControl, FormLabel} from "@material-ui/core";
+import {FormLabel} from "@material-ui/core";
 
 type LoginFormOwnProps = {
     captchaUrl: string | null
